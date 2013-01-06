@@ -1,0 +1,8 @@
+alias apts aptitude search $*
+alias ff find-file $1
+alias emacs ff
+alias emacsclient ff
+alias l ls -lh $*
+alias ll ls -alh $*
+alias w3m w3m-find-file $1
+alias clear recenter 0
