@@ -1,0 +1,1 @@
+my emacs conf, borrowed from everywhere, adaptaded to my needs
