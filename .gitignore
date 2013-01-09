@@ -6,3 +6,4 @@ eshell/lastdir
 /auto-save-list/.*
 /places
 /url/cookies
+/.org-id-locations
