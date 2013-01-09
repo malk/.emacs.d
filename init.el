@@ -13,6 +13,8 @@
 (column-number-mode t)
 (hl-line-mode t)
 (setq-default cursor-type '(bar . 1))
+(require 'rainbow-delimiters)
+(global-rainbow-delimiters-mode)
 (require 'uniquify)
 (setq inhibit-startup-message t
       color-theme-is-global t
@@ -53,11 +55,8 @@
 
 ;; in my experience sometimes a completely unrelated module (for
 ;; example magit) upon being installed steals this keybidding from ido
-;; to iswitchb, so to work around that I manually set it
+;; to iswitchb, so to work around that I manually set it here
 (global-set-key [C-x C-f] 'ido-find-file)
-
-;; ffap
-(require 'ffap)
 
 ;; UI
 (show-paren-mode 1)
@@ -70,10 +69,10 @@
       sentence-end-double-space nil
       shift-select-mode nil
       mouse-yank-at-point t
-      oddmuse-directory (concat user-emacs-directory "oddmuse")
       save-place-file (concat user-emacs-directory "places")
       backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
       )
+(require 'ffap)
 
 ;; Dev conf
 (require 'idle-highlight-mode)
@@ -93,13 +92,9 @@
 (require 'saveplace)
 (setq save-place t)
 
-;; CL
-(setq inferior-lisp-program '/usr/bin/sbcl)
-(require 'slime)
-;(require 'slime-autoloads)
-(slime-setup)
-
-
+;; org-mode
+(setq org-icalendar-store-UID t
+      org-icalendar-include-todo t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
