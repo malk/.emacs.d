@@ -3,6 +3,6 @@ elpa
 session.*
 eshell/history
 eshell/lastdir
-/auto-save-list/.saves-18511-nemo~
+/auto-save-list/.*
 /places
 /url/cookies
