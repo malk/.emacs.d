@@ -79,18 +79,39 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 (defalias 'auto-tail-revert-mode 'tail-mode)
 (auto-fill-mode t)
+(setq-default auto-fill-function 'do-auto-fill)
+(delete-selection-mode t)
 (setq visible-bell t
       sentence-end-double-space nil
       shift-select-mode nil
       mouse-yank-at-point t
+      set-mark-command-repeat-pop t	;once I pop a mark with C-u C-SPC i
+					;can keep popping with C-SPC.
+      kill-read-only-ok t		;Yes emacs I knowingly kill from
+					;read only buffers
+      kill-do-not-save-duplicates t	;keeps the kill ring free of dups
+      scroll-preserve-screen-position t	;keeps the cursor in the same
+					;position when scrolling
       save-place-file (concat user-emacs-directory "places")
+      which-func-modes t
       backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
       )
+(setq-default abbrev-mode t)
+(setq-default tab-width 8)
+(setq-default show-trailing-whitespace t)
+(setq-default fill-column 76)
 (require 'ffap)
+(global-set-key [C-tab] 'bury-buffer)
+(imagemagick-register-types)		;add several image file types to
+					;emacs
+(filesets-init)				;allows the creation and usage of
+					;filesets
+(glasses-mode)
+(semantic-mode t)
 
 ;;
 ;; ace jump mode major function
-;; 
+;;
 (autoload
   'ace-jump-mode
   "ace-jump-mode"
