@@ -4,6 +4,11 @@
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
+;; server
+(server-start)
+
+(random t) ;; Seed the random-number generator
+
 ;; theming
 (load-theme 'zenburn t)
 (blink-cursor-mode -1)
