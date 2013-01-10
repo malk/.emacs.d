@@ -1,0 +1,78 @@
+* TODO spell conf, switching dictionaries between he languages I speak
+* TODO FlySpell
+* TODO Swap M-SPC and SPC
+  M-SPC with a negative argument turn all whitespace around point into
+  a single space, SPC just adds a space.
+  `<DEL>'
+`<Backspace>'
+     Delete the previous character, or the text in the region if it is
+     active (`delete-backward-char').
+
+`<Delete>'
+     Delete the next character, or the text in the region if it is
+     active (`delete-forward-char').
+
+`C-d'
+     Delete the next character (`delete-char').
+
+`M-\'
+     Delete spaces and tabs around point (`delete-horizontal-space').
+
+`M-<SPC>'
+     Delete spaces and tabs around point, leaving one space
+     (`just-one-space').
+
+`C-x C-o'
+     Delete blank lines around the current line (`delete-blank-lines').
+
+`M-^'
+     Join two lines by deleting the intervening newline, along with any
+     indentation following it (`delete-indentation').
+* TODO FlyCheck
+* TODO can I make emacs ignore the mouse completely for focus?
+* DONE hl-line-mode globally
+* TODO quick "mark line" command?
+* TODO expand-region minor mode
+* TODO global org keybindings
+* TODO multicursor minor mode
+* TODO paredit
+* TODO move all conf out of customization block
+* TODO create key memo file
+* TODO create an equivalent of eclipse's M-up and M-down in a
+  sensible keybidding
+
+* TODO add C-M-l to the C-l cycle beginning with C-M-l
+* TODO automaticall put read only buffers into view mode
+  and switching to/from read only also (de)activates view mode
+* TODO bindings to start a new buffer in follow mode
+* TODO create a file of keybiddings i should do more
+* TODO read the manual, iconrporate suggestions
+* TODO read prelude, incorporate suggestions
+* TODO read ESK, incorporate suggestions
+* TODO my my conf install my packages automatically
+* TODO split conf in multiple files
+  ERC conf goes to ~/.emacs.d/.ercrc.el and auth data to ~/.emacs.d/.erc-auth
+* TODO flat modeline or powerline
+* TODO make C-x 1 toggle widnows positioning
+  if there are several windows it should delete all others while
+  saving to register
+  if there is only one it shoudl restore register
+* TODO Imenu
+* TODO HippiExpand
+* TODO semantic
+* TODO hiipie called on tab
+* TODO projectile, eproject?
+* TODO tags
+* TODO automatic autocompletion on every key hit on prog modes
+* TODO yasnippet
+* TODO see the docs of built-in modules
+* TODO emacs helm
+* TODO w3m
+* TODO email client : WL or mu4e?
+* TODO eclim?
+* TODO pfilfer stuff rom this conf https://github.com/jsulak/.emacs.d/blob/master/init.el
+* TODO eldoc!
+* TODO maybe iedit? StudDlyCaps
+* TODO Autotyping manual
+* TODO Centralize tags files
+* TODO markdown-mode
