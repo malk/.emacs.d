@@ -160,7 +160,12 @@
 (require 'erc)
 (erc-autojoin-mode t)
 (setq erc-autojoin-channels-alist
-  '((".*\\.freenode.net" "#emacs" "#linagora")))
+      '((".*\\.freenode.net" "#emacs" "#erc" "#linagora")))
+(setq erc-interpret-mirc-color t
+      erc-kill-buffer-on-part t
+      erc-kill-queries-on-quit t
+      erc-kill-server-buffer-on-quit
+      )
 ;; check channels
 (erc-track-mode t)
 (setq erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
