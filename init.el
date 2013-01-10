@@ -63,10 +63,14 @@
       ido-handle-duplicate-virtual-buffers 2
       ido-max-prospects 10)
 
-;; in my experience sometimes a completely unrelated module (for
-;; example magit) upon being installed steals this keybidding from ido
-;; to iswitchb, so to work around that I manually set it here
+;; in my experience sometimes a completely unrelated module (for example
+;; magit) upon being installed steals this keybidding from ido to iswitchb,
+;; so to work around that I manually set it here
 (global-set-key [C-x C-f] 'ido-find-file)
+
+(set-default 'imenu-auto-rescan t)
+(autoload 'idomenu "idomenu" nil t)
+(global-set-key [(control .)] 'idomenu)
 
 ;; UI
 (show-paren-mode 1)
