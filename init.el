@@ -119,7 +119,7 @@
   t)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
 
-;; 
+;;
 ;; enable a more powerful jump back function from ace jump mode
 ;;
 (autoload
@@ -149,6 +149,7 @@
 ;; session
 (require 'saveplace)
 (setq save-place t)
+(desktop-save-mode 1)
 
 ;; org-mode
 (setq org-icalendar-store-UID t
