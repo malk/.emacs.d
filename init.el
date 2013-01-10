@@ -30,9 +30,12 @@
       whitespace-line-column 80
       ediff-window-setup-function 'ediff-setup-windows-plain
       diff-switches "-u")
-
+(fringe-mode (cons 4 4))
+;; Make window divider line the same color as the fringe
+(set-face-foreground 'vertical-border (face-background 'fringe))
 
 ;; smex
+(setq smex-save-file (concat user-emacs-directory ".smex-items"))
 (global-set-key [M-x] (lambda ()
                              (interactive)
                              (or (boundp 'smex-cache)
