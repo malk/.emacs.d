@@ -186,20 +186,94 @@
 ;; switch to ERC with Ctrl+c e
 (global-set-key [f12] 'erc-start-or-switch)
 
+
+;;;;; ID
+
+(setq user-mail-address "m@zameth.org")
+
+;;;;;; Eshell
+(require 'eshell)
+(require 'em-smart)
+(require 'em-term)
+(require 'em-cmpl)
+(setq eshell-cmpl-cycle-completions t
+      eshell-where-to-jump 'begin
+      eshell-review-quick-commands nil
+      eshell-smart-space-goes-to-end t
+      eshell-buffer-shorthand t
+      eshell-save-history-on-exit t)
+(add-to-list 'eshell-visual-commands "top")
+(add-to-list 'eshell-visual-commands "htop")
+(add-to-list 'eshell-visual-commands "aptitude")
+(add-to-list 'eshell-visual-commands "lftp")
+(add-to-list 'eshell-visual-commands "ssh")
+(add-to-list 'eshell-visual-commands "tail")
+
+
+;;; paredit
+(autoload 'paredit-mode "paredit"
+  "Minor mode for pseudo-structurally editing Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
+(add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
+(add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
+(add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
+;; this is taken verbatim from emacs starter kit
+(defun esk-paredit-nonlisp ()
+  "Turn on paredit mode for non-lisps."
+  (interactive)
+  (set (make-local-variable 'paredit-space-for-delimiter-predicates)
+       '((lambda (endp delimiter) nil)))
+  (paredit-mode 1))
+
+;;;; keybindings
+;; Use regex searches by default.
+(global-set-key [(control s)] 'isearch-forward-regexp)
+(global-set-key [(control r)] 'isearch-backward-regexp)
+(global-set-key [(meta %)] 'query-replace-regexp)
+(global-set-key [(control meta s)] 'isearch-forward)
+(global-set-key [(control meta r)] 'isearch-backward)
+(global-set-key [(control meta %)] 'query-replace)
+;; opens Eshell or switches to it
+(global-set-key (kbd "M-s M-s") 'eshell)
+
+;; magit is the perfect git environement, there is always M-g g for go to line!
+(global-set-key (kbd "M-g M-g") 'magit-status)
+
+
+
+;;;;; after reading the manual
+;; C-o opens line, C-x C-o delete all but one empty line
+;; M-= calls wc
+;; C-x z is repeat command (afterwards you do just z)
+;; C-SPC C-SPC set the mark and deactivate, C-u C-SPC pops the mark
+;; C-x C-x switches point and mark
+;; C-S-backspace kill whole line (dd)
+;; I should train more the rectangle operations
+;; C-M-l recenters heuristically
+;; C-x C-+ font size up, C-x C-0 font size normal
+;; M-o M-s center line
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(display-battery-mode t)
+ '(display-time-24hr-format t)
+ '(display-time-mode t)
  '(electric-indent-mode t)
  '(electric-layout-mode t)
  '(electric-pair-mode t)
+ '(eshell-output-filter-functions (quote (eshell-handle-ansi-color eshell-handle-control-codes eshell-watch-for-password-prompt)))
  '(standard-indent 8)
  '(tab-always-indent (quote complete))
- '(use-empty-active-region t))
+ '(use-empty-active-region t)
+ '(which-function-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "#3f3f3f" :foreground "#dcdccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 80 :width normal :foundry "unknown" :family "Dina")))))
+ '(default ((t (:inherit nil :stipple nil :background "#3f3f3f" :foreground "#dcdccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 80 :width normal :foundry "unknown" :family "Dina"))))
+ '(mode-line ((t (:background "#2b2b2b" :foreground "#8fb28f"))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5f7f5f" :weight light)))))
