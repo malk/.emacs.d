@@ -16,8 +16,10 @@
 (scroll-bar-mode -1)
 (menu-bar-mode -1)
 (column-number-mode t)
-(hl-line-mode t)
+(global-hl-line-mode t)
 (setq-default cursor-type '(bar . 1))
+
+
 (require 'rainbow-delimiters)
 (global-rainbow-delimiters-mode)
 (require 'uniquify)
