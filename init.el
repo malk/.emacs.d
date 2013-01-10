@@ -136,9 +136,10 @@
 (require 'idle-highlight-mode)
 (defun my-coding-hook ()
   (make-local-variable 'column-number-mode)
-  (hl-line-mode t)
   (idle-highlight-mode t)
   (auto-fill-mode t)
+  (glasses-mode)
+  (subword-mode)
   )
 (add-hook 'prog-mode-hook 'my-coding-hook)
 
