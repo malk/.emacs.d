@@ -242,6 +242,28 @@
 (global-set-key (kbd "M-g M-g") 'magit-status)
 
 
+;;;; Spell-Check
+(setq ispell-program-name "aspell"
+      ispell-list-command "list"
+      flyspell-issue-message-flag nil
+      )
+(let ((langs '("english" "brasileiro" "francais")))
+  (setq lang-ring (make-ring (length langs)))
+  (dolist (elem langs) (ring-insert lang-ring elem)))
+(defun cycle-ispell-languages ()
+  (interactive)
+  (let ((lang (ring-ref lang-ring -1)))
+    (ring-insert lang-ring lang)
+    (ispell-change-dictionary lang)))
+(global-set-key [f11] 'cycle-ispell-languages)
+(ispell-change-dictionary "francais")
+(dolist (hook '(text-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode t))))
+(dolist (hook '(change-log-mode-hook log-edit-mode-hook))
+  (add-hook hook (lambda () (flyspell-mode -1))))
+(dolist (hook '(prog-mode-hook))
+  (add-hook hook (lambda () (flyspell-prog-mode t))))
+
 
 ;;;;; after reading the manual
 ;; C-o opens line, C-x C-o delete all but one empty line
