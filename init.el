@@ -240,7 +240,10 @@
 
 ;; magit is the perfect git environement, there is always M-g g for go to line!
 (global-set-key (kbd "M-g M-g") 'magit-status)
-
+(defun single-space ()
+  (interactive)
+  (just-one-space -1))
+(global-set-key (kbd "SPC") 'single-space)
 
 ;;;; Spell-Check
 (setq ispell-program-name "aspell"
