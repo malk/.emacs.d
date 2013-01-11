@@ -208,6 +208,8 @@
 (add-to-list 'eshell-visual-commands "lftp")
 (add-to-list 'eshell-visual-commands "ssh")
 (add-to-list 'eshell-visual-commands "tail")
+(add-to-list 'eshell-visual-commands "less")
+(add-to-list 'eshell-visual-commands "more")
 
 
 ;;; paredit
