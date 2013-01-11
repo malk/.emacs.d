@@ -1,6 +1,6 @@
-* TODO spell conf, switching dictionaries between he languages I speak
-* TODO FlySpell
-* TODO Swap M-SPC and SPC
+* DONE spell conf, switching dictionaries between he languages I speak
+* DONE FlySpell
+* DONE Swap M-SPC and SPC
   M-SPC with a negative argument turn all whitespace around point into
   a single space, SPC just adds a space.
   `<DEL>'
@@ -35,7 +35,7 @@
 * TODO expand-region minor mode
 * TODO global org keybindings
 * TODO multicursor minor mode
-* TODO paredit
+* DONE paredit
 * TODO move all conf out of customization block
 * TODO create key memo file
 * TODO create an equivalent of eclipse's M-up and M-down in a
@@ -57,7 +57,7 @@
   if there are several windows it should delete all others while
   saving to register
   if there is only one it shoudl restore register
-* TODO Imenu
+* DONE Imenu
 * TODO HippiExpand
 * TODO semantic
 * TODO hiipie called on tab
@@ -66,7 +66,7 @@
 * TODO automatic autocompletion on every key hit on prog modes
 * TODO yasnippet
 * TODO see the docs of built-in modules
-* TODO emacs helm
+* TODO helm
 * TODO w3m
 * TODO email client : WL or mu4e?
 * TODO eclim?
