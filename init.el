@@ -269,17 +269,8 @@
   (add-hook hook (lambda () (flyspell-prog-mode t))))
 
 
-;;;;; after reading the manual
-;; C-o opens line, C-x C-o delete all but one empty line
-;; M-= calls wc
-;; C-x z is repeat command (afterwards you do just z)
-;; C-SPC C-SPC set the mark and deactivate, C-u C-SPC pops the mark
-;; C-x C-x switches point and mark
-;; C-S-backspace kill whole line (dd)
-;; I should train more the rectangle operations
-;; C-M-l recenters heuristically
-;; C-x C-+ font size up, C-x C-0 font size normal
-;; M-o M-s center line
+;;; complete? hiipie AC or semantic? all 3?
+;(eval-after-load "dabbrev" '(defalias 'dabbrev-expand 'hippie-expand))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
