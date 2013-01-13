@@ -94,6 +94,7 @@
 					;position when scrolling
       save-place-file (concat user-emacs-directory "places")
       which-func-modes t
+      require-final-newline t
       backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
       )
 (setq-default abbrev-mode t)
