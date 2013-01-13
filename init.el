@@ -110,6 +110,19 @@
 (glasses-mode)
 (semantic-mode t)
 
+;; makes 'C-x 1' more useful, if we have several windows it does what it is
+;; supposed to do and make the current one the only visible, but if we have
+;; only one it restores the last configuration, awesome to switch back and
+;; forth between a windows arrangement and fullscreen over a buffer
+(defun toggle-maximize-buffer () "Maximize buffer"
+  (interactive)
+  (if (= 1 (length (window-list)))
+      (jump-to-register '_)
+    (progn
+      (window-configuration-to-register '_)
+      (delete-other-windows))))
+(global-set-key (kbd "C-x 1") 'toggle-maximize-buffer)
+
 ;;
 ;; ace jump mode major function
 ;;
