@@ -246,6 +246,18 @@
   (just-one-space -1))
 (global-set-key (kbd "SPC") 'single-space)
 
+;; I focus using the keyboard, on all my laptops it is easy to accidentally
+;; touch the touchpad while typing and change the focus inside emacs(and
+;; that is annoying) using pointing devices while coding is a bad idea
+;; anyway, so here I disable the mouse within emacs completely
+(defun nop () (interactive))
+(global-set-key (kbd "<mouse-1>") 'nop)
+(global-set-key (kbd "<down-mouse-1>") 'nop)
+(global-set-key (kbd "<up-mouse-1>") 'nop)
+(global-set-key (kbd "<drag-mouse-1>") 'nop)
+(global-set-key (kbd "<double-mouse-1>") 'nop)
+(global-set-key (kbd "<triple-mouse-1>") 'nop)
+
 ;;;; Spell-Check
 (setq ispell-program-name "aspell"
       ispell-list-command "list"
