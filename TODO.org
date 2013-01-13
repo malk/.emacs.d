@@ -28,14 +28,14 @@
 `M-^'
      Join two lines by deleting the intervening newline, along with any
      indentation following it (`delete-indentation').
-* TODO FlyCheck
-* TODO can I make emacs ignore the mouse completely for focus?
+* DONE paredit
+* DONE can I make emacs ignore the mouse completely for focus?
 * DONE hl-line-mode globally
+* TODO FlyCheck
 * TODO quick "mark line" command?
 * TODO expand-region minor mode
 * TODO global org keybindings
 * TODO multicursor minor mode
-* DONE paredit
 * TODO move all conf out of customization block
 * TODO create key memo file
 * TODO create an equivalent of eclipse's M-up and M-down in a
@@ -46,6 +46,7 @@
   and switching to/from read only also (de)activates view mode
 * TODO bindings to start a new buffer in follow mode
 * TODO create a file of keybiddings i should do more
+* TODO give credit
 * TODO read the manual, iconrporate suggestions
 * TODO read prelude, incorporate suggestions
 * TODO read ESK, incorporate suggestions
@@ -53,16 +54,18 @@
 * TODO split conf in multiple files
   ERC conf goes to ~/.emacs.d/.ercrc.el and auth data to ~/.emacs.d/.erc-auth
 * TODO flat modeline or powerline
-* TODO make C-x 1 toggle widnows positioning
+* DONE make C-x 1 toggle widnows positioning
   if there are several windows it should delete all others while
   saving to register
   if there is only one it shoudl restore register
 * DONE Imenu
 * TODO HippiExpand
+* TODO fill electric-layout-rules, or electric layout wont work
 * TODO semantic
-* TODO hiipie called on tab
 * TODO projectile, eproject?
+* TODO find-file-hook is used on all files, what to put on it?
 * TODO tags
+* TODO make C-tab bury buffer on org mode too
 * TODO automatic autocompletion on every key hit on prog modes
 * TODO yasnippet
 * TODO see the docs of built-in modules
@@ -75,4 +78,12 @@
 * TODO maybe iedit? StudDlyCaps
 * TODO Autotyping manual
 * TODO Centralize tags files
+* TODO midnight.el
 * TODO markdown-mode
+* TODO quickurl and quicurl-add-url and quickurl-list
+* TODO add ampc support
+* TODO process purcell's conf files
+* TODO process reguardtoo's conf files
+* TODO copyright update on save hook , does it respect license?
+* TODO google.el
+* TODO turn my emacs conf to use org-mode organisation/literate http://dl.dropbox.com/u/3968124/sacha-emacs.html
