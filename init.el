@@ -34,22 +34,6 @@
 ;; Make window divider line the same color as the fringe
 (set-face-foreground 'vertical-border (face-background 'fringe))
 
-;; smex
-(setq smex-save-file (concat user-emacs-directory ".smex-items"))
-(global-set-key [M-x] (lambda ()
-                             (interactive)
-                             (or (boundp 'smex-cache)
-                                 (smex-initialize))
-                             (global-set-key [(meta x)] 'smex)
-                             (smex)))
-
-(global-set-key [M-S-x] (lambda ()
-                                   (interactive)
-                                   (or (boundp 'smex-cache)
-                                       (smex-initialize))
-                                   (global-set-key [(shift meta x)] 'smex-major-mode-commands)
-                                   (smex-major-mode-commands)))
-
 ;; IDO
 (require 'ido)
 (ido-mode t)
@@ -71,6 +55,22 @@
 (set-default 'imenu-auto-rescan t)
 (autoload 'idomenu "idomenu" nil t)
 (global-set-key [(control .)] 'idomenu)
+
+;; smex
+(setq smex-save-file (concat user-emacs-directory ".smex-items"))
+(global-set-key [M-x] (lambda ()
+                             (interactive)
+                             (or (boundp 'smex-cache)
+                                 (smex-initialize))
+                             (global-set-key [(meta x)] 'smex)
+                             (smex)))
+
+(global-set-key [M-S-x] (lambda ()
+                                   (interactive)
+                                   (or (boundp 'smex-cache)
+                                       (smex-initialize))
+                                   (global-set-key [(shift meta x)] 'smex-major-mode-commands)
+                                   (smex-major-mode-commands)))
 
 ;; UI
 (show-paren-mode 1)
