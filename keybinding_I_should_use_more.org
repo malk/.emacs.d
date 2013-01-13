@@ -1,0 +1,10 @@
+* C-o opens line, C-x C-o delete all but one empty line
+* M-= calls wc
+* C-x z is repeat command, afterwards you do just z
+* C-SPC C-SPC set the mark and deactivate, C-u C-SPC pops the mark
+* C-x C-x switches point and mark
+* C-S-backspace kill whole line
+* I should train more the rectangle operations
+* C-M-l recenters heuristically
+* C-x C-+ font size up, C-x C-0 font size normal
+* M-o M-s center line
