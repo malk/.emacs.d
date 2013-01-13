@@ -140,7 +140,7 @@
   (idle-highlight-mode t)
   (auto-fill-mode t)
   (glasses-mode)
-  (subword-mode)
+  (subword-mode -1)
   )
 (add-hook 'prog-mode-hook 'my-coding-hook)
 
