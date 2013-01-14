@@ -269,6 +269,20 @@
 
 ;; magit is the perfect git environement, there is always M-g g for go to line!
 (global-set-key (kbd "M-g M-g") 'magit-status)
+(defadvice magit-status (around magit-fullscreen activate)
+  (window-configuration-to-register :magit-fullscreen)
+  ad-do-it
+  (delete-other-windows))
+
+(defun magit-quit-session ()
+  "Restores the previous window configuration and kills the magit buffer"
+  (interactive)
+  (kill-buffer)
+  (jump-to-register :magit-fullscreen))
+
+(define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
+
+
 (defun single-space ()
   (interactive)
   (just-one-space -1))
