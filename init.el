@@ -92,7 +92,6 @@
       kill-do-not-save-duplicates t	;keeps the kill ring free of dups
       scroll-preserve-screen-position t	;keeps the cursor in the same
 					;position when scrolling
-      save-place-file (concat user-emacs-directory "places")
       which-func-modes t
       require-final-newline t
       backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
@@ -172,7 +171,8 @@
 ;; make sure the pointer on each buffers is where you left him (nosearching
 ;; around where I where in a file
 (require 'saveplace)
-(setq save-place t)
+(setq-default save-place t)
+(setq save-place-file (concat user-emacs-directory "places"))
 
 ;; Every day at 4 in the morning closes buffers opened too long ago and
 ;; never visited since(so I never close buffers at all, I let the "decay and
