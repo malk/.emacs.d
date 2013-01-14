@@ -160,12 +160,28 @@
 ;; version control and backup
 (require 'magit)
 
-;; session
-(require 'saveplace)
-(setq save-place t)
+;;; Session
+;; I only quit emacs on a need-basis, this session management file reflects,
+;; and helps, that
+
+;; reopens the list of buffers we had before closing emacs(except for
+;; buffers with inferior process like shell) : no reopening franticallymy
+;; buffers after restarting emacs
 (desktop-save-mode 1)
 
-;; org-mode
+;; make sure the pointer on each buffers is where you left him (nosearching
+;; around where I where in a file
+(require 'saveplace)
+(setq save-place t)
+
+;; Every day at 4 in the morning closes buffers opened too long ago and
+;; never visited since(so I never close buffers at all, I let the "decay and
+;; dissapear"
+(require 'midnight)
+(midnight-delay-set 'midnight-delay "4:00am")
+
+
+;;; org-mode
 (setq org-icalendar-store-UID t
       org-icalendar-include-todo t)
 
@@ -202,7 +218,6 @@
 
 
 ;;;;; ID
-
 (setq user-mail-address "m@zameth.org")
 
 ;;;;;; Eshell
