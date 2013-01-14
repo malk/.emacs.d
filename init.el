@@ -267,8 +267,12 @@
 ;; opens Eshell or switches to it
 (global-set-key (kbd "M-s M-s") 'eshell)
 
-;; magit is the perfect git environement, there is always M-g g for go to line!
+;;; Magit
+;;; magit is the perfect git environement there is always M-g g for go to line!
 (global-set-key (kbd "M-g M-g") 'magit-status)
+
+;; makes magit work fullscreen then restore previous screen arrangements on
+;; quit, kinda like a magit "session"
 (defadvice magit-status (around magit-fullscreen activate)
   (window-configuration-to-register :magit-fullscreen)
   ad-do-it
@@ -282,6 +286,14 @@
 
 (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
 
+;; Auto refresh buffers, so when we change brancheswwe have the desired
+;; version of the file (or when the file changes on diskand we did not
+;; notice)
+(global-auto-revert-mode 1)
+
+;; Also auto refresh dired, but be quiet about it
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
 
 (defun single-space ()
   (interactive)
@@ -321,7 +333,6 @@
   (add-hook hook (lambda () (flyspell-mode -1))))
 (dolist (hook '(prog-mode-hook))
   (add-hook hook (lambda () (flyspell-prog-mode t))))
-
 
 ;;; complete? hiipie AC or semantic? all 3?
 ;(eval-after-load "dabbrev" '(defalias 'dabbrev-expand 'hippie-expand))
