@@ -78,7 +78,7 @@
 * TODO maybe iedit? StudDlyCaps
 * TODO Autotyping manual
 * TODO Centralize tags files
-* TODO midnight.el
+* DONE midnight.el
 * TODO markdown-mode
 * TODO quickurl and quicurl-add-url and quickurl-list
 * TODO add ampc support
