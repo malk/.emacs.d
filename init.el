@@ -51,34 +51,15 @@
       ido-handle-duplicate-virtual-buffers 2
       ido-max-prospects 10)
 
-;; in my experience sometimes a completely unrelated module (for example
-;; magit) upon being installed steals this keybidding from ido to iswitchb,
-;; so to work around that I manually set it here
-(global-set-key [C-x C-f] 'ido-find-file)
-
 (set-default 'imenu-auto-rescan t)
 (autoload 'idomenu "idomenu" nil t)
-(global-set-key [(control .)] 'idomenu)
 
 ;; smex
 (setq smex-save-file (concat user-emacs-directory ".smex-items"))
-(global-set-key [M-x] (lambda ()
-                             (interactive)
-                             (or (boundp 'smex-cache)
-                                 (smex-initialize))
-                             (global-set-key [(meta x)] 'smex)
-                             (smex)))
-
-(global-set-key [M-S-x] (lambda ()
-                                   (interactive)
-                                   (or (boundp 'smex-cache)
-                                       (smex-initialize))
-                                   (global-set-key [(shift meta x)] 'smex-major-mode-commands)
-                                   (smex-major-mode-commands)))
 
 ;; UI
 (show-paren-mode 1)
-(tooltip-mode t)
+(tooltip-mode -1)
 (mouse-wheel-mode t)
 (defalias 'yes-or-no-p 'y-or-n-p)
 (defalias 'auto-tail-revert-mode 'tail-mode)
@@ -148,7 +129,9 @@
     (progn
       (window-configuration-to-register '_)
       (delete-other-windows))))
-(global-set-key (kbd "C-x 1") 'toggle-maximize-buffer)
+
+;;; Does nothing
+(defun nop () (interactive))
 
 ;;
 ;; ace jump mode major function
@@ -158,8 +141,6 @@
   "ace-jump-mode"
   "Emacs quick move minor mode"
   t)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
-
 ;;
 ;; enable a more powerful jump back function from ace jump mode
 ;;
@@ -170,7 +151,7 @@
   t)
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
-(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+
 
 
 ;; Dev conf
@@ -284,20 +265,6 @@
        '((lambda (endp delimiter) nil)))
   (paredit-mode 1))
 
-;;;; keybindings
-;; Use regex searches by default.
-(global-set-key [(control s)] 'isearch-forward-regexp)
-(global-set-key [(control r)] 'isearch-backward-regexp)
-(global-set-key [(meta %)] 'query-replace-regexp)
-(global-set-key [(control meta s)] 'isearch-forward)
-(global-set-key [(control meta r)] 'isearch-backward)
-(global-set-key [(control meta %)] 'query-replace)
-;; opens Eshell or switches to it
-(global-set-key (kbd "M-s M-s") 'eshell)
-
-;;; Magit
-;;; magit is the perfect git environement there is always M-g g for go to line!
-(global-set-key (kbd "M-g M-g") 'magit-status)
 
 ;; makes magit work fullscreen then restore previous screen arrangements on
 ;; quit, kinda like a magit "session"
@@ -345,19 +312,6 @@
 (defun single-space ()
   (interactive)
   (just-one-space -1))
-(global-set-key (kbd "SPC") 'single-space)
-
-;; I focus using the keyboard, on all my laptops it is easy to accidentally
-;; touch the touchpad while typing and change the focus inside emacs(and
-;; that is annoying) using pointing devices while coding is a bad idea
-;; anyway, so here I disable the mouse within emacs completely
-(defun nop () (interactive))
-(global-set-key (kbd "<mouse-1>") 'nop)
-(global-set-key (kbd "<down-mouse-1>") 'nop)
-(global-set-key (kbd "<up-mouse-1>") 'nop)
-(global-set-key (kbd "<drag-mouse-1>") 'nop)
-(global-set-key (kbd "<double-mouse-1>") 'nop)
-(global-set-key (kbd "<triple-mouse-1>") 'nop)
 
 ;;;; Spell-Check
 (setq ispell-program-name "aspell"
@@ -372,23 +326,144 @@
   (let ((lang (ring-ref lang-ring -1)))
     (ring-insert lang-ring lang)
     (ispell-change-dictionary lang)))
-(global-set-key [f11] 'cycle-ispell-languages)
+
 (ispell-change-dictionary "francais")
 (dolist (hook '(text-mode-hook))
-  (add-hook hook (lambda () (flyspell-mode t))))
+  (add-hook hook (lambda () (flyspell-mode))))
 (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
   (add-hook hook (lambda () (flyspell-mode -1))))
-(dolist (hook '(prog-mode-hook))
-  (add-hook hook (lambda () (flyspell-prog-mode t))))
+;; currently not working, wonder why
+ (dolist (hook '(prog-mode-hook))
+   (add-hook hook (lambda () (flyspell-prog-mode))))
+
+;;; Automatic work
+;; things emacs do on my back
+;; Update the copyright notice on file save
+(setq copyright-current-gpl-version t)
+(add-hook 'before-save-hook 'copyright-update)
 
 ;;; complete? hiipie AC or semantic? all 3?
 ;(eval-after-load "dabbrev" '(defalias 'dabbrev-expand 'hippie-expand))
+
+
+
+;;; Key-bindings
+;; I concentrate all global key-bindings customization here
+
+;; Some key-bindings are our usual global key-bindings, they are replaceable
+;; by major and minor modes and set here otherwise
+(defun global-key (key binding)
+  (global-set-key (read-kbd-macro key) binding))
+
+(global-key "C-c SPC" 'ace-jump-mode)
+(global-key "C-x SPC" 'ace-jump-mode-pop-mark)
+(global-key "SPC" 'single-space)
+
+(global-key "C-s" 'isearch-forward-regexp)
+(global-key "C-r" 'isearch-backward-regexp)
+(global-key "M-%" 'query-replace-regexp)
+(global-key "C-M-s" 'isearch-forward)
+(global-key "C-M-r" 'isearch-backward)
+(global-key "C-M-%" 'query-replace)
+(global-key "C-x 1" 'toggle-maximize-buffer)
+(global-key "M-TAB" 'flyspell-auto-correct-word)
+
+;; instead of unsetting a key binding (using an undefined keybinding gives
+;; a warning) assign nothing to it
+(defun disable-key (key)
+  (global-key key 'nop))
+
+;; I focus using the keyboard, on all my laptops it is easy to accidentally
+;; touch the touchpad while typing and change the focus inside emacs(and
+;; that is annoying) using pointing devices while coding is a bad idea
+;; anyway, so here I disable the mouse within emacs completely
+(disable-key "<mouse-1>")
+(disable-key "<down-mouse-1>")
+(disable-key "<up-mouse-1>")
+(disable-key "<drag-mouse-1>")
+(disable-key "<double-mouse-1>")
+(disable-key "<triple-mouse-1>")
+
+
+;; Some key bindings are just too precious and I want to make sure they are
+;; not stolen by some major or minor mode, the solution for that is creating
+;; my own pseudo minor mode (I call it 'mk' for 'my keys') setting my 'too
+;; precious' keys there, and activating that minor mode globally, then, no
+;; other major mode should steal those precious bindings
+(defvar mk-minor-mode-map (make-keymap) "mk-minor-mode keymap.")
+
+(define-minor-mode mk-minor-mode
+  "A minor mode so that my key settings override annoying major modes."
+  t " mk" 'mk-minor-mode-map)
+
+;; Creating a minor mode does not protect me from other minor modes stealing
+;; the key bindings, and some minor modes (flyspell) steal priority at run
+;; time so even when I create my own minor mode at the end of the init file
+;; they still steal the key bindings!, So this advice makes sure that my
+;; minor mode has the highest priority
+(defadvice load (after give-my-keybindings-priority)
+  "Try to ensure that my key bindings always have priority."
+  (if (not (eq (car (car minor-mode-map-alist)) 'mk-minor-mode))
+      (let ((mk (assq 'mk-minor-mode minor-mode-map-alist)))
+        (assq-delete-all 'mk-minor-mode minor-mode-map-alist)
+        (add-to-list 'minor-mode-map-alist mk))))
+(ad-activate 'load)
+
+(defun precious-key (key binding)
+  (define-key mk-minor-mode-map (read-kbd-macro key) binding))
+
+(precious-key "C-x C-f" 'ido-find-file)
+(precious-key "M-x" (lambda ()
+		      (interactive)
+		      (or (boundp 'smex-cache)
+			  (smex-initialize))
+		      (precious-key "M-x" 'smex)
+		      (smex)))
+(precious-key "M-S-x" (lambda ()
+			(interactive)
+			(or (boundp 'smex-cache)
+			    (smex-initialize))
+			(precious-key "M-S-x" 'smex-major-mode-commands)
+			(smex-major-mode-commands)))
+
+(precious-key "C-." 'idomenu)
+(precious-key "C-<tab>" 'bury-buffer)
+(precious-key "C-<left>"  'windmove-left)
+(precious-key "C-<right>" 'windmove-right)
+(precious-key "C-<up>"    'windmove-up)
+(precious-key "C-<down>"  'windmove-down)
+(precious-key "C-=" 'er/expand-region)
+(precious-key "M-=" 'er/contract-region)
+(precious-key "C-+" 'mc/mark-all-like-this-dwim)
+(precious-key "M-+" 'mc/edit-lines)
+
+;; switch to ERC, starts ERC if its not started, otherwise switches to the
+;; latest ERC buffer with unseen dialog in it, keep pressing to cycle trough
+;; them all, when all dialog is seen, returns to your work, basically you
+;; spam this key to go trough your IM's and IRC conversations and then
+;; return back to producing
+(precious-key "<f12>" 'erc-start-or-switch)
+
+
+;; opens Eshell or switches to it
+(precious-key "M-s M-s" 'eshell)
+
+;;; Magit
+;;; magit is the perfect git environement there is always M-g g for go to line!
+(precious-key "M-g M-g" 'magit-status)
+
+(precious-key "<f11>" 'cycle-ispell-languages)
+
+(mk-minor-mode 1)
+
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(before-save-hook (quote (copyright-update)))
+ '(completion-styles (quote (basic partial-completion emacs22 substring initials)))
  '(display-battery-mode t)
  '(display-time-24hr-format t)
  '(display-time-mode t)
@@ -398,7 +473,6 @@
  '(eshell-output-filter-functions (quote (eshell-handle-ansi-color eshell-handle-control-codes eshell-watch-for-password-prompt)))
  '(standard-indent 8)
  '(tab-always-indent (quote complete))
- '(use-empty-active-region t)
  '(which-function-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
