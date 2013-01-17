@@ -218,7 +218,7 @@
 (require 'erc)
 (erc-autojoin-mode t)
 (setq erc-autojoin-channels-alist
-      '((".*\\.freenode.net" "#emacs" "#erc" "#linagora")))
+      '((".*\\.freenode.net" "#emacs" "#erc" "#linagora" "#clojure" "#leiningen")))
 (setq erc-interpret-mirc-color t
       erc-kill-buffer-on-part t
       erc-kill-queries-on-quit t
