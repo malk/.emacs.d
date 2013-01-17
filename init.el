@@ -97,7 +97,11 @@
       scroll-preserve-screen-position t	;keeps the cursor in the same
 					;position when scrolling
       which-func-modes t
+      tooltip-use-echo-area t
       require-final-newline t
+      completion-cycle-threshold 12
+      confirm-nonexistent-file-or-buffer nil
+      kill-buffer-query-functions (remq 'process-kill-buffer-query-function kill-buffer-query-functions)
       backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
       )
 (setq-default abbrev-mode t)
