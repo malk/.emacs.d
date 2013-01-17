@@ -27,6 +27,7 @@
 (global-rainbow-delimiters-mode)
 (require 'uniquify)
 (setq inhibit-startup-message t
+      inhibit-startup-echo-area-message t
       color-theme-is-global t
       uniquify-buffer-name-style 'reverse
       whitespace-style '(face trailing lines-tail tabs)
