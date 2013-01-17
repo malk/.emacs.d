@@ -100,6 +100,15 @@
 (add-hook 'after-save-hook
   'executable-make-buffer-file-executable-if-script-p)
 
+;;; IDE
+
+(require 'projectile)
+(projectile-global-mode)
+;;; complete? hiipie AC or semantic? all 3?
+;(eval-after-load "dabbrev" '(defalias 'dabbrev-expand 'hippie-expand))
+
+
+
 ;; makes copy region (M-w) work on the current line if no region is active
 (put 'kill-ring-save 'interactive-form
      '(interactive
@@ -250,12 +259,12 @@
 ;;; paredit
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code." t)
-(add-hook 'emacs-lisp-mode-hook       (lambda () (paredit-mode +1)))
-(add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
+(add-hook 'emacs-lisp-mode-hook (lambda () (paredit-mode +1)))
+(add-hook 'lisp-mode-hook (lambda () (paredit-mode +1)))
 (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
-(add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
-(add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)))
-(add-hook 'nrepl-mode-hook          (lambda () (paredit-mode +1)))
+(add-hook 'scheme-mode-hook (lambda () (paredit-mode +1)))
+(add-hook 'clojure-mode-hook (lambda () (paredit-mode +1)))
+(add-hook 'nrepl-mode-hook (lambda () (paredit-mode +1)))
 
 ;; this is taken verbatim from emacs starter kit
 (defun esk-paredit-nonlisp ()
@@ -341,10 +350,6 @@
 ;; Update the copyright notice on file save
 (setq copyright-current-gpl-version t)
 (add-hook 'before-save-hook 'copyright-update)
-
-;;; complete? hiipie AC or semantic? all 3?
-;(eval-after-load "dabbrev" '(defalias 'dabbrev-expand 'hippie-expand))
-
 
 
 ;;; Key-bindings

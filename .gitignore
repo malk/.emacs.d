@@ -11,3 +11,4 @@ eshell/lastdir
 /.emacs.desktop.lock
 /.smex-items
 /tramp
+/projectile.cache

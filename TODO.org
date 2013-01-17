@@ -43,14 +43,14 @@
 * DONE create a file of keybiddings i should do more
 * DONE read the manual, iconrporate suggestions
 * DONE maybe iedit? StudDlyCaps
-* TODO windows move key bindings
+* DONE windows move key bindings
+* DONE projectile, eproject?
 * TODO semantic
 * TODO HippiExpand
 * TODO automatic autocompletion on every key hit on prog modes
 * TODO tags
 ** TODO Centralize tags files
 * TODO GNU Global
-* TODO projectile, eproject?
 * TODO yasnippet
 * TODO predictive mode
 * TODO pabbrev
