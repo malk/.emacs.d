@@ -9,3 +9,5 @@ eshell/lastdir
 /.org-id-locations
 /.emacs.desktop
 /.emacs.desktop.lock
+/.smex-items
+/tramp
