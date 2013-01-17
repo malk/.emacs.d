@@ -241,12 +241,9 @@
       (erc :server "irc.freenode.net" :port 6667 :nick "Malk_Zameth" :full-name "Malk'Zameth")
       (erc :server "localhost" :port 6667 :nick "malk" :full-name "malk"))))
 
-;; switch to ERC with Ctrl+c e
-(global-set-key [f12] 'erc-start-or-switch)
-
-
 ;;;;; ID
-(setq user-mail-address "m@zameth.org")
+(setq user-mail-address "m@zameth.org"
+      user-full-name "Malk’Zameth")
 
 ;;;;;; Eshell
 (require 'eshell)
