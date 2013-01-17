@@ -273,6 +273,9 @@
 (add-hook 'lisp-mode-hook             (lambda () (paredit-mode +1)))
 (add-hook 'lisp-interaction-mode-hook (lambda () (paredit-mode +1)))
 (add-hook 'scheme-mode-hook           (lambda () (paredit-mode +1)))
+(add-hook 'clojure-mode-hook          (lambda () (paredit-mode +1)))
+(add-hook 'nrepl-mode-hook          (lambda () (paredit-mode +1)))
+
 ;; this is taken verbatim from emacs starter kit
 (defun esk-paredit-nonlisp ()
   "Turn on paredit mode for non-lisps."
