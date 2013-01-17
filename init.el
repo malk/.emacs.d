@@ -109,13 +109,33 @@
 (setq-default show-trailing-whitespace t)
 (setq-default fill-column 76)
 (require 'ffap)
-(global-set-key [C-tab] 'bury-buffer)
+
 (imagemagick-register-types)		;add several image file types to
 					;emacs
 (filesets-init)				;allows the creation and usage of
 					;filesets
 (glasses-mode)
 (semantic-mode t)
+(add-hook 'after-save-hook
+  'executable-make-buffer-file-executable-if-script-p)
+
+;; makes copy region (M-w) work on the current line if no region is active
+(put 'kill-ring-save 'interactive-form
+     '(interactive
+       (if (use-region-p)
+           (list (region-beginning) (region-end))
+         (list (line-beginning-position) (line-beginning-position 2)))))
+
+;; makes kill region (C-w) work on the current line if no region is active
+(put 'kill-region 'interactive-form
+     '(interactive
+       (if (use-region-p)
+           (list (region-beginning) (region-end))
+         (list (line-beginning-position) (line-beginning-position 2)))))
+
+(require 'expand-region)
+(require 'multiple-cursors)
+
 
 ;; makes 'C-x 1' more useful, if we have several windows it does what it is
 ;; supposed to do and make the current one the only visible, but if we have
