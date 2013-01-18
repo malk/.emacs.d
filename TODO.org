@@ -45,18 +45,18 @@
 * DONE maybe iedit? StudDlyCaps
 * DONE windows move key bindings
 * DONE projectile, eproject?
+* DONE Centralize tags files
+** DONE Make emacs tags work
+* TODO helm
 * TODO semantic
-* TODO HippiExpand
-* TODO automatic autocompletion on every key hit on prog modes
-* TODO tags
-** TODO Centralize tags files
-* TODO GNU Global
 * TODO yasnippet
+* TODO HippiExpand
+* TODO Autocomplete
+* TODO automatic autocompletion on every key hit on prog modes
 * TODO predictive mode
 * TODO pabbrev
 * TODO fallback to dabbrev
-* TODO eclim?
-* TODO helm
+* TODO eclim
 * TODO elein (leiningen from emacs)
 * TODO FlyCheck
 * TODO global org keybindings
