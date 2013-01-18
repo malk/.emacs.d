@@ -476,6 +476,7 @@
  '(electric-layout-mode t)
  '(electric-pair-mode t)
  '(eshell-output-filter-functions (quote (eshell-handle-ansi-color eshell-handle-control-codes eshell-watch-for-password-prompt)))
+ '(org-enforce-todo-dependencies t)
  '(standard-indent 8)
  '(tab-always-indent (quote complete))
  '(which-function-mode t))
