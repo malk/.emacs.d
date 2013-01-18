@@ -255,6 +255,14 @@
 (add-to-list 'eshell-visual-commands "less")
 (add-to-list 'eshell-visual-commands "more")
 
+;; loads eshell on emacs startup
+(add-hook 'emacs-startup-hook
+	  #'(lambda ()
+	      (let ((default-directory (getenv "HOME")))
+		(command-execute 'eshell)
+		(bury-buffer))))
+
+
 
 ;;; paredit
 (autoload 'paredit-mode "paredit"
@@ -454,7 +462,6 @@
 
 ;; opens Eshell or switches to it
 (precious-key "s-s" 'eshell)
-
 
 ;;; magit is the perfect git environement there is always M-g g for go to line!
 (precious-key "s-g" 'magit-status)
