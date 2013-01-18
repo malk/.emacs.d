@@ -372,6 +372,8 @@
 (global-key "C-M-%" 'query-replace)
 (global-key "C-x 1" 'toggle-maximize-buffer)
 (global-key "M-TAB" 'flyspell-auto-correct-word)
+(global-key "M-s M-s" 'eshell)
+(global-key "M-g M-g" 'magit-status)
 
 ;; instead of unsetting a key binding (using an undefined keybinding gives
 ;; a warning) assign nothing to it
@@ -451,11 +453,11 @@
 
 
 ;; opens Eshell or switches to it
-(precious-key "M-s M-s" 'eshell)
+(precious-key "s-s" 'eshell)
 
-;;; Magit
+
 ;;; magit is the perfect git environement there is always M-g g for go to line!
-(precious-key "M-g M-g" 'magit-status)
+(precious-key "s-g" 'magit-status)
 
 (precious-key "<f11>" 'cycle-ispell-languages)
 
