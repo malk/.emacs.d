@@ -47,12 +47,15 @@
 * DONE projectile, eproject?
 * DONE Centralize tags files
 ** DONE Make emacs tags work
-* TODO helm
-* TODO semantic
-* TODO yasnippet
-* TODO HippiExpand
-* TODO Autocomplete
+* DONE make C-tab bury buffer on org mode too
+* DONE add C-M-l to the C-l cycle beginning with C-M-l
+* DONE w3m
+* TODO either make ac see ctags or switch to gtags globally
+* TODO ac-yasnippet
+** TODO yasnippet
+* TODO ac-dictionary per major mode
 * TODO automatic autocompletion on every key hit on prog modes
+** TODO Autocomplete
 * TODO predictive mode
 * TODO pabbrev
 * TODO fallback to dabbrev
@@ -61,10 +64,6 @@
 * TODO FlyCheck
 * TODO global org keybindings
 * TODO move all conf out of customization block
-* TODO create an equivalent of eclipse's M-up and M-down in a
-  sensible keybidding
-
-* TODO add C-M-l to the C-l cycle beginning with C-M-l
 * TODO put read only buffers into view mode
   and switching to/from read only also (de)activates view mode
 * TODO bindings to start a new buffer in follow mode
@@ -76,14 +75,11 @@
 * TODO flat modeline or powerline
 * TODO fill electric-layout-rules, or electric layout wont work
 * TODO find-file-hook is used on all files, what to put on it?
-* TODO make C-tab bury buffer on org mode too
 * TODO see the docs of built-in modules
-* TODO w3m
 * TODO email client : WL or mu4e?
 * TODO pfilfer stuff rom this conf https://github.com/jsulak/.emacs.d/blob/master/init.el
 * TODO eldoc!
-* TODO Autotyping manual
-* TODO markdown-mode
+* TODO Auototyping manual
 * TODO quickurl and quicurl-add-url and quickurl-list
 * TODO change colors on clojure test mode so the green and red bars are easier on the eye* TODO add ampc support
 * TODO streamline clojure-mode compile-comile_the_test-run_tests_jump_to_first_error collection fo keyboard shortcuts into a single keyboard shortcut
@@ -92,3 +88,18 @@
 * TODO copyright update on save hook , does it respect license?
 * TODO google.el
 * TODO a shortcut that goes to the end of the current s-exp calls nrepl-eval-last* TODO turn my emacs conf to use org-mode organisation/literate http://dl.dropbox.com/u/3968124/sacha-emacs.html
+* TODO org export to markdown
+* TODO function that converts a markdown buffer to org and changes mode
+* TODO function that converts a org mode to markdown and changes mode
+* TODO markdown-mode
+* TODO create an equivalent of eclipse's M-up and M-down in a
+** TODO Moves a region
+** TODO binds to s-[n,p,f,b]
+** TODO reidents on each move
+** TODO empty regions defaults to the current block/sexp
+** TODO if no block/sexp then to the current line
+** TODO before developing a good one, initially jsut install the melpa one
+* TODO helm
+* TODO am I missing a package from emacs-goodies-el? if so install by the official packaging sys
+** http://packages.debian.org/wheezy/emacs-goodies-el
+

@@ -85,7 +85,7 @@
       kill-buffer-query-functions (remq 'process-kill-buffer-query-function kill-buffer-query-functions)
       backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
       )
-(setq-default abbrev-mode t)
+;; (setq-default abbrev-mode t) ;maybe yasnippet renders this completely useless, must try yasnippet first
 (setq-default tab-width 8)
 (setq-default show-trailing-whitespace t)
 (setq-default fill-column 76)
@@ -98,16 +98,7 @@
 (glasses-mode)
 (semantic-mode t)
 (add-hook 'after-save-hook
-  'executable-make-buffer-file-executable-if-script-p)
-
-;;; IDE
-
-(require 'projectile)
-(projectile-global-mode)
-;;; complete? hiipie AC or semantic? all 3?
-;(eval-after-load "dabbrev" '(defalias 'dabbrev-expand 'hippie-expand))
-
-
+	  'executable-make-buffer-file-executable-if-script-p)
 
 ;; makes copy region (M-w) work on the current line if no region is active
 (put 'kill-ring-save 'interactive-form
@@ -127,6 +118,60 @@
 (require 'multiple-cursors)
 
 
+
+;;; IDE
+
+(require 'projectile)
+(projectile-global-mode)
+
+;;; complete? hiipie AC or semantic? all 3?
+;(eval-after-load "dabbrev" '(defalias 'dabbrev-expand 'hippie-expand))
+(require 'auto-complete)
+(require 'auto-complete-config)
+;; (require 'ac-dabbrev)
+(global-auto-complete-mode t)
+(define-key ac-completing-map (kbd "C-n") 'ac-next)
+(define-key ac-completing-map (kbd "C-p") 'ac-previous)
+
+;;----------------------------------------------------------------------------
+;; Use Emacs' built-in TAB completion hooks to trigger AC (Emacs >= 23.2)
+;;----------------------------------------------------------------------------
+;; (setq tab-always-indent 'complete)  ;; use 't when auto-complete is disabled
+;; (add-to-list 'completion-styles 'initials t)
+
+;; hook AC into completion-at-point
+;; (defun set-auto-complete-as-completion-at-point-function ()
+;;   (setq completion-at-point-functions '(auto-complete)))
+;; (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+
+(set-default 'ac-sources
+             '(
+	       ;; ac-source-imenu ;; works!
+	       ;; ac-source-gtags ;; see if we can hook ctags instead or start using gtags
+	       ;; ac-source-words-in-buffer
+	       ;; ac-source-words-in-same-mode-buffers
+	       ;; ac-source-nrepl ;test
+	       ;; ac-source-words-in-all-buffer ;; maybe jut spammy? I should try out without it
+	       ;; ac-source-yasnippet must install yasnippet
+	       ;; ac-source-abbrev ;must try yasnipet first and see if abbrev remains relevant
+	       ;; ac-source-dictionary ; can i hook this to aspell somewhat? must create language specific dictionaries anyway
+
+
+;;; those 3 following sources are elisp only, add on an elisp hook?
+	       ;; ac-source-functions
+	       ;; ac-source-symbols
+	       ;; ac-source-variables
+
+	       ))
+
+(dolist (mode '(magit-log-edit-mode log-edit-mode org-mode
+                text-mode sass-mode yaml-mode csv-mode
+                haskell-mode nxml-mode sh-mode clojure-mode
+                lisp-mode markdown-mode tuareg-mode js2-mode
+                css-mode))
+  (add-to-list 'ac-modes mode))
+
+;;; defuns
 ;; makes 'C-x 1' more useful, if we have several windows it does what it is
 ;; supposed to do and make the current one the only visible, but if we have
 ;; only one it restores the last configuration, awesome to switch back and
@@ -141,6 +186,12 @@
 
 ;;; Does nothing
 (defun nop () (interactive))
+
+
+(defun loadrc ()
+  "reload configuration file"
+  (interactive)
+  (load-file "~/.emacs.d/init.el"))
 
 ;;
 ;; ace jump mode major function
@@ -204,7 +255,18 @@
       org-icalendar-include-todo t)
 
 
-;; ERC
+;;; w3m
+(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+(setq browse-url-browser-function 'w3m-browse-url
+      w3m-use-cookies t
+      w3m-coding-system 'utf-8
+      w3m-file-coding-system 'utf-8
+      w3m-file-name-coding-system 'utf-8
+      w3m-input-coding-system 'utf-8
+      w3m-output-coding-system 'utf-8
+      w3m-terminal-coding-system 'utf-8)
+
+;;; ERC
 (require 'erc)
 (erc-autojoin-mode t)
 (setq erc-autojoin-channels-alist
@@ -344,7 +406,7 @@
     (ring-insert lang-ring lang)
     (ispell-change-dictionary lang)))
 
-(ispell-change-dictionary "francais")
+(ispell-change-dictionary "english")
 (dolist (hook '(text-mode-hook))
   (add-hook hook (lambda () (flyspell-mode))))
 (dolist (hook '(change-log-mode-hook log-edit-mode-hook))
@@ -380,8 +442,6 @@
 (global-key "C-M-%" 'query-replace)
 (global-key "C-x 1" 'toggle-maximize-buffer)
 (global-key "M-TAB" 'flyspell-auto-correct-word)
-(global-key "M-s M-s" 'eshell)
-(global-key "M-g M-g" 'magit-status)
 
 ;; instead of unsetting a key binding (using an undefined keybinding gives
 ;; a warning) assign nothing to it
@@ -443,10 +503,6 @@
 
 (precious-key "C-." 'idomenu)
 (precious-key "C-<tab>" 'bury-buffer)
-(precious-key "C-<left>"  'windmove-left)
-(precious-key "C-<right>" 'windmove-right)
-(precious-key "C-<up>"    'windmove-up)
-(precious-key "C-<down>"  'windmove-down)
 (precious-key "C-=" 'er/expand-region)
 (precious-key "M-=" 'er/contract-region)
 (precious-key "C-+" 'mc/mark-all-like-this-dwim)
@@ -458,15 +514,35 @@
 ;; spam this key to go trough your IM's and IRC conversations and then
 ;; return back to producing
 (precious-key "<f12>" 'erc-start-or-switch)
-
-
-;; opens Eshell or switches to it
-(precious-key "s-s" 'eshell)
-
-;;; magit is the perfect git environement there is always M-g g for go to line!
-(precious-key "s-g" 'magit-status)
-
 (precious-key "<f11>" 'cycle-ispell-languages)
+
+;; I use super as a general root key for my own personal binding, so a
+;; little helper function to establish my super-key-bindings is in order. to
+;; avoid confusion I mimick my stumpwm keys here
+(defun personal-key (key binding)
+  (precious-key (concat "s-" key) binding))
+
+;; direct translations inside Emacs of my stumpwm keybindings outside Emacs
+(personal-key "r" 'loadrc)
+(personal-key "w" 'w3m)
+(personal-key "c" 'eshell)
+(personal-key "u" 'list-packages)
+(personal-key "1" 'toggle-maximize-buffer)
+(personal-key "2" 'split-window-below)
+(personal-key "3" 'split-window-right)
+(personal-key "!" 'eshell-command)
+(personal-key "o" 'other-window)
+(personal-key "<left>" 'windmove-left)
+(personal-key "<right>" 'windmove-right)
+(personal-key "<up>" 'windmove-up)
+(personal-key "<down>" 'windmove-down)
+(personal-key ";" 'eval-expression)
+(personal-key "l" 'reposition-window)
+(personal-key "\"" 'list-buffers)
+
+;; Emacs specific personal bindings
+(personal-key "g" 'magit-status)
+(personal-key "b" 'browse-url-at-point)
 
 (mk-minor-mode 1)
 
@@ -476,6 +552,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ac-auto-show-menu 0.1)
+ '(ac-delay 0.0)
+ '(ac-quick-help-delay 0.1)
+ '(ac-use-fuzzy t)
+ '(ac-use-menu-map t)
  '(before-save-hook (quote (copyright-update)))
  '(completion-styles (quote (basic partial-completion emacs22 substring initials)))
  '(display-battery-mode t)
@@ -495,5 +576,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#3f3f3f" :foreground "#dcdccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 80 :width normal :foundry "unknown" :family "Dina"))))
+ '(ac-candidate-face ((t (:background "#3f3f3f" :foreground "#dcdccc"))))
+ '(ac-candidate-mouse-face ((t (:background "#383838" :foreground "#dcdccc"))))
+ '(ac-selection-face ((t (:background "#383838" :foreground "#dcdccc"))))
  '(mode-line ((t (:background "#2b2b2b" :foreground "#8fb28f"))))
  '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5f7f5f" :weight light)))))
