@@ -254,6 +254,11 @@
 (setq org-icalendar-store-UID t
       org-icalendar-include-todo t)
 
+(defun org-export-to-ods ()
+      (interactive)
+      (let ((csv-file (concat (buffer-name) ".csv")))
+        (org-table-export csv-file "orgtbl-to-csv")
+        (org-export-odt-convert csv-file "ods" nil)))
 
 ;;; w3m
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
