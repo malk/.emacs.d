@@ -147,7 +147,7 @@
 (set-default 'ac-sources
              '(
 	       ;; ac-source-imenu ;; works!
-	       ;; ac-source-gtags ;; see if we can hook ctags instead or start using gtags
+	       ;; ac-source-gtags ;; 
 	       ;; ac-source-words-in-buffer
 	       ;; ac-source-words-in-same-mode-buffers
 	       ;; ac-source-nrepl ;test

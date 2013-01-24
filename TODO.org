@@ -50,7 +50,10 @@
 * DONE make C-tab bury buffer on org mode too
 * DONE add C-M-l to the C-l cycle beginning with C-M-l
 * DONE w3m
-* TODO either make ac see ctags or switch to gtags globally
+* TODO gtags incorporation
+** TODO instead of emacs normal TAGS usage (at least M-., something else?)
+** TODO AC support to gtags
+** TODO projectile support
 * TODO ac-yasnippet
 ** TODO yasnippet
 * TODO ac-dictionary per major mode
@@ -64,6 +67,7 @@
 * TODO FlyCheck
 * TODO global org keybindings
 * TODO move all conf out of customization block
+* TODO make a zap-up-to-char, bind it to C-z
 * TODO put read only buffers into view mode
   and switching to/from read only also (de)activates view mode
 * TODO bindings to start a new buffer in follow mode
@@ -87,7 +91,8 @@
 * TODO process reguardtoo's conf files
 * TODO copyright update on save hook , does it respect license?
 * TODO google.el
-* TODO a shortcut that goes to the end of the current s-exp calls nrepl-eval-last* TODO turn my emacs conf to use org-mode organisation/literate http://dl.dropbox.com/u/3968124/sacha-emacs.html
+* TODO a shortcut that goes to the end of the current s-exp calls nrepl-eval-last
+* TODO turn my emacs conf to use org-mode organisation/literate http://dl.dropbox.com/u/3968124/sacha-emacs.html
 * TODO org export to markdown
 * TODO function that converts a markdown buffer to org and changes mode
 * TODO function that converts a org mode to markdown and changes mode
