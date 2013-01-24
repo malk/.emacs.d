@@ -50,10 +50,10 @@
 * DONE make C-tab bury buffer on org mode too
 * DONE add C-M-l to the C-l cycle beginning with C-M-l
 * DONE w3m
-* TODO gtags incorporation
-** TODO instead of emacs normal TAGS usage (at least M-., something else?)
-** TODO AC support to gtags
-** TODO projectile support
+* DONE flat modeline or powerline
+* DONE gtags incorporation
+** DONE AC support to gtags
+** DONE projectile support
 * TODO ac-yasnippet
 ** TODO yasnippet
 * TODO ac-dictionary per major mode
@@ -76,7 +76,6 @@
 * TODO my my conf install my packages automatically
 * TODO split conf in multiple files
   ERC conf goes to ~/.emacs.d/.ercrc.el and auth data to ~/.emacs.d/.erc-auth
-* TODO flat modeline or powerline
 * TODO fill electric-layout-rules, or electric layout wont work
 * TODO find-file-hook is used on all files, what to put on it?
 * TODO see the docs of built-in modules

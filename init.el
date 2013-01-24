@@ -38,6 +38,9 @@
 ;; Make window divider line the same color as the fringe
 (set-face-foreground 'vertical-border (face-background 'fringe))
 
+(require 'powerline)
+(setq powerline-arrow-shape 'arrow14)
+
 ;; IDO
 (require 'ido)
 (ido-mode t)
@@ -85,7 +88,7 @@
       kill-buffer-query-functions (remq 'process-kill-buffer-query-function kill-buffer-query-functions)
       backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
       )
-;; (setq-default abbrev-mode t) ;maybe yasnippet renders this completely useless, must try yasnippet first
+(setq-default abbrev-mode t)
 (setq-default tab-width 8)
 (setq-default show-trailing-whitespace t)
 (setq-default fill-column 76)
@@ -147,14 +150,15 @@
 (set-default 'ac-sources
              '(
 	       ;; ac-source-imenu ;; works!
-	       ;; ac-source-gtags ;; 
+	       ;; ac-source-gtags ;; works!
 	       ;; ac-source-words-in-buffer
 	       ;; ac-source-words-in-same-mode-buffers
 	       ;; ac-source-nrepl ;test
 	       ;; ac-source-words-in-all-buffer ;; maybe jut spammy? I should try out without it
 	       ;; ac-source-yasnippet must install yasnippet
-	       ;; ac-source-abbrev ;must try yasnipet first and see if abbrev remains relevant
+	       ;; ac-source-abbrev 
 	       ;; ac-source-dictionary ; can i hook this to aspell somewhat? must create language specific dictionaries anyway
+
 
 
 ;;; those 3 following sources are elisp only, add on an elisp hook?
@@ -243,11 +247,10 @@
 (setq-default save-place t)
 (setq save-place-file (concat user-emacs-directory "places"))
 
-;; Every day at 4 in the morning closes buffers opened too long ago and
-;; never visited since(so I never close buffers at all, I let the "decay and
-;; dissapear"
+;; Every day at noon closes buffers opened too long ago and never visited
+;; since: so I never close buffers at all, I let the "decay and dissapear"
 (require 'midnight)
-(midnight-delay-set 'midnight-delay "4:00am")
+(midnight-delay-set 'midnight-delay "12:00am")
 
 
 ;;; org-mode
@@ -328,8 +331,6 @@
 	      (let ((default-directory (getenv "HOME")))
 		(command-execute 'eshell)
 		(bury-buffer))))
-
-
 
 ;;; paredit
 (autoload 'paredit-mode "paredit"
@@ -575,6 +576,7 @@
  '(electric-pair-mode t)
  '(eshell-output-filter-functions (quote (eshell-handle-ansi-color eshell-handle-control-codes eshell-watch-for-password-prompt)))
  '(org-enforce-todo-dependencies t)
+ '(projectile-tags-command "gtags -I; ctags -Re %s")
  '(standard-indent 8)
  '(tab-always-indent (quote complete))
  '(which-function-mode t))
@@ -585,7 +587,9 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#3f3f3f" :foreground "#dcdccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 80 :width normal :foundry "unknown" :family "Dina"))))
  '(ac-candidate-face ((t (:background "#3f3f3f" :foreground "#dcdccc"))))
- '(ac-candidate-mouse-face ((t (:background "#383838" :foreground "#dcdccc"))))
+ '(ac-candidate-mouse-face ((t (:inherit ac-candidate-face))))
+ '(ac-gtags-candidate-face ((t (:inherit ac-candidate-face))))
+ '(ac-gtags-selection-face ((t (:inherit ac-selection-face))))
  '(ac-selection-face ((t (:background "#383838" :foreground "#dcdccc"))))
- '(mode-line ((t (:background "#2b2b2b" :foreground "#8fb28f"))))
- '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5f7f5f" :weight light)))))
+ '(mode-line ((t (:background "#2b2b2b" :foreground "#8fb28f" :box nil))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5f7f5f" :box nil :weight light)))))
