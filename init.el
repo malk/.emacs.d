@@ -80,19 +80,23 @@
       kill-do-not-save-duplicates t	;keeps the kill ring free of dups
       scroll-preserve-screen-position t	;keeps the cursor in the same
 					;position when scrolling
+      abbrev-file-name (concat user-emacs-directory "abbrev_defs")    ;; definitions from...
       which-func-modes t
       tooltip-use-echo-area t
       require-final-newline t
       completion-cycle-threshold 12
       confirm-nonexistent-file-or-buffer nil
       kill-buffer-query-functions (remq 'process-kill-buffer-query-function kill-buffer-query-functions)
-      backup-directory-alist `(("." . ,(concat user-emacs-directory "backups")))
-      )
+      backup-directory-alist `(("." . ,(concat user-emacs-directory "backups"))))
+
 (setq-default abbrev-mode t)
 (setq-default tab-width 8)
 (setq-default show-trailing-whitespace t)
 (setq-default fill-column 76)
 (require 'ffap)
+
+(if (file-exists-p abbrev-file-name)
+        (quietly-read-abbrev-file))
 
 (imagemagick-register-types)		;add several image file types to
 					;emacs
@@ -102,6 +106,9 @@
 (semantic-mode t)
 (add-hook 'after-save-hook
 	  'executable-make-buffer-file-executable-if-script-p)
+
+(require 'yasnippet)
+(yas/global-mode 1)
 
 ;; makes copy region (M-w) work on the current line if no region is active
 (put 'kill-ring-save 'interactive-form
@@ -120,8 +127,6 @@
 (require 'expand-region)
 (require 'multiple-cursors)
 
-
-
 ;;; IDE
 
 (require 'projectile)
@@ -131,7 +136,6 @@
 ;(eval-after-load "dabbrev" '(defalias 'dabbrev-expand 'hippie-expand))
 (require 'auto-complete)
 (require 'auto-complete-config)
-;; (require 'ac-dabbrev)
 (global-auto-complete-mode t)
 (define-key ac-completing-map (kbd "C-n") 'ac-next)
 (define-key ac-completing-map (kbd "C-p") 'ac-previous)
@@ -151,12 +155,12 @@
              '(
 	       ;; ac-source-imenu ;; works!
 	       ;; ac-source-gtags ;; works!
-	       ;; ac-source-words-in-buffer
-	       ;; ac-source-words-in-same-mode-buffers
-	       ;; ac-source-nrepl ;test
-	       ;; ac-source-words-in-all-buffer ;; maybe jut spammy? I should try out without it
-	       ;; ac-source-yasnippet must install yasnippet
-	       ;; ac-source-abbrev 
+	       ;; ac-source-abbrev ;; works, but not really sure I want abbrev on AC tho
+	       ;; ac-source-words-in-buffer ;;works
+	       ;; ac-source-words-in-same-mode-buffers ;; works
+	       ;; ac-source-yasnippet ;; works
+	       ;; ac-source-nrepl ; can I add it to the list only during clojure mode files?
+	       ;; ac-source-words-in-all-buffer ;; works but maybe jut spammy? I should try out without it
 	       ;; ac-source-dictionary ; can i hook this to aspell somewhat? must create language specific dictionaries anyway
 
 
@@ -396,7 +400,9 @@
 
 (defun single-space ()
   (interactive)
-  (just-one-space -1))
+  (progn
+    (expand-abbrev)
+    (just-one-space -1)))
 
 ;;;; Spell-Check
 (setq ispell-program-name "aspell"

@@ -54,14 +54,18 @@
 * DONE gtags incorporation
 ** DONE AC support to gtags
 ** DONE projectile support
-* TODO ac-yasnippet
-** TODO yasnippet
+* DONE ac-yasnippet
+** DONE yasnippet
 * TODO ac-dictionary per major mode
+* TODO predictive mode
+* TODO fallback to dabbrev
+* TODO pabbrev
 * TODO automatic autocompletion on every key hit on prog modes
 ** TODO Autocomplete
-* TODO predictive mode
-* TODO pabbrev
-* TODO fallback to dabbrev
+* TODO easy insertion of true quotes
+* TODO diminish mode
+* TODO C-S-<backspace> should also go back one line
+* TODO C-S-DEL should do the same thing as C-S-<backspace> right now (erase the current line and not move)
 * TODO eclim
 * TODO elein (leiningen from emacs)
 * TODO FlyCheck
@@ -104,6 +108,7 @@
 ** TODO if no block/sexp then to the current line
 ** TODO before developing a good one, initially jsut install the melpa one
 * TODO helm
+* TODO symbol next and previous
 * TODO am I missing a package from emacs-goodies-el? if so install by the official packaging sys
 ** http://packages.debian.org/wheezy/emacs-goodies-el
 
