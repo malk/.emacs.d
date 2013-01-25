@@ -161,7 +161,7 @@
 	       ;; ac-source-yasnippet ;; works
 	       ;; ac-source-nrepl ; can I add it to the list only during clojure mode files?
 	       ;; ac-source-words-in-all-buffer ;; works but maybe jut spammy? I should try out without it
-	       ;; ac-source-dictionary ; can i hook this to aspell somewhat? must create language specific dictionaries anyway
+	       ;; ac-source-dictionary ; must create language specific dictionaries
 
 
 
