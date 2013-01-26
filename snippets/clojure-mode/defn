@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: defn
+# key: d
+# binding: direct-keybinding
+# --
+(defn ${1:name} 
+  "${2:doc-string}"
+  [${3:arg-list}]
+  $0)

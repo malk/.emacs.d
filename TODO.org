@@ -56,6 +56,7 @@
 ** DONE projectile support
 * DONE ac-yasnippet
 ** DONE yasnippet
+* TODO Create my own yasnippet library replacing the awful elisp ones
 * TODO ac-dictionary per major mode
 * TODO predictive mode
 * TODO fallback to dabbrev
@@ -66,7 +67,6 @@
 * TODO diminish mode
 * TODO C-S-<backspace> should also go back one line
 * TODO C-S-DEL should do the same thing as C-S-<backspace> right now (erase the current line and not move)
-* TODO eclim
 * TODO elein (leiningen from emacs)
 * TODO FlyCheck
 * TODO global org keybindings
@@ -75,27 +75,28 @@
 * TODO put read only buffers into view mode
   and switching to/from read only also (de)activates view mode
 * TODO bindings to start a new buffer in follow mode
-* TODO read prelude, incorporate suggestions
-* TODO read ESK, incorporate suggestions
-* TODO my my conf install my packages automatically
+* TODO make my conf install my packages automatically
 * TODO split conf in multiple files
   ERC conf goes to ~/.emacs.d/.ercrc.el and auth data to ~/.emacs.d/.erc-auth
 * TODO fill electric-layout-rules, or electric layout wont work
 * TODO find-file-hook is used on all files, what to put on it?
 * TODO see the docs of built-in modules
 * TODO email client : WL or mu4e?
-* TODO pfilfer stuff rom this conf https://github.com/jsulak/.emacs.d/blob/master/init.el
+* TODO pfilfer stuff rom this conf 
 * TODO eldoc!
 * TODO Auototyping manual
 * TODO quickurl and quicurl-add-url and quickurl-list
-* TODO change colors on clojure test mode so the green and red bars are easier on the eye* TODO add ampc support
-* TODO streamline clojure-mode compile-comile_the_test-run_tests_jump_to_first_error collection fo keyboard shortcuts into a single keyboard shortcut
+* TODO Clojure
+** TODO change colors on clojure test mode so the green and red bars are easier on the eye
+** TODO streamline clojure-mode compile-comile_the_test-run_tests_jump_to_first_error collection fo keyboard shortcuts into a single keyboard shortcut
+** TODO C-c C-n does not work on clojure mode, must fix
+** TODO must make nrepl-jump use a different key-binding and leave M-. alone
+* TODO add ampc support
 * TODO process purcell's conf files
 * TODO process reguardtoo's conf files
 * TODO copyright update on save hook , does it respect license?
 * TODO google.el
 * TODO a shortcut that goes to the end of the current s-exp calls nrepl-eval-last
-* TODO turn my emacs conf to use org-mode organisation/literate http://dl.dropbox.com/u/3968124/sacha-emacs.html
 * TODO org export to markdown
 * TODO function that converts a markdown buffer to org and changes mode
 * TODO function that converts a org mode to markdown and changes mode
@@ -109,6 +110,13 @@
 ** TODO before developing a good one, initially jsut install the melpa one
 * TODO helm
 * TODO symbol next and previous
+* TODO Process the init files from the great ones
+** TODO Magnar's
+** TODO sacha chua's literate http://dl.dropbox.com/u/3968124/sacha-emacs.html
+** TODO https://github.com/jsulak/.emacs.d/blob/master/init.el
+** TODO https://github.com/gar3thjon3s/dotfiles/blob/master/.emacs.d/init.el
+** TODO Prelude
+** TODO Emacs starter kit
 * TODO am I missing a package from emacs-goodies-el? if so install by the official packaging sys
 ** http://packages.debian.org/wheezy/emacs-goodies-el
 

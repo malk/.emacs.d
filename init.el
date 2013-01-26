@@ -84,7 +84,7 @@
       which-func-modes t
       tooltip-use-echo-area t
       require-final-newline t
-      completion-cycle-threshold 12
+      completion-cycle-threshold t
       confirm-nonexistent-file-or-buffer nil
       kill-buffer-query-functions (remq 'process-kill-buffer-query-function kill-buffer-query-functions)
       backup-directory-alist `(("." . ,(concat user-emacs-directory "backups"))))
@@ -127,6 +127,10 @@
 (require 'expand-region)
 (require 'multiple-cursors)
 
+(require 'golden-ratio)
+
+(golden-ratio-enable)
+
 ;;; IDE
 
 (require 'projectile)
@@ -135,41 +139,45 @@
 ;;; complete? hiipie AC or semantic? all 3?
 ;(eval-after-load "dabbrev" '(defalias 'dabbrev-expand 'hippie-expand))
 (require 'auto-complete)
+
+(setq tab-always-indent 'complete)  ;; use 't when auto-complete is disabled
+(add-to-list 'completion-styles 'substring t)
+(add-to-list 'completion-styles 'initials t)
+
+;;hook AC into completion-at-point
+(defun set-auto-complete-as-completion-at-point-function ()
+  (add-to-list 'completion-at-point-functions 'auto-complete t))
+(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+(add-hook 'nrepl-mode-hook 'set-auto-complete-as-completion-at-point-function)
+(add-hook 'nrepl-interaction-mode-hook 'set-auto-complete-as-completion-at-point-function)
+
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
 (define-key ac-completing-map (kbd "C-n") 'ac-next)
 (define-key ac-completing-map (kbd "C-p") 'ac-previous)
 
-;;----------------------------------------------------------------------------
-;; Use Emacs' built-in TAB completion hooks to trigger AC (Emacs >= 23.2)
-;;----------------------------------------------------------------------------
-;; (setq tab-always-indent 'complete)  ;; use 't when auto-complete is disabled
-;; (add-to-list 'completion-styles 'initials t)
 
-;; hook AC into completion-at-point
-;; (defun set-auto-complete-as-completion-at-point-function ()
-;;   (setq completion-at-point-functions '(auto-complete)))
-;; (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
+(defun add-to-ac-user-dict (entry)
+  "Add a string to the personal Dictionary of Autocomplete"
+  (interactive)
+  (add-to-list 'ac-user-dictionary entry)
+  )
+(add-to-ac-user-dict user-mail-address)
+(add-to-ac-user-dict user-full-name)
 
 (set-default 'ac-sources
              '(
-	       ;; ac-source-imenu ;; works!
-	       ;; ac-source-gtags ;; works!
-	       ;; ac-source-abbrev ;; works, but not really sure I want abbrev on AC tho
-	       ;; ac-source-words-in-buffer ;;works
-	       ;; ac-source-words-in-same-mode-buffers ;; works
-	       ;; ac-source-yasnippet ;; works
-	       ;; ac-source-nrepl ; can I add it to the list only during clojure mode files?
+	       ac-source-imenu
+	       ac-source-gtags
+	       ac-source-abbrev
+	       ac-source-yasnippet
+	       ac-source-words-in-buffer
+	       ac-source-words-in-same-mode-buffers
 	       ;; ac-source-words-in-all-buffer ;; works but maybe jut spammy? I should try out without it
-	       ;; ac-source-dictionary ; must create language specific dictionaries
-
-
-
-;;; those 3 following sources are elisp only, add on an elisp hook?
-	       ;; ac-source-functions
-	       ;; ac-source-symbols
-	       ;; ac-source-variables
-
+	       ac-source-dictionary
+	       ac-source-functions
+	       ac-source-symbols
+	       ac-source-variables
 	       ))
 
 (dolist (mode '(magit-log-edit-mode log-edit-mode org-mode
@@ -232,7 +240,7 @@
   (subword-mode -1)
   )
 (add-hook 'prog-mode-hook 'my-coding-hook)
-
+(add-hook 'nrepl-mode-hook 'my-coding-hook)
 ;; version control and backup
 (require 'magit)
 
@@ -434,6 +442,17 @@
 (add-hook 'before-save-hook 'copyright-update)
 
 
+;;; Clojure
+
+(add-to-list 'same-window-buffer-names "*nrepl*")
+(require 'ac-nrepl)
+(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'nrepl-mode))
+(define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
+
+
 ;;; Key-bindings
 ;; I concentrate all global key-bindings customization here
 
@@ -548,9 +567,12 @@
 (personal-key "<right>" 'windmove-right)
 (personal-key "<up>" 'windmove-up)
 (personal-key "<down>" 'windmove-down)
+(personal-key "<tab>"  'auto-complete)
 (personal-key ";" 'eval-expression)
 (personal-key "l" 'reposition-window)
 (personal-key "\"" 'list-buffers)
+
+
 
 ;; Emacs specific personal bindings
 (personal-key "g" 'magit-status)
@@ -559,18 +581,32 @@
 (mk-minor-mode 1)
 
 
+(when (require 'diminish nil 'noerror)
+  (eval-after-load "company"
+      '(diminish 'company-mode))
+  (eval-after-load "abbrev"
+    '(diminish 'abbrev-mode))
+  (eval-after-load "yasnippet"
+    '(diminish 'yas/minor-mode))
+  (eval-after-load "filladapt"
+    '(diminish 'filladapt-mode ))
+  )
+(eval-after-load "filladapt" '(diminish 'filladapt-mode))
+
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ac-auto-show-menu 0.1)
+ '(ac-auto-show-menu t)
+ '(ac-auto-start 1)
  '(ac-delay 0.0)
  '(ac-quick-help-delay 0.1)
+ '(ac-trigger-commands (quote (self-insert-command delete-backward-char)))
  '(ac-use-fuzzy t)
  '(ac-use-menu-map t)
  '(before-save-hook (quote (copyright-update)))
- '(completion-styles (quote (basic partial-completion emacs22 substring initials)))
  '(copyright-at-end-flag t)
  '(copyright-query nil)
  '(copyright-year-ranges nil)
