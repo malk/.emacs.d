@@ -583,6 +583,19 @@ instead."
 (setq cperl-font-lock t
       cperl-lazy-help-time t)
 
+;;;; Eldoc
+(require 'eldoc)
+(eldoc-add-command
+ 'paredit-backward-delete
+ 'paredit-close-round)
+(add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'cperl-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'nrepl-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'eshell-mode-hook 'turn-on-eldoc-mode)
+(require 'cljdoc)
+
 ;;; Key-bindings
 ;; I concentrate all global key-bindings customization here
 
@@ -782,6 +795,9 @@ instead."
  '(display-battery-mode t)
  '(display-time-24hr-format t)
  '(display-time-mode t)
+ '(eldoc-argument-case (quote downcase))
+ '(eldoc-idle-delay 0)
+ '(eldoc-minor-mode-string "※")
  '(electric-indent-mode t)
  '(electric-layout-mode t)
  '(electric-pair-mode t)

@@ -62,6 +62,7 @@
 * DONE automatic autocompletion on every key hit on prog modes
 ** DONE Autocomplete
 * DONE symbol next and previous
+* DONE eldoc!
 * TODO Create my own yasnippet library replacing the awful elisp ones
 * TODO easy insertion of true quotes
 * TODO C-S-<backspace> should also go back one line
@@ -76,7 +77,6 @@
 * TODO fill electric-layout-rules, or electric layout wont work
 * TODO see the docs of built-in modules
 * TODO email client : WL or mu4e?
-* TODO eldoc!
 * TODO Auototyping manual
 * TODO quickurl and quicurl-add-url and quickurl-list
 * TODO Clojure
