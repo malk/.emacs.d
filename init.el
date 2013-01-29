@@ -147,6 +147,8 @@
 
 (require 'move-text)
 
+(require 'lacarte)
+
 ;;; IDE
 
 (require 'projectile)
@@ -647,6 +649,7 @@ instead."
 (global-key "C-S-<down>" 'smart-down)
 (global-key "C-S-<left>" 'smart-backward)
 (global-key "C-S-<right>" 'smart-forward)
+(global-key "M-`" 'lacarte-execute-command)
 
 ;; instead of unsetting a key binding (using an undefined keybinding gives
 ;; a warning) assign nothing to it
