@@ -81,7 +81,7 @@
 * TODO email client : WL or mu4e?
 * TODO Clojure
 ** TODO elein (leiningen from emacs)
-** TODO the emacs mode for idiomatic clojure
+** DONE the emacs mode for idiomatic clojure: kibit
 ** TODO clojure's docco
 ** TODO change colors on clojure test mode so the green and red bars are easier on the eye
 ** TODO streamline clojure-mode compile-comile_the_test-run_tests_jump_to_first_error collection fo keyboard shortcuts into a single keyboard shortcut
