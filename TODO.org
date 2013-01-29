@@ -64,34 +64,18 @@
 * DONE symbol next and previous
 * DONE eldoc!
 * DONE writegood mode
-* TODO Create my own yasnippet library replacing the awful elisp ones
+* TODO lacarte
+* TODO mark to char
+* TODO helm
+* TODO alarm or sauron
+* TODO bitlbee back
 * TODO easy insertion of true quotes
+* TODO quickurl and quicurl-add-url and quickurl-list
+* TODO FlyCheck
+* TODO email client : WL or mu4e?
 * TODO C-S-<backspace> should also go back one line
 * TODO C-S-DEL should do the same thing as C-S-<backspace> right now (erase the current line and not move)
 * TODO elein (leiningen from emacs)
-* TODO FlyCheck
-* TODO global org keybindings
-* TODO move all conf out of customization block
-* TODO make my conf install my packages automatically
-* TODO split conf in multiple files
-  ERC conf goes to ~/.emacs.d/.ercrc.el and auth data to ~/.emacs.d/.erc-auth
-* TODO fill electric-layout-rules, or electric layout wont work
-* TODO see the docs of built-in modules
-* TODO email client : WL or mu4e?
-* TODO Auototyping manual
-* TODO quickurl and quicurl-add-url and quickurl-list
-* TODO Clojure
-** TODO change colors on clojure test mode so the green and red bars are easier on the eye
-** TODO streamline clojure-mode compile-comile_the_test-run_tests_jump_to_first_error collection fo keyboard shortcuts into a single keyboard shortcut
-** TODO C-c C-n does not work on clojure mode, must fix
-** TODO must make nrepl-jump use a different key-binding and leave M-. alone
-* TODO add ampc support
-* TODO copyright update on save hook , does it respect license?
-* TODO google.el
-* TODO org export to markdown
-* TODO function that converts a markdown buffer to org and changes mode
-* TODO function that converts a org mode to markdown and changes mode
-* TODO markdown-mode
 * TODO create an equivalent of eclipse's M-up and M-down in a
 ** TODO Moves a region
 ** TODO binds to s-[n,p,f,b]
@@ -99,10 +83,21 @@
 ** TODO empty regions defaults to the current block/sexp
 ** TODO if no block/sexp then to the current line
 ** TODO before developing a good one, initially jsut install the melpa one
-* TODO helm
-* TODO lacarte
-* TODO mark to char
-* TODO alarm or sauron
+* TODO global org keybindings
+* TODO move all conf out of customization block
+* TODO make my conf install my packages automatically
+* TODO split conf in multiple files
+  ERC conf goes to ~/.emacs.d/.ercrc.el and auth data to ~/.emacs.d/.erc-auth
+* TODO fill electric-layout-rules, or electric layout wont work
+* TODO see the docs of built-in modules
+* TODO Auototyping manual
+* TODO Clojure
+** TODO change colors on clojure test mode so the green and red bars are easier on the eye
+** TODO streamline clojure-mode compile-comile_the_test-run_tests_jump_to_first_error collection fo keyboard shortcuts into a single keyboard shortcut
+** TODO C-c C-n does not work on clojure mode, must fix
+** TODO must make nrepl-jump use a different key-binding and leave M-. alone
+* TODO copyright update on save hook , does it respect license?
+* TODO google.el
 * TODO Process the init files from the great ones
 ** TODO Magnar's
 ** TODO https://github.com/rejeep/emacs/blob/master/rejeep-defuns.el#L150-L158
@@ -116,5 +111,8 @@
 ** TODO process reguardtoo's conf files
 * TODO am I missing a package from emacs-goodies-el? if so install by the official packaging sys
 ** http://packages.debian.org/wheezy/emacs-goodies-el
+* TODO Create my own yasnippet library replacing the awful elisp ones
 * Things waiting some outside event that I cannot control
 ** predictive mode (seems awesome, currently too alpha)
+** add ampc support
+*** Google play music support (currently broken, without this ampc is useless for me)
