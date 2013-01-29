@@ -63,6 +63,7 @@
 ** DONE Autocomplete
 * DONE symbol next and previous
 * DONE eldoc!
+* DONE writegood mode
 * TODO Create my own yasnippet library replacing the awful elisp ones
 * TODO easy insertion of true quotes
 * TODO C-S-<backspace> should also go back one line

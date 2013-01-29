@@ -203,6 +203,10 @@
 
 (require 'minimap)
 
+(require 'writegood-mode)
+(add-hook 'text-mode-hook 'writegood-mode)
+(add-hook 'org-mode-hook 'writegood-mode)
+
 ;;; defuns
 ;; makes 'C-x 1' more useful, if we have several windows it does what it is
 ;; supposed to do and make the current one the only visible, but if we have
@@ -754,6 +758,7 @@ instead."
 
 
 ;; Emacs specific personal bindings
+(personal-key "0" 'delete-window)
 (personal-key "g" 'magit-status)
 (personal-key "b" 'browse-url-at-point)
 (personal-key "s" 'w3m-search)
@@ -771,6 +776,8 @@ instead."
 (diminish 'auto-fill-function)
 (diminish 'mk-minor-mode)
 (diminish 'projectile-mode)
+(diminish 'volatile-highlights-mode)
+(diminish 'writegood-mode)
 (eval-after-load "abbrev"
   '(diminish 'abbrev-mode))
 (eval-after-load "paredit"
@@ -785,12 +792,17 @@ instead."
   '(diminish 'mk-minor-mode))
 (eval-after-load "yasnippet"
   '(diminish 'yas-minor-mode))
+(eval-after-load "writegood"
+  '(diminish 'writegood-minor-mode))
 (add-hook 'emacs-lisp-mode-hook
   (lambda()
     (setq mode-name "el")))
 (add-hook 'clojure-mode-hook
   (lambda()
     (setq mode-name "λ")))
+(add-hook 'text-mode-hook
+  (lambda()
+    (setq mode-name "txt")))
 
 
 (custom-set-variables
@@ -851,4 +863,5 @@ instead."
  '(ac-selection-face ((t (:background "#383838" :foreground "#dcdccc"))))
  '(mode-line ((t (:background "#2b2b2b" :foreground "#8fb28f" :box nil))))
  '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5f7f5f" :box nil :weight light))))
- '(show-paren-match ((t (:weight bold)))))
+ '(show-paren-match ((t (:weight bold))))
+ '(writegood-passive-voice-face ((t (:inherit font-lock-warning-face :background "khaki")))))
