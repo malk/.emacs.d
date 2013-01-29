@@ -211,6 +211,15 @@
 (add-hook 'text-mode-hook 'writegood-mode)
 (add-hook 'org-mode-hook 'writegood-mode)
 
+(require 'helm-config)
+(require 'helm-gtags)
+
+;; customize
+(setq helm-c-gtags-path-style 'relative)
+(setq helm-c-gtags-ignore-case t)
+(setq helm-c-gtags-read-only t)
+
+
 ;;; defuns
 ;; makes 'C-x 1' more useful, if we have several windows it does what it is
 ;; supposed to do and make the current one the only visible, but if we have
@@ -262,6 +271,7 @@
   (auto-fill-mode t)
   (glasses-mode)
   (subword-mode -1)
+  (helm-gtags-mode)
   )
 (add-hook 'prog-mode-hook 'my-coding-hook)
 (add-hook 'nrepl-mode-hook 'my-coding-hook)
@@ -778,6 +788,8 @@ instead."
 (personal-key "m" 'minimap-toggle)
 (personal-key "M-<up>" 'move-text-up)
 (personal-key "M-<down>" 'move-text-down)
+(personal-key "h" 'helm-mini)
+
 
 (mk-minor-mode 1)
 
