@@ -145,6 +145,8 @@
 
 (require 'smart-forward)
 
+(require 'move-text)
+
 ;;; IDE
 
 (require 'projectile)
@@ -768,6 +770,8 @@ instead."
 (personal-key "*" 'ace-jump-mode-pop-mark)
 (personal-key "l" 'reposition-window)
 (personal-key "m" 'minimap-toggle)
+(personal-key "M-<up>" 'move-text-up)
+(personal-key "M-<down>" 'move-text-down)
 
 (mk-minor-mode 1)
 
