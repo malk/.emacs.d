@@ -131,6 +131,18 @@
 
 (golden-ratio-enable)
 
+(defun goto-line-with-feedback ()
+  "Show line numbers temporarily, while prompting for the line number input"
+  (interactive)
+  (unwind-protect
+      (progn
+        (linum-mode 1)
+        (goto-line (read-number "Goto line: ")))
+    (linum-mode -1)))
+(global-set-key [remap goto-line] 'goto-line-with-feedback)
+
+(require 'fastnav)
+
 ;;; IDE
 
 (require 'projectile)
@@ -275,6 +287,9 @@
         (org-table-export csv-file "orgtbl-to-csv")
         (org-export-odt-convert csv-file "ods" nil)))
 
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
 ;;; w3m
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
 (setq browse-url-browser-function 'w3m-browse-url
@@ -412,6 +427,107 @@
     (expand-abbrev)
     (just-one-space -1)))
 
+(defun join-this-line-with-next-one ()
+  "Joing the current line and the next one"
+  (interactive)
+  (join-line -1)
+  )
+
+(defun join-line-or-lines-in-region (&optional ARG)
+  "Join this line or the lines in the selected region."
+  (interactive)
+  (cond ((region-active-p)
+         (let ((min (line-number-at-pos (region-beginning))))
+           (goto-char (region-end))
+           (while (> (line-number-at-pos) min)
+             (join-line))))
+        (t (call-interactively 'join-this-line-with-next-one))))
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; START SCAN MODE
+;;;;(this should be its own module, really)
+;;;; code snippet taken here http://www.masteringemacs.org/articles/2011/01/14/effective-editing-movement/
+(defvar smart-use-extended-syntax nil
+  "If t the smart symbol functionality will consider extended
+syntax in finding matches, if such matches exist.")
+
+(defvar smart-last-symbol-name ""
+  "Contains the current symbol name.
+
+This is only refreshed when `last-command' does not contain
+either `smart-symbol-go-forward' or `smart-symbol-go-backward'")
+
+(make-local-variable 'smart-use-extended-syntax)
+
+(defvar smart-symbol-old-pt nil
+  "Contains the location of the old point")
+
+(defun smart-symbol-goto (name direction)
+  "Jumps to the next NAME in DIRECTION in the current buffer.
+
+DIRECTION must be either `forward' or `backward'; no other option
+is valid."
+
+  ;; if `last-command' did not contain
+  ;; `smart-symbol-go-forward/backward' then we assume it's a
+  ;; brand-new command and we re-set the search term.
+  (unless (memq last-command '(smart-symbol-go-forward
+                               smart-symbol-go-backward))
+    (setq smart-last-symbol-name name))
+  (setq smart-symbol-old-pt (point))
+  (message (format "%s scan for symbol \"%s\""
+                   (capitalize (symbol-name direction))
+                   smart-last-symbol-name))
+  (unless (catch 'done
+            (while (funcall (cond
+                             ((eq direction 'forward) ; forward
+                              'search-forward)
+                             ((eq direction 'backward) ; backward
+                              'search-backward)
+                             (t (error "Invalid direction"))) ; all others
+                            smart-last-symbol-name nil t)
+              (unless (memq (syntax-ppss-context
+                             (syntax-ppss (point))) '(string comment))
+                (throw 'done t))))
+    (goto-char smart-symbol-old-pt)))
+
+(defun smart-symbol-go-forward ()
+  "Jumps forward to the next symbol at point"
+  (interactive)
+  (smart-symbol-goto (smart-symbol-at-pt 'end) 'forward))
+
+(defun smart-symbol-go-backward ()
+  "Jumps backward to the previous symbol at point"
+  (interactive)
+  (smart-symbol-goto (smart-symbol-at-pt 'beginning) 'backward))
+
+(defun smart-symbol-at-pt (&optional dir)
+  "Returns the symbol at point and moves point to DIR (either `beginning' or `end') of the symbol.
+
+If `smart-use-extended-syntax' is t then that symbol is returned
+instead."
+  (with-syntax-table (make-syntax-table)
+    (if smart-use-extended-syntax
+        (modify-syntax-entry ?. "w"))
+    (modify-syntax-entry ?_ "w")
+    (modify-syntax-entry ?- "w")
+    ;; grab the word and return it
+    (let ((word (thing-at-point 'word))
+          (bounds (bounds-of-thing-at-point 'word)))
+      (if word
+          (progn
+            (cond
+             ((eq dir 'beginning) (goto-char (car bounds)))
+             ((eq dir 'end) (goto-char (cdr bounds)))
+             (t (error "Invalid direction")))
+            word)
+        (error "No symbol found")))))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; END SCAN MODE
+
+
+
+
 ;;;; Spell-Check
 (setq ispell-program-name "aspell"
       ispell-list-command "list"
@@ -425,7 +541,6 @@
   (let ((lang (ring-ref lang-ring -1)))
     (ring-insert lang-ring lang)
     (ispell-change-dictionary lang)))
-
 (ispell-change-dictionary "english")
 (dolist (hook '(text-mode-hook))
   (add-hook hook (lambda () (flyspell-mode))))
@@ -453,6 +568,20 @@
 (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
 
 
+;;; Perl
+(defalias 'perl-mode 'cperl-mode)
+(defun my-cperl-eldoc-documentation-function ()
+  "Return meaningful doc string for `eldoc-mode'."
+  (car
+   (let ((cperl-message-on-help-error nil))
+     (cperl-get-help))))
+(add-hook 'cperl-mode-hook
+	  (lambda ()
+	    (set (make-local-variable 'eldoc-documentation-function)
+		 'my-cperl-eldoc-documentation-function)))
+(setq cperl-font-lock t
+      cperl-lazy-help-time t)
+
 ;;; Key-bindings
 ;; I concentrate all global key-bindings customization here
 
@@ -473,6 +602,12 @@
 (global-key "C-M-%" 'query-replace)
 (global-key "C-x 1" 'toggle-maximize-buffer)
 (global-key "M-TAB" 'flyspell-auto-correct-word)
+(global-key "M-j" 'join-line-or-lines-in-region)
+(global-key "C-z" 'fastnav-zap-up-to-char-forward)
+(global-key "M-z" 'fastnav-zap-to-char-forward)
+(global-key "M-n" 'smart-symbol-go-forward)
+(global-key "M-p" 'smart-symbol-go-backward)
+
 
 ;; instead of unsetting a key binding (using an undefined keybinding gives
 ;; a warning) assign nothing to it
@@ -569,29 +704,47 @@
 (personal-key "<down>" 'windmove-down)
 (personal-key "<tab>"  'auto-complete)
 (personal-key ";" 'eval-expression)
-(personal-key "l" 'reposition-window)
 (personal-key "\"" 'list-buffers)
-
 
 
 ;; Emacs specific personal bindings
 (personal-key "g" 'magit-status)
 (personal-key "b" 'browse-url-at-point)
+(personal-key "s" 'w3m-search)
+(personal-key "f" 'fastnav-sprint-forward)
+(personal-key "i" 'fastnav-insert-at-char-forward)
+(personal-key "SPC" 'ace-jump-mode)
+(personal-key "*" 'ace-jump-mode-pop-mark)
+(personal-key "l" 'reposition-window)
 
 (mk-minor-mode 1)
 
+; diminish my mode line, save screen space and focus on what is important
+(require 'diminish)
+(eval-after-load "abbrev"
+  '(diminish 'abbrev-mode))
+;; (eval-after-load "yasnippet"
+;;   '(diminish 'yas/global-mode))
+(eval-after-load "paredit"
+  '(diminish 'paredit-mode "()"))
+(eval-after-load "auto-complete"
+  '(diminish 'auto-complete-mode))
+(eval-after-load "flyspell"
+  '(diminish 'flyspell-mode))
 
-(when (require 'diminish nil 'noerror)
-  (eval-after-load "company"
-      '(diminish 'company-mode))
-  (eval-after-load "abbrev"
-    '(diminish 'abbrev-mode))
-  (eval-after-load "yasnippet"
-    '(diminish 'yas/minor-mode))
-  (eval-after-load "filladapt"
-    '(diminish 'filladapt-mode ))
-  )
-(eval-after-load "filladapt" '(diminish 'filladapt-mode))
+(diminish 'auto-fill-function)
+(diminish 'mk-minor-mode)
+(diminish 'projectile-mode)
+
+;; (diminish 'yas/global-mode)
+
+
+;; (add-hook 'emacs-lisp-mode-hook
+;;   (lambda()
+;;     (setq mode-name "el")))
+(add-hook 'clojure-mode-hook
+  (lambda()
+    (setq mode-name "λ")))
 
 
 (custom-set-variables
@@ -617,7 +770,16 @@
  '(electric-layout-mode t)
  '(electric-pair-mode t)
  '(eshell-output-filter-functions (quote (eshell-handle-ansi-color eshell-handle-control-codes eshell-watch-for-password-prompt)))
+ '(org-bullets-bullet-list (quote ("●" "○" "◉" "✸" "✿" "❀" "✚" "✜" "▶" "◇" "◆" "♠" "♣" "♥" "◖" "☯" "☢")))
+ '(org-completion-use-ido t)
  '(org-enforce-todo-dependencies t)
+ '(org-fontify-done-headline t)
+ '(org-fontify-emphasized-text t)
+ '(org-fontify-whole-heading-line t)
+ '(org-hide-leading-stars t)
+ '(org-imenu-depth 3)
+ '(org-pretty-entities t)
+ '(org-src-fontify-natively t)
  '(projectile-tags-command "gtags -I; ctags -Re %s")
  '(standard-indent 8)
  '(tab-always-indent (quote complete))

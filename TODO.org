@@ -56,33 +56,26 @@
 ** DONE projectile support
 * DONE ac-yasnippet
 ** DONE yasnippet
+* DONE fallback to dabbrev
+* DONE diminish mode
+* DONE make a zap-up-to-char, bind it to C-z
+* DONE automatic autocompletion on every key hit on prog modes
+** DONE Autocomplete
+* DONE symbol next and previous
 * TODO Create my own yasnippet library replacing the awful elisp ones
-* TODO ac-dictionary per major mode
-* TODO predictive mode
-* TODO fallback to dabbrev
-* TODO pabbrev
-* TODO automatic autocompletion on every key hit on prog modes
-** TODO Autocomplete
 * TODO easy insertion of true quotes
-* TODO diminish mode
 * TODO C-S-<backspace> should also go back one line
 * TODO C-S-DEL should do the same thing as C-S-<backspace> right now (erase the current line and not move)
 * TODO elein (leiningen from emacs)
 * TODO FlyCheck
 * TODO global org keybindings
 * TODO move all conf out of customization block
-* TODO make a zap-up-to-char, bind it to C-z
-* TODO put read only buffers into view mode
-  and switching to/from read only also (de)activates view mode
-* TODO bindings to start a new buffer in follow mode
 * TODO make my conf install my packages automatically
 * TODO split conf in multiple files
   ERC conf goes to ~/.emacs.d/.ercrc.el and auth data to ~/.emacs.d/.erc-auth
 * TODO fill electric-layout-rules, or electric layout wont work
-* TODO find-file-hook is used on all files, what to put on it?
 * TODO see the docs of built-in modules
 * TODO email client : WL or mu4e?
-* TODO pfilfer stuff rom this conf 
 * TODO eldoc!
 * TODO Auototyping manual
 * TODO quickurl and quicurl-add-url and quickurl-list
@@ -92,11 +85,8 @@
 ** TODO C-c C-n does not work on clojure mode, must fix
 ** TODO must make nrepl-jump use a different key-binding and leave M-. alone
 * TODO add ampc support
-* TODO process purcell's conf files
-* TODO process reguardtoo's conf files
 * TODO copyright update on save hook , does it respect license?
 * TODO google.el
-* TODO a shortcut that goes to the end of the current s-exp calls nrepl-eval-last
 * TODO org export to markdown
 * TODO function that converts a markdown buffer to org and changes mode
 * TODO function that converts a org mode to markdown and changes mode
@@ -109,14 +99,17 @@
 ** TODO if no block/sexp then to the current line
 ** TODO before developing a good one, initially jsut install the melpa one
 * TODO helm
-* TODO symbol next and previous
 * TODO Process the init files from the great ones
 ** TODO Magnar's
+** TODO https://github.com/rejeep/emacs/blob/master/rejeep-defuns.el#L150-L158
 ** TODO sacha chua's literate http://dl.dropbox.com/u/3968124/sacha-emacs.html
 ** TODO https://github.com/jsulak/.emacs.d/blob/master/init.el
 ** TODO https://github.com/gar3thjon3s/dotfiles/blob/master/.emacs.d/init.el
 ** TODO Prelude
 ** TODO Emacs starter kit
+** TODO purcell's conf files
+** TODO process reguardtoo's conf files
 * TODO am I missing a package from emacs-goodies-el? if so install by the official packaging sys
 ** http://packages.debian.org/wheezy/emacs-goodies-el
-
+* Things waiting some outside event that I cannot control
+** predictive mode (seems awesome, currently too alpha)
