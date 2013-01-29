@@ -235,6 +235,9 @@
 (require 'helm-config)
 (require 'helm-gtags)
 
+(require 'flycheck)
+(add-hook 'prog-mode-hook 'flycheck-mode)
+
 ;; customize
 (setq helm-c-gtags-path-style 'relative)
 (setq helm-c-gtags-ignore-case t)
@@ -859,6 +862,8 @@ instead."
   '(diminish 'writegood-minor-mode))
 (eval-after-load "helm-gtags"
   '(diminish 'helm-gtags-mode))
+(eval-after-load "flycheck"
+  '(diminish 'flycheck-mode))
 ;; (eval-after-load "kibit"
 ;;   '(diminish 'kibit-mode))
 (add-hook 'emacs-lisp-mode-hook

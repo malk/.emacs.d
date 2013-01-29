@@ -75,9 +75,9 @@
 * DONE quickurl and quicurl-add-url and quickurl-list
 * DONE C-S-DEL should do the same thing as C-S-<backspace> right now (erase the current line and not move)
 * DONE C-S-<backspace> should also go back one line
+* DONE FlyCheck
 * TODO alarm or sauron
 * TODO bitlbee back
-* TODO FlyCheck
 * TODO email client : WL or mu4e?
 * TODO Clojure
 ** TODO elein (leiningen from emacs)
