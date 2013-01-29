@@ -838,6 +838,7 @@ instead."
 (diminish 'volatile-highlights-mode)
 (diminish 'writegood-mode)
 (diminish 'nrepl-interaction-mode "∞")
+(diminish 'kibit-mode)
 (eval-after-load "abbrev"
   '(diminish 'abbrev-mode))
 ;; (eval-after-load "nrepl"
@@ -856,6 +857,10 @@ instead."
   '(diminish 'yas-minor-mode))
 (eval-after-load "writegood"
   '(diminish 'writegood-minor-mode))
+(eval-after-load "helm-gtags"
+  '(diminish 'helm-gtags-mode))
+;; (eval-after-load "kibit"
+;;   '(diminish 'kibit-mode))
 (add-hook 'emacs-lisp-mode-hook
   (lambda()
     (setq mode-name "el")))
