@@ -447,6 +447,8 @@
         (t (call-interactively 'join-this-line-with-next-one))))
 
 
+(require 'volatile-highlights)
+(volatile-highlights-mode t)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; START SCAN MODE
 ;;;;(this should be its own module, really)
