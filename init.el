@@ -617,7 +617,7 @@ instead."
 ;; I focus using the keyboard, on all my laptops it is easy to accidentally
 ;; touch the touchpad while typing and change the focus inside emacs(and
 ;; that is annoying) using pointing devices while coding is a bad idea
-;; anyway, so here I disable the mouse within emacs completely
+;; anyway, so here I disable the mouse within Emacs completely
 (disable-key "<mouse-1>")
 (disable-key "<down-mouse-1>")
 (disable-key "<up-mouse-1>")
@@ -630,7 +630,16 @@ instead."
 (disable-key "<drag-mouse-2>")
 (disable-key "<double-mouse-2>")
 (disable-key "<triple-mouse-2>")
-
+(disable-key "<mouse-3>")
+(disable-key "<down-mouse-3>")
+(disable-key "<up-mouse-3>")
+(disable-key "<drag-mouse-3>")
+(disable-key "<double-mouse-3>")
+(disable-key "<triple-mouse-3>")
+(disable-key "<wheel-down>")
+(disable-key "<wheel-up>")
+(disable-key "<mouse-movement>")
+(disable-key "<drag-n-drop>")
 
 ;; Some key bindings are just too precious and I want to make sure they are
 ;; not stolen by some major or minor mode, the solution for that is creating
