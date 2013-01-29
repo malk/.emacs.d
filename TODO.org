@@ -99,12 +99,16 @@
 ** TODO if no block/sexp then to the current line
 ** TODO before developing a good one, initially jsut install the melpa one
 * TODO helm
+* TODO lacarte
+* TODO mark to char
+* TODO alarm or sauron
 * TODO Process the init files from the great ones
 ** TODO Magnar's
 ** TODO https://github.com/rejeep/emacs/blob/master/rejeep-defuns.el#L150-L158
 ** TODO sacha chua's literate http://dl.dropbox.com/u/3968124/sacha-emacs.html
 ** TODO https://github.com/jsulak/.emacs.d/blob/master/init.el
 ** TODO https://github.com/gar3thjon3s/dotfiles/blob/master/.emacs.d/init.el
+** TODO https://github.com/ronert/.emacs.d
 ** TODO Prelude
 ** TODO Emacs starter kit
 ** TODO purcell's conf files

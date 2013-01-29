@@ -129,7 +129,6 @@
 (require 'multiple-cursors)
 
 (require 'golden-ratio)
-
 (golden-ratio-enable)
 
 (defun goto-line-with-feedback ()
@@ -201,6 +200,8 @@
                 lisp-mode markdown-mode tuareg-mode js2-mode
                 css-mode))
   (add-to-list 'ac-modes mode))
+
+(require 'minimap)
 
 ;;; defuns
 ;; makes 'C-x 1' more useful, if we have several windows it does what it is
@@ -446,6 +447,15 @@
              (join-line))))
         (t (call-interactively 'join-this-line-with-next-one))))
 
+(defun minimap-toggle ()
+  "make a minimap appear or disappear for the current buffer"
+  (interactive)
+  (let ((minimap-buffer-name (concat minimap-buffer-name-prefix (buffer-name))))
+    (cond
+     ((get-buffer minimap-buffer-name) (minimap-kill))
+     (t (minimap-create))
+     ))
+  )
 
 (require 'volatile-highlights)
 (volatile-highlights-mode t)
@@ -752,6 +762,7 @@ instead."
 (personal-key "SPC" 'ace-jump-mode)
 (personal-key "*" 'ace-jump-mode-pop-mark)
 (personal-key "l" 'reposition-window)
+(personal-key "m" 'minimap-toggle)
 
 (mk-minor-mode 1)
 
@@ -787,6 +798,7 @@ instead."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(Vhl/highlight-zero-width-ranges t)
  '(ac-auto-show-menu t)
  '(ac-auto-start 1)
  '(ac-delay 0.0)
@@ -808,6 +820,9 @@ instead."
  '(electric-layout-mode t)
  '(electric-pair-mode t)
  '(eshell-output-filter-functions (quote (eshell-handle-ansi-color eshell-handle-control-codes eshell-watch-for-password-prompt)))
+ '(minimap-always-recenter t)
+ '(minimap-buffer-name-prefix "*MINI* ")
+ '(minimap-update-delay 0.1)
  '(org-bullets-bullet-list (quote ("●" "○" "◉" "✸" "✿" "❀" "✚" "✜" "▶" "◇" "◆" "♠" "♣" "♥" "◖" "☯" "☢")))
  '(org-completion-use-ido t)
  '(org-enforce-todo-dependencies t)
