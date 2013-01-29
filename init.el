@@ -624,6 +624,12 @@ instead."
 (disable-key "<drag-mouse-1>")
 (disable-key "<double-mouse-1>")
 (disable-key "<triple-mouse-1>")
+(disable-key "<mouse-2>")
+(disable-key "<down-mouse-2>")
+(disable-key "<up-mouse-2>")
+(disable-key "<drag-mouse-2>")
+(disable-key "<double-mouse-2>")
+(disable-key "<triple-mouse-2>")
 
 
 ;; Some key bindings are just too precious and I want to make sure they are
