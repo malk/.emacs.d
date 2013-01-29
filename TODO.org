@@ -64,8 +64,8 @@
 * DONE symbol next and previous
 * DONE eldoc!
 * DONE writegood mode
+* DONE mark to char
 * TODO lacarte
-* TODO mark to char
 * TODO helm
 * TODO alarm or sauron
 * TODO bitlbee back

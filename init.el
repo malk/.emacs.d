@@ -770,6 +770,7 @@ instead."
 (personal-key "i" 'fastnav-insert-at-char-forward)
 (personal-key "SPC" 'ace-jump-mode)
 (personal-key "*" 'ace-jump-mode-pop-mark)
+(personal-key "@" 'fastnav-mark-to-char-forward)
 (personal-key "l" 'reposition-window)
 (personal-key "m" 'minimap-toggle)
 (personal-key "M-<up>" 'move-text-up)
