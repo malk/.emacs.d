@@ -242,6 +242,15 @@
   (interactive)
   (load-file "~/.emacs.d/init.el"))
 
+(defun ellipsis ()
+  "inser an ellipsis char"
+  (interactive)
+  (insert "…")
+  )
+
+(require 'typo)
+
+
 ;;
 ;; ace jump mode major function
 ;;
@@ -660,6 +669,7 @@ instead."
 (global-key "C-S-<left>" 'smart-backward)
 (global-key "C-S-<right>" 'smart-forward)
 (global-key "M-`" 'lacarte-execute-command)
+(global-key "C-\"" 'list-buffers)
 
 ;; instead of unsetting a key binding (using an undefined keybinding gives
 ;; a warning) assign nothing to it
@@ -771,7 +781,6 @@ instead."
 (personal-key "<down>" 'windmove-down)
 (personal-key "<tab>"  'auto-complete)
 (personal-key ";" 'eval-expression)
-(personal-key "\"" 'list-buffers)
 
 
 ;; Emacs specific personal bindings
@@ -789,8 +798,13 @@ instead."
 (personal-key "M-<up>" 'move-text-up)
 (personal-key "M-<down>" 'move-text-down)
 (personal-key "h" 'helm-mini)
-
-
+(personal-key "\"" 'typo-insert-quotation-mark)
+(personal-key "'" 'typo-cycle-right-single-quotation-mark)
+(personal-key "`" 'typo-cycle-left-single-quotation-mark)
+(personal-key "_" 'typo-cycle-dashes)
+(personal-key "." 'ellipsis)
+(personal-key "<" 'typo-cycle-left-angle-brackets)
+(personal-key ">" 'typo-cycle-right-angle-brackets)
 (mk-minor-mode 1)
 
 ; diminish my mode line, save screen space and focus on what is important

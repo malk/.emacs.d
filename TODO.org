@@ -67,23 +67,19 @@
 * DONE mark to char
 * DONE lacarte
 * DONE helm
+* DONE jump to matching paren
+* DONE easy insertion of true quotes
+* DONE create an equivalent of eclipse's M-up and M-down in a
+** DONE Moves a region
+** DONE before developing a good one, initially jsut install the melpa one
 * TODO alarm or sauron
 * TODO bitlbee back
-* TODO easy insertion of true quotes
-* TODO jump to matching paren
 * TODO quickurl and quicurl-add-url and quickurl-list
 * TODO FlyCheck
 * TODO email client : WL or mu4e?
 * TODO C-S-<backspace> should also go back one line
 * TODO C-S-DEL should do the same thing as C-S-<backspace> right now (erase the current line and not move)
 * TODO elein (leiningen from emacs)
-* TODO create an equivalent of eclipse's M-up and M-down in a
-** TODO Moves a region
-** TODO binds to s-[n,p,f,b]
-** TODO reidents on each move
-** TODO empty regions defaults to the current block/sexp
-** TODO if no block/sexp then to the current line
-** TODO before developing a good one, initially jsut install the melpa one
 * TODO global org keybindings
 * TODO move all conf out of customization block
 * TODO make my conf install my packages automatically
