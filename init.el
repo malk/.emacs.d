@@ -86,6 +86,7 @@
       require-final-newline t
       completion-cycle-threshold t
       confirm-nonexistent-file-or-buffer nil
+      show-paren-delay 0
       kill-buffer-query-functions (remq 'process-kill-buffer-query-function kill-buffer-query-functions)
       backup-directory-alist `(("." . ,(concat user-emacs-directory "backups"))))
 
@@ -796,6 +797,7 @@ instead."
  '(org-pretty-entities t)
  '(org-src-fontify-natively t)
  '(projectile-tags-command "gtags -I; ctags -Re %s")
+ '(show-paren-style (quote mixed))
  '(standard-indent 8)
  '(tab-always-indent (quote complete))
  '(which-function-mode t))
@@ -811,4 +813,5 @@ instead."
  '(ac-gtags-selection-face ((t (:inherit ac-selection-face))))
  '(ac-selection-face ((t (:background "#383838" :foreground "#dcdccc"))))
  '(mode-line ((t (:background "#2b2b2b" :foreground "#8fb28f" :box nil))))
- '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5f7f5f" :box nil :weight light)))))
+ '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5f7f5f" :box nil :weight light))))
+ '(show-paren-match ((t (:weight bold)))))
