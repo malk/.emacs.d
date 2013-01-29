@@ -750,27 +750,26 @@ instead."
 
 ; diminish my mode line, save screen space and focus on what is important
 (require 'diminish)
+(diminish 'auto-fill-function)
+(diminish 'mk-minor-mode)
+(diminish 'projectile-mode)
 (eval-after-load "abbrev"
   '(diminish 'abbrev-mode))
-;; (eval-after-load "yasnippet"
-;;   '(diminish 'yas/global-mode))
 (eval-after-load "paredit"
   '(diminish 'paredit-mode "()"))
 (eval-after-load "auto-complete"
   '(diminish 'auto-complete-mode))
 (eval-after-load "flyspell"
   '(diminish 'flyspell-mode))
-
-(diminish 'auto-fill-function)
-(diminish 'mk-minor-mode)
-(diminish 'projectile-mode)
-
-;; (diminish 'yas/global-mode)
-
-
-;; (add-hook 'emacs-lisp-mode-hook
-;;   (lambda()
-;;     (setq mode-name "el")))
+(eval-after-load "glasses"
+  '(diminish 'glasses-mode))
+(eval-after-load "mk"
+  '(diminish 'mk-minor-mode))
+(eval-after-load "yasnippet"
+  '(diminish 'yas-minor-mode))
+(add-hook 'emacs-lisp-mode-hook
+  (lambda()
+    (setq mode-name "el")))
 (add-hook 'clojure-mode-hook
   (lambda()
     (setq mode-name "λ")))
