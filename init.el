@@ -141,6 +141,13 @@
     (linum-mode -1)))
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
 
+(defun kill-whole-line-go-up-one-line ()
+  "C-S-<backspace> behaves like a delete, this behave like a backspace should"
+  (interactive)
+  (kill-whole-line -1)
+  )
+
+
 (require 'fastnav)
 
 (require 'smart-forward)
@@ -670,6 +677,8 @@ instead."
 (global-key "C-S-<right>" 'smart-forward)
 (global-key "M-`" 'lacarte-execute-command)
 (global-key "C-\"" 'list-buffers)
+(global-key "C-S-<delete>" 'kill-whole-line)
+(global-key "C-S-<backspace>" 'kill-whole-line-go-up-one-line)
 
 ;; instead of unsetting a key binding (using an undefined keybinding gives
 ;; a warning) assign nothing to it
