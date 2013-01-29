@@ -584,9 +584,11 @@ instead."
 (require 'ac-nrepl)
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+(add-hook 'clojure-mode-hook 'nrepl-interaction-mode)
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'nrepl-mode))
 (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
+
 
 
 ;;; Perl
@@ -782,8 +784,11 @@ instead."
 (diminish 'projectile-mode)
 (diminish 'volatile-highlights-mode)
 (diminish 'writegood-mode)
+(diminish 'nrepl-interaction-mode "∞")
 (eval-after-load "abbrev"
   '(diminish 'abbrev-mode))
+;; (eval-after-load "nrepl"
+;;   ')
 (eval-after-load "paredit"
   '(diminish 'paredit-mode "()"))
 (eval-after-load "auto-complete"
@@ -807,6 +812,9 @@ instead."
 (add-hook 'text-mode-hook
   (lambda()
     (setq mode-name "txt")))
+(add-hook 'nrepl-mode-hook
+  (lambda()
+    (setq mode-name "∞")))
 
 
 (custom-set-variables

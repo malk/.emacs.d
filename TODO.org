@@ -70,6 +70,7 @@
 * TODO alarm or sauron
 * TODO bitlbee back
 * TODO easy insertion of true quotes
+* TODO jump to matching paren
 * TODO quickurl and quicurl-add-url and quickurl-list
 * TODO FlyCheck
 * TODO email client : WL or mu4e?
