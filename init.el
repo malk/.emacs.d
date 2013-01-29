@@ -144,6 +144,8 @@
 
 (require 'fastnav)
 
+(require 'smart-forward)
+
 ;;; IDE
 
 (require 'projectile)
@@ -621,7 +623,10 @@ instead."
 (global-key "M-z" 'fastnav-zap-to-char-forward)
 (global-key "M-n" 'smart-symbol-go-forward)
 (global-key "M-p" 'smart-symbol-go-backward)
-
+(global-key "C-S-<up>" 'smart-up)
+(global-key "C-S-<down>" 'smart-down)
+(global-key "C-S-<left>" 'smart-backward)
+(global-key "C-S-<right>" 'smart-forward)
 
 ;; instead of unsetting a key binding (using an undefined keybinding gives
 ;; a warning) assign nothing to it
