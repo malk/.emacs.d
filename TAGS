@@ -3,50 +3,51 @@
 
 /home/malk/.emacs.d/backups/!home!malk!dotfiles!scripts!re-install-all-my-packages.sh~,0
 
-/home/malk/.emacs.d/init.el,2983
+/home/malk/.emacs.d/init.el,3021
 (defalias 'yes-or-no-p 'y-or-n-p)yes-or-no-p67,1736
 (defalias 'auto-tail-revert-mode 'tail-mode)auto-tail-revert-mode68,1770
 (defun goto-line-with-feedback ()goto-line-with-feedback134,4038
-(defun set-auto-complete-as-completion-at-point-function ()set-auto-complete-as-completion-at-point-function164,4822
-(define-key ac-completing-map (kbd "C-n") 'ac-next)ac-completing-map172,5267
-(define-key ac-completing-map (kbd "C-p") 'ac-previous)ac-completing-map173,5319
-(defun add-to-ac-user-dict (entry)add-to-ac-user-dict176,5377
-(defun toggle-maximize-buffer () "Maximize buffer"toggle-maximize-buffer217,6789
-(defun nop () (interactive))nop226,7024
-(defun loadrc ()loadrc229,7055
-(defun my-coding-hook ()my-coding-hook257,7541
-(defun org-export-to-ods ()org-export-to-ods294,8665
-(defun erc-start-or-switch ()erc-start-or-switch331,9894
-(defun esk-paredit-nonlisp ()esk-paredit-nonlisp383,11811
-(defadvice magit-status (around magit-fullscreen activate)magit-status393,12143
-(defun magit-quit-session ()magit-quit-session398,12295
-(define-key magit-status-mode-map (kbd "q") 'magit-quit-session)magit-status-mode-map404,12471
-(defun magit-toggle-whitespace ()magit-toggle-whitespace407,12602
-(defun magit-ignore-whitespace ()magit-ignore-whitespace413,12761
-(defun magit-dont-ignore-whitespace ()magit-dont-ignore-whitespace418,12872
-(define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace)magit-status-mode-map423,13008
-(defun single-space ()single-space434,13389
-(defun join-this-line-with-next-one ()join-this-line-with-next-one440,13484
-(defun join-line-or-lines-in-region (&optional ARG)join-line-or-lines-in-region446,13605
-(defun minimap-toggle ()minimap-toggle456,13995
-(defvar smart-use-extended-syntax nilsmart-use-extended-syntax472,14547
-(defvar smart-last-symbol-name ""smart-last-symbol-name476,14700
-(defvar smart-symbol-old-pt nilsmart-symbol-old-pt484,14948
-(defun smart-symbol-goto (name direction)smart-symbol-goto487,15025
-(defun smart-symbol-go-forward ()smart-symbol-go-forward516,16309
-(defun smart-symbol-go-backward ()smart-symbol-go-backward521,16464
-(defun smart-symbol-at-pt (&optional dir)smart-symbol-at-pt526,16632
-(defun cycle-ispell-languages ()cycle-ispell-languages560,17759
-(define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)nrepl-interaction-mode-map589,18706
-(defalias 'perl-mode 'cperl-mode)perl-mode593,18793
-(defun my-cperl-eldoc-documentation-function ()my-cperl-eldoc-documentation-function594,18827
-(defun global-key (key binding)global-key624,19833
-(defun disable-key (key)disable-key651,20873
-(defvar mk-minor-mode-map (make-keymap) "mk-minor-mode keymap.")mk-minor-mode-map686,22236
-(define-minor-mode mk-minor-modemk-minor-mode688,22302
-(defadvice load (after give-my-keybindings-priority)load697,22778
-(defun precious-key (key binding)precious-key705,23151
-(defun personal-key (key binding)personal-key740,24488
+(defun set-auto-complete-as-completion-at-point-function ()set-auto-complete-as-completion-at-point-function166,4842
+(define-key ac-completing-map (kbd "C-n") 'ac-next)ac-completing-map174,5287
+(define-key ac-completing-map (kbd "C-p") 'ac-previous)ac-completing-map175,5339
+(defun add-to-ac-user-dict (entry)add-to-ac-user-dict178,5397
+(defun toggle-maximize-buffer () "Maximize buffer"toggle-maximize-buffer228,6977
+(defun nop () (interactive))nop237,7212
+(defun loadrc ()loadrc240,7243
+(defun ellipsis ()ellipsis245,7343
+(defun my-coding-hook ()my-coding-hook277,7831
+(defun org-export-to-ods ()org-export-to-ods315,8975
+(defun erc-start-or-switch ()erc-start-or-switch352,10204
+(defun esk-paredit-nonlisp ()esk-paredit-nonlisp404,12121
+(defadvice magit-status (around magit-fullscreen activate)magit-status414,12453
+(defun magit-quit-session ()magit-quit-session419,12605
+(define-key magit-status-mode-map (kbd "q") 'magit-quit-session)magit-status-mode-map425,12781
+(defun magit-toggle-whitespace ()magit-toggle-whitespace428,12912
+(defun magit-ignore-whitespace ()magit-ignore-whitespace434,13071
+(defun magit-dont-ignore-whitespace ()magit-dont-ignore-whitespace439,13182
+(define-key magit-status-mode-map (kbd "W") 'magit-toggle-whitespace)magit-status-mode-map444,13318
+(defun single-space ()single-space455,13699
+(defun join-this-line-with-next-one ()join-this-line-with-next-one461,13794
+(defun join-line-or-lines-in-region (&optional ARG)join-line-or-lines-in-region467,13915
+(defun minimap-toggle ()minimap-toggle477,14305
+(defvar smart-use-extended-syntax nilsmart-use-extended-syntax493,14857
+(defvar smart-last-symbol-name ""smart-last-symbol-name497,15010
+(defvar smart-symbol-old-pt nilsmart-symbol-old-pt505,15258
+(defun smart-symbol-goto (name direction)smart-symbol-goto508,15335
+(defun smart-symbol-go-forward ()smart-symbol-go-forward537,16619
+(defun smart-symbol-go-backward ()smart-symbol-go-backward542,16774
+(defun smart-symbol-at-pt (&optional dir)smart-symbol-at-pt547,16942
+(defun cycle-ispell-languages ()cycle-ispell-languages581,18069
+(define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)nrepl-interaction-mode-map611,19070
+(defalias 'perl-mode 'cperl-mode)perl-mode616,19158
+(defun my-cperl-eldoc-documentation-function ()my-cperl-eldoc-documentation-function617,19192
+(defun global-key (key binding)global-key647,20198
+(defun disable-key (key)disable-key676,21316
+(defvar mk-minor-mode-map (make-keymap) "mk-minor-mode keymap.")mk-minor-mode-map711,22679
+(define-minor-mode mk-minor-modemk-minor-mode713,22745
+(defadvice load (after give-my-keybindings-priority)load722,23221
+(defun precious-key (key binding)precious-key730,23594
+(defun personal-key (key binding)personal-key765,24931
 
 /home/malk/.emacs.d/elpa/ack-and-a-half-20130103.2016/ack-and-a-half-pkg.el,132
 (define-package "ack-and-a-half" "20130103.2016" "Yet another front-end for ack [source: github]" (quote nil))"ack-and-a-half"1,0
@@ -9111,6 +9112,1541 @@
 (define-minor-mode magit-topgit-mode "Topgit support for Magit"magit-topgit-mode157,5540
 (defun turn-on-magit-topgit ()turn-on-magit-topgit186,7152
 
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-command.el,731
+(defgroup helm-command nilhelm-command25,834
+(defcustom helm-M-x-requires-pattern 2helm-M-x-requires-pattern29,941
+(defcustom helm-M-x-always-save-history nilhelm-M-x-always-save-history35,1123
+(defface helm-M-x-key '((t (:foreground "orange" :underline t)))helm-M-x-key44,1305
+(defvar helm-M-x-input-history nil)helm-M-x-input-history49,1443
+(defun* helm-M-x-get-major-mode-command-alist (mode-map)helm-M-x-get-major-mode-command-alist51,1480
+(defun helm-get-mode-map-from-mode (mode)helm-get-mode-map-from-mode58,1795
+(defun helm-M-x-current-mode-map-alist ()helm-M-x-current-mode-map-alist75,2619
+(defun helm-M-x-transformer (candidates sources)helm-M-x-transformer82,2871
+(defun helm-M-x ()helm-M-x106,3995
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-eval.el,1055
+(defgroup helm-eval nilhelm-eval24,844
+(defcustom helm-c-eldoc-in-minibuffer-show-fnhelm-c-eldoc-in-minibuffer-show-fn28,939
+(defcustom helm-c-show-info-in-mode-line-delay 12helm-c-show-info-in-mode-line-delay35,1139
+(defvar helm-eldoc-active-minibuffers-list nil)helm-eldoc-active-minibuffers-list50,1582
+(defvar helm-eval-expression-maphelm-eval-expression-map52,1631
+(defvar helm-c-source-evaluation-resulthelm-c-source-evaluation-result66,2260
+(defun helm-eval-new-line-and-indent ()helm-eval-new-line-and-indent88,3585
+(defun helm-eldoc-store-minibuffer ()helm-eldoc-store-minibuffer92,3674
+(defun helm-eldoc-show-in-eval ()helm-eldoc-show-in-eval97,3893
+(defun helm-c-show-info-in-mode-line (str)helm-c-show-info-in-mode-line120,5052
+(defvar helm-c-source-calculation-resulthelm-c-source-calculation-result132,5394
+(defun helm-eval-expression (arg)helm-eval-expression143,5858
+(defun helm-eval-expression-with-eldoc ()helm-eval-expression-with-eldoc153,6204
+(defun helm-calcul-expression ()helm-calcul-expression170,6963
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-semantic.el,345
+(defun helm-semantic-init-candidates (tags depth)helm-semantic-init-candidates31,946
+(defun helm-semantic-default-action (_candidate)helm-semantic-default-action52,1612
+(defvar helm-c-source-semantichelm-c-source-semantic61,1943
+(defun helm-semantic ()helm-semantic77,2593
+(defun helm-semantic-or-imenu ()helm-semantic-or-imenu84,2767
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-color.el,434
+(defun helm-custom-faces-init ()helm-custom-faces-init25,840
+(defvar helm-c-source-customize-facehelm-c-source-customize-face39,1281
+(defun helm-colors-init ()helm-colors-init55,1768
+(defvar helm-c-source-colorshelm-c-source-colors66,2065
+(defun helm-c-colors-get-name (candidate)helm-c-colors-get-name83,2766
+(defun helm-c-colors-get-rgb (candidate)helm-c-colors-get-rgb94,3063
+(defun helm-colors ()helm-colors106,3374
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-w3m.el,1064
+(defgroup helm-w3m nilhelm-w3m33,1135
+(defface helm-w3m-bookmarks '((t (:foreground "cyan1" :underline t)))helm-w3m-bookmarks37,1228
+(defvar w3m-bookmark-file "~/.w3m/bookmark.html")w3m-bookmark-file41,1346
+(defvar helm-w3m-bookmarks-regexp ">\\([^><]+.[^</a>]\\)")helm-w3m-bookmarks-regexp42,1396
+(defvar helm-w3m-bookmark-url-regexp "\\(https\\|http\\|ftp\\|file\\)://[^>]*")helm-w3m-bookmark-url-regexp43,1455
+(defvar helm-c-w3m-bookmarks-alist nil)helm-c-w3m-bookmarks-alist44,1535
+(defvar helm-c-source-w3m-bookmarkshelm-c-source-w3m-bookmarks45,1575
+(defun helm-c-w3m-bookmarks-get-value (elm)helm-c-w3m-bookmarks-get-value85,3222
+(defun helm-c-w3m-browse-bookmark (elm &optional use-external new-tab)helm-c-w3m-browse-bookmark89,3353
+(defun helm-c-highlight-w3m-bookmarks (bookmarks source)helm-c-highlight-w3m-bookmarks94,3607
+(defun helm-c-w3m-delete-bookmark (elm)helm-c-w3m-delete-bookmark101,3832
+(defun helm-c-w3m-rename-bookmark (elm)helm-c-w3m-rename-bookmark114,4220
+(defun helm-w3m-bookmarks ()helm-w3m-bookmarks129,4749
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-apt.el,1569
+(defgroup helm-apt nilhelm-apt31,1061
+(defface helm-apt-installedhelm-apt-installed35,1154
+(defface helm-apt-deinstalledhelm-apt-deinstalled40,1280
+(defvar helm-c-source-apthelm-c-source-apt46,1414
+(defvar helm-c-apt-query "emacs")helm-c-apt-query63,2053
+(defvar helm-c-apt-search-command "apt-cache search '%s'")helm-c-apt-search-command64,2087
+(defvar helm-c-apt-show-command "apt-cache show '%s'")helm-c-apt-show-command65,2146
+(defvar helm-c-apt-installed-packages nil)helm-c-apt-installed-packages66,2201
+(defvar helm-c-apt-all-packages nil)helm-c-apt-all-packages67,2244
+(defvar helm-c-apt-input-history nil)helm-c-apt-input-history68,2281
+(defun helm-c-apt-refresh ()helm-c-apt-refresh70,2320
+(defun helm-c-apt-persistent-action (candidate)helm-c-apt-persistent-action75,2470
+(defun helm-c-apt-candidate-transformer (candidates)helm-c-apt-candidate-transformer79,2594
+(defun helm-c-apt-init ()helm-c-apt-init93,3302
+(defun helm-c-apt-display-to-real (line)helm-c-apt-display-to-real117,4290
+(defun helm-c-shell-command-if-needed (command)helm-c-shell-command-if-needed123,4461
+(defun helm-c-apt-cache-show (package)helm-c-apt-cache-show130,4778
+(defun helm-c-apt-install (package)helm-c-apt-install135,4943
+(defun helm-c-apt-reinstall (package)helm-c-apt-reinstall139,5080
+(defun helm-c-apt-uninstall (package)helm-c-apt-uninstall143,5233
+(defun helm-c-apt-purge (package)helm-c-apt-purge147,5373
+(defun* helm-c-apt-generic-action (&key action)helm-c-apt-generic-action151,5504
+(defun helm-apt (arg)helm-apt177,6577
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-tags.el,1410
+(defgroup helm-tags nilhelm-tags24,826
+(defcustom helm-c-etags-tag-file-name "TAGS"helm-c-etags-tag-file-name28,921
+(defcustom helm-c-etags-tag-file-search-limit 10helm-c-etags-tag-file-search-limit33,1030
+(defvar helm-c-etags-maphelm-c-etags-map40,1225
+(defvar helm-c-ctags-modeshelm-c-ctags-modes54,1623
+(defun helm-ctags-init ()helm-ctags-init59,1856
+(defvar helm-c-source-ctagshelm-c-source-ctags85,2986
+(defvar helm-c-etags-tag-file-dir nilhelm-c-etags-tag-file-dir99,3211
+(defvar helm-c-etags-mtime-alist nilhelm-c-etags-mtime-alist101,3276
+(defvar helm-c-etags-cache (make-hash-table :test 'equal)helm-c-etags-cache103,3372
+(defun helm-c-etags-get-tag-file (&optional directory)helm-c-etags-get-tag-file106,3494
+(defun helm-c-etags-find-tag-file-directory (current-dir)helm-c-etags-find-tag-file-directory117,3987
+(defun helm-etags-get-header-name (x)helm-etags-get-header-name138,4960
+(defun helm-c-etags-create-buffer (file)helm-c-etags-create-buffer144,5152
+(defun helm-c-etags-init ()helm-c-etags-init170,6334
+(defvar helm-c-source-etags-selecthelm-c-source-etags-select191,7348
+(defun helm-c-etags-default-action (candidate)helm-c-etags-default-action208,8040
+(defun helm-c-etags-mtime (file)helm-c-etags-mtime219,8427
+(defun helm-c-etags-file-modified-p (file)helm-c-etags-file-modified-p223,8548
+(defun helm-c-etags-select (arg)helm-c-etags-select233,8871
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-font.el,1199
+(defvar helm-c-ucs-maphelm-c-ucs-map23,827
+(defun helm-c-persistent-xfont-action (elm)helm-c-persistent-xfont-action38,1343
+(defvar helm-c-xfonts-cache nil)helm-c-xfonts-cache46,1641
+(defvar helm-c-source-xfontshelm-c-source-xfonts47,1674
+(defvar helm-c-ucs-max-len 0)helm-c-ucs-max-len66,2471
+(defun helm-c-calculate-ucs-max-len ()helm-c-calculate-ucs-max-len67,2501
+(defun helm-c-ucs-init ()helm-c-ucs-init76,2771
+(defun helm-c-ucs-forward-char (candidate)helm-c-ucs-forward-char101,3774
+(defun helm-c-ucs-backward-char (candidate)helm-c-ucs-backward-char105,3869
+(defun helm-c-ucs-delete-backward (candidate)helm-c-ucs-delete-backward109,3966
+(defun helm-c-ucs-insert-char (candidate)helm-c-ucs-insert-char113,4064
+(defun helm-c-ucs-persistent-insert ()helm-c-ucs-persistent-insert120,4237
+(defun helm-c-ucs-persistent-forward ()helm-c-ucs-persistent-forward125,4400
+(defun helm-c-ucs-persistent-backward ()helm-c-ucs-persistent-backward130,4567
+(defun helm-c-ucs-persistent-delete ()helm-c-ucs-persistent-delete135,4730
+(defvar helm-c-source-ucshelm-c-source-ucs140,4897
+(defun helm-select-xfont ()helm-select-xfont153,5396
+(defun helm-ucs ()helm-ucs159,5565
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-plugin.el,1603
+(defun* helm-c-info-init (&optional (file (helm-attr 'info-file)))helm-c-info-init30,1032
+(defun helm-c-info-goto (node-line)helm-c-info-goto51,1934
+(defun helm-c-info-display-to-real (line)helm-c-info-display-to-real55,2042
+(defun helm-c-make-info-source (source file)helm-c-make-info-source62,2408
+(defun helm-compile-source--info-index (source)helm-compile-source--info-index72,2725
+(defun helm-compile-source--candidates-file (source)helm-compile-source--candidates-file95,3469
+(defun helm-p-candidates-file-init ()helm-p-candidates-file-init107,3984
+(defun helm-compile-source--helm-headline (source)helm-compile-source--helm-headline144,5103
+(defun helm-headline-init ()helm-headline-init155,5526
+(defun helm-headline-get-candidates (regexp subexp)helm-headline-get-candidates170,6157
+(defun helm-headline-make-candidate-buffer (regexp subexp)helm-headline-make-candidate-buffer212,8054
+(defun helm-headline-goto-position (pos recenter)helm-headline-goto-position221,8433
+(defun helm-compile-source--persistent-help (source)helm-compile-source--persistent-help230,8690
+(defun helm-persistent-help-string ()helm-persistent-help-string234,8893
+(defvar helm-additional-type-attributes nil)helm-additional-type-attributes258,9798
+(defun helm-c-uniq-list (lst)helm-c-uniq-list260,9844
+(defun helm-c-arrange-type-attribute (type spec)helm-c-arrange-type-attribute265,10019
+(defun helm-compile-source--type-customize (source)helm-compile-source--type-customize293,11368
+(defun helm-compile-source--default-action (source)helm-compile-source--default-action305,11709
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-sys.el,887
+(defvar helm-c-top-command "COLUMNS=%s top -b -n 1"helm-c-top-command27,857
+(defvar helm-c-source-tophelm-c-source-top30,976
+(defun helm-c-top-sh (cmd)helm-c-top-sh45,1581
+(defun helm-c-top-sh-persistent-action (pid)helm-c-top-sh-persistent-action48,1674
+(defun helm-c-top-init ()helm-c-top-init53,1815
+(defun helm-c-top-display-to-real (line)helm-c-top-display-to-real59,2005
+(defun helm-c-xrandr-info ()helm-c-xrandr-info67,2152
+(defun helm-c-xrandr-screen ()helm-c-xrandr-screen81,2679
+(defun helm-c-xrandr-output ()helm-c-xrandr-output85,2777
+(defvar helm-c-source-xrandr-change-resolutionhelm-c-source-xrandr-change-resolution89,2875
+(defvar helm-c-source-emacs-processhelm-c-source-emacs-process114,3736
+(defun helm-top ()helm-top127,4294
+(defun helm-list-emacs-process ()helm-list-emacs-process137,4586
+(defun helm-xrandr-set ()helm-xrandr-set143,4765
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-eshell.el,480
+(defvar helm-eshell-history-maphelm-eshell-history-map36,1316
+(defvar helm-c-source-eshhelm-c-source-esh43,1519
+(defvar helm-ec-target "")helm-ec-target60,2196
+(defun helm-ec-insert (candidate)helm-ec-insert61,2223
+(defun helm-esh-get-candidates ()helm-esh-get-candidates73,2754
+(defvar helm-c-source-eshell-historyhelm-c-source-eshell-history117,4862
+(defun helm-esh-pcomplete ()helm-esh-pcomplete138,5769
+(defun helm-eshell-history ()helm-eshell-history176,7501
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-adaptative.el,1067
+(defgroup helm-adapt nilhelm-adapt27,893
+(defcustom helm-c-adaptive-history-filehelm-c-adaptive-history-file31,982
+(defcustom helm-c-adaptive-history-length 50helm-c-adaptive-history-length37,1154
+(defvar helm-c-adaptive-done nilhelm-c-adaptive-done44,1306
+(defvar helm-c-adaptive-history nilhelm-c-adaptive-history48,1417
+(defun helm-adaptative-done-reset ()helm-adaptative-done-reset52,1583
+(define-minor-mode helm-adaptative-modehelm-adaptative-mode55,1656
+(defun helm-adapt-use-adaptative-p (&optional source-name)helm-adapt-use-adaptative-p72,2494
+(defun helm-c-adaptive-store-selection ()helm-c-adaptive-store-selection88,3500
+(defun helm-c-adaptative-maybe-load-history ()helm-c-adaptative-maybe-load-history143,6652
+(defun helm-c-adaptive-save-history (&optional arg)helm-c-adaptive-save-history151,6970
+(defun helm-c-adaptive-sort (candidates source)helm-c-adaptive-sort165,7530
+(defun helm-c-reset-adaptative-history ()helm-c-reset-adaptative-history220,10331
+(defun helm-c-adaptive-compare (x y)helm-c-adaptive-compare228,10677
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-elisp.el,3649
+(defgroup helm-elisp nilhelm-elisp27,917
+(defcustom helm-c-turn-on-show-completion thelm-c-turn-on-show-completion31,1014
+(defcustom helm-c-show-completion-use-special-display thelm-c-show-completion-use-special-display36,1169
+(defcustom helm-c-show-completion-min-window-height 7helm-c-show-completion-min-window-height43,1419
+(defface helm-lisp-show-completionhelm-lisp-show-completion53,1645
+(defface helm-lisp-completion-infohelm-lisp-completion-info58,1808
+(defvar helm-c-show-completion-overlay nil)helm-c-show-completion-overlay68,2049
+(defun helm-c-show-completion ()helm-c-show-completion70,2141
+(defun helm-c-show-completion-init-overlay (beg end)helm-c-show-completion-init-overlay75,2301
+(defun helm-c-show-completion-display-function (buffer &rest _args)helm-c-show-completion-display-function81,2568
+(defmacro with-helm-show-completion (beg end &rest body)with-helm-show-completion97,3430
+(defun helm-lisp-completion-at-point ()helm-lisp-completion-at-point124,4494
+(defun helm-lisp-completion-persistent-action (candidate)helm-lisp-completion-persistent-action164,6339
+(defun helm-lisp-completion-transformer (candidates source)helm-lisp-completion-transformer173,6638
+(defun helm-c-get-first-line-documentation (sym)helm-c-get-first-line-documentation185,7163
+(defun helm-c-thing-before-point ()helm-c-thing-before-point205,7917
+(defun helm-c-complete-file-name-at-point (&optional force)helm-c-complete-file-name-at-point215,8264
+(defun helm-lisp-indent ()helm-lisp-indent242,9389
+(defun helm-lisp-completion-or-file-name-at-point ()helm-lisp-completion-or-file-name-at-point252,9790
+(defun helm-c-apropos-init (test default)helm-c-apropos-init268,10304
+(defun helm-def-source--emacs-variables (&optional default)helm-def-source--emacs-variables287,11059
+(defun helm-def-source--emacs-faces (&optional default)helm-def-source--emacs-faces295,11374
+(defun helm-def-source--helm-attributes (&optional default)helm-def-source--helm-attributes306,11866
+(defun helm-def-source--emacs-commands (&optional default)helm-def-source--emacs-commands317,12383
+(defun helm-def-source--emacs-functions (&optional default)helm-def-source--emacs-functions325,12698
+(defun helm-c-apropos ()helm-c-apropos336,13156
+(defvar helm-c-source-advicehelm-c-source-advice355,13816
+(defun helm-c-advice-candidates ()helm-c-advice-candidates363,14128
+(defun helm-c-advice-persistent-action (func-class-advice)helm-c-advice-persistent-action378,14833
+(defun helm-c-advice-toggle (func-class-advice)helm-c-advice-toggle383,15017
+(defun helm-c-advice-update-current-display-string ()helm-c-advice-update-current-display-string395,15457
+(defun helm-manage-advice ()helm-manage-advice405,15818
+(defvar helm-c-source-elisp-library-scanhelm-c-source-elisp-library-scan414,16017
+(defun helm-c-elisp-library-scan-init ()helm-c-elisp-library-scan-init426,16485
+(defun helm-c-elisp-library-scan-list (&optional dirs string)helm-c-elisp-library-scan-list434,16786
+(defun helm-c-set-variable (var)helm-c-set-variable462,17901
+(define-helm-type-attribute 'variablevariable495,19211
+(define-helm-type-attribute 'timertimer505,19515
+(defvar helm-c-source-absolute-time-timershelm-c-source-absolute-time-timers518,19985
+(defvar helm-c-source-idle-time-timershelm-c-source-idle-time-timers523,20116
+(defun helm-c-timer-real-to-display (timer)helm-c-timer-real-to-display528,20244
+(defun helm-timers ()helm-timers539,20670
+(defvar helm-c-source-complex-command-historyhelm-c-source-complex-command-history550,20934
+(defun helm-complex-command-history ()helm-complex-command-history556,21128
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-pkg.el,127
+(define-package "helm" "20130129.907" "Helm is an Emacs incremental and narrowing framework [source: github]" 'nil)"helm"1,0
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-locate.el,1182
+(defgroup helm-locate nilhelm-locate28,970
+(defcustom helm-locate-db-file-regexp "m?locate\.db$"helm-locate-db-file-regexp32,1069
+(defcustom helm-ff-locate-db-filename "locate.db"helm-ff-locate-db-filename38,1237
+(defcustom helm-c-locate-command nilhelm-c-locate-command47,1625
+(defcustom helm-locate-create-db-commandhelm-locate-create-db-command67,2271
+(defcustom helm-locate-case-fold-search helm-case-fold-searchhelm-locate-case-fold-search73,2434
+(defvar helm-generic-files-maphelm-generic-files-map85,2879
+(defun helm-ff-find-locatedb (&optional from-ff)helm-ff-find-locatedb107,3972
+(defun helm-locate-1 (&optional localdb init from-ff default)helm-locate-1128,4884
+(defun helm-locate-set-command ()helm-locate-set-command170,7180
+(defvar helm-file-name-history nil)helm-file-name-history180,7527
+(defun helm-locate-with-db (&optional db initial-input default)helm-locate-with-db181,7563
+(defun helm-c-locate-init ()helm-c-locate-init210,8794
+(defvar helm-c-source-locatehelm-c-source-locate248,10636
+(defun helm-c-locate-read-file-name (prompt &optional init)helm-c-locate-read-file-name262,11116
+(defun helm-locate (arg)helm-locate279,11679
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-org.el,865
+(defvar helm-c-source-org-headlinehelm-c-source-org-headline29,966
+(defun helm-c-org-headline-insert-link-to-headline (lineno-and-content)helm-c-org-headline-insert-link-to-headline55,1876
+(defun helm-c-org-headline-refile (lineno-and-content)helm-c-org-headline-refile62,2142
+(defvar helm-c-source-org-keywordshelm-c-source-org-keywords75,2461
+(defvar helm-c-org-keywords-info-locationhelm-c-org-keywords-info-location85,2834
+(defun helm-c-org-keywords-init ()helm-c-org-keywords-init118,4289
+(defun helm-c-org-keywords-candidates ()helm-c-org-keywords-candidates131,4864
+(defun helm-c-org-keywords-insert (keyword)helm-c-org-keywords-insert136,5100
+(defun helm-c-org-keywords-show-help (keyword)helm-c-org-keywords-show-help154,5796
+(defun helm-org-keywords ()helm-org-keywords162,6145
+(defun helm-org-headlines ()helm-org-headlines168,6316
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-bookmark.el,1867
+(defgroup helm-bookmark nilhelm-bookmark27,947
+(defface helm-bookmarks-suhelm-bookmarks-su31,1037
+(defface helm-bookmark-infohelm-bookmark-info36,1153
+(defface helm-bookmark-w3mhelm-bookmark-w3m41,1299
+(defface helm-bookmark-gnushelm-bookmark-gnus46,1445
+(defface helm-bookmark-manhelm-bookmark-man51,1568
+(defface helm-bookmark-filehelm-bookmark-file56,1695
+(defface helm-bookmark-directoryhelm-bookmark-directory61,1823
+(defvar helm-c-bookmark-maphelm-c-bookmark-map67,1958
+(defvar helm-c-source-bookmarkshelm-c-source-bookmarks78,2431
+(defvar helm-c-source-bookmark-sethelm-c-source-bookmark-set90,2779
+(defvar helm-c-source-bookmarks-sshhelm-c-source-bookmarks-ssh98,2968
+(defvar helm-c-source-bookmarks-suhelm-c-source-bookmarks-su109,3320
+(defvar helm-c-source-bookmarks-localhelm-c-source-bookmarks-local121,3739
+(defun* helm-c-collect-bookmarks (&key local su sudo ssh)helm-c-collect-bookmarks135,4192
+(defun helm-c-bookmark-root-logged-p ()helm-c-bookmark-root-logged-p151,5005
+(defun helm-c-highlight-bookmark-su (files source)helm-c-highlight-bookmark-su157,5212
+(defun helm-c-highlight-not-logged (files source)helm-c-highlight-not-logged162,5400
+(defun helm-c-highlight-bookmark (bookmarks source)helm-c-highlight-bookmark166,5532
+(defun helm-c-bookmark-jump (candidate)helm-c-bookmark-jump221,8746
+(define-helm-type-attribute 'bookmarkbookmark226,8909
+(defun helm-c-bookmark-run-jump-other-window ()helm-c-bookmark-run-jump-other-window243,9650
+(defun helm-c-bookmark-run-delete ()helm-c-bookmark-run-delete249,9830
+(defun helm-bookmark-get-bookmark-from-name (bmk)helm-bookmark-get-bookmark-from-name255,10026
+(defun helm-delete-marked-bookmarks (ignore)helm-delete-marked-bookmarks265,10384
+(defun helm-bookmarks ()helm-bookmarks273,10628
+(defun helm-c-pp-bookmarks ()helm-c-pp-bookmarks282,10903
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-files.el,17006
+(define-helm-type-attribute 'filefile55,2009
+(defgroup helm-files nilhelm-files84,3356
+(defcustom helm-c-boring-file-regexp-listhelm-c-boring-file-regexp-list88,3445
+(defcustom helm-for-files-preferred-listhelm-for-files-preferred-list94,3667
+(defcustom helm-tramp-verbose 0helm-tramp-verbose105,3986
+(defcustom helm-ff-auto-update-initial-value thelm-ff-auto-update-initial-value112,4219
+(defcustom helm-ff-lynx-style-map thelm-ff-lynx-style-map118,4428
+(defcustom helm-ff-history-max-length 100helm-ff-history-max-length125,4671
+(defcustom helm-ff-smart-completion thelm-ff-smart-completion130,4812
+(defcustom helm-ff-tramp-not-fancy thelm-ff-tramp-not-fancy136,5003
+(defcustom helm-ff-exif-data-program "exiftran"helm-ff-exif-data-program142,5202
+(defcustom helm-ff-exif-data-program-args "-d"helm-ff-exif-data-program-args147,5345
+(defcustom helm-ff-newfile-prompt-p thelm-ff-newfile-prompt-p152,5483
+(defcustom helm-ff-avfs-directory "~/.avfs"helm-ff-avfs-directory158,5644
+(defcustom helm-ff-file-compressed-list '("gz" "bz2" "zip" "7z")helm-ff-file-compressed-list166,5945
+(defcustom helm-ff-printer-list nilhelm-ff-printer-list171,6116
+(defcustom helm-ff-transformer-show-only-basename nilhelm-ff-transformer-show-only-basename180,6519
+(defcustom helm-ff-quick-delete-dont-prompt-for-deletion nilhelm-ff-quick-delete-dont-prompt-for-deletion187,6790
+(defcustom helm-ff-signal-error-on-dot-files thelm-ff-signal-error-on-dot-files192,6952
+(defcustom helm-ff-search-library-in-sexp nilhelm-ff-search-library-in-sexp199,7214
+(defcustom helm-tooltip-hide-delay 25helm-tooltip-hide-delay204,7366
+(defcustom helm-ff-maximum-candidate-to-decorate 2000helm-ff-maximum-candidate-to-decorate209,7501
+(defcustom helm-ff-file-name-history-use-recentf nilhelm-ff-file-name-history-use-recentf215,7711
+(defface helm-ff-prefixhelm-ff-prefix224,7898
+(defface helm-ff-executablehelm-ff-executable229,8067
+(defface helm-ff-directoryhelm-ff-directory234,8208
+(defface helm-ff-symlinkhelm-ff-symlink239,8369
+(defface helm-ff-invalid-symlinkhelm-ff-invalid-symlink244,8504
+(defface helm-ff-filehelm-ff-file249,8668
+(defvar helm-find-files-maphelm-find-files-map258,8870
+(defvar helm-c-read-file-maphelm-c-read-file-map313,12426
+(defvar helm-esh-on-file-maphelm-esh-on-file-map332,13448
+(defvar helm-c-find-files-doc-header " (`C-l': Go to precedent level)"helm-c-find-files-doc-header341,13686
+(defvar helm-ff-auto-update-flag nilhelm-ff-auto-update-flag343,13840
+(defvar helm-ff-last-expanded nilhelm-ff-last-expanded346,14018
+(defvar helm-ff-default-directory nil)helm-ff-default-directory348,14096
+(defvar helm-ff-history nil)helm-ff-history349,14135
+(defvar helm-ff-cand-to-mark nil)helm-ff-cand-to-mark350,14164
+(defvar helm-ff-url-regexphelm-ff-url-regexp351,14198
+(defvar helm-c-source-find-fileshelm-c-source-find-files356,14406
+(defun helm-ff-match-fn (candidate)helm-ff-match-fn414,17572
+(defun helm-find-files-set-prompt-for-action (action files)helm-find-files-set-prompt-for-action421,17863
+(defun helm-dwim-target-directory ()helm-dwim-target-directory429,18153
+(defun helm-find-files-do-action (action)helm-find-files-do-action441,18578
+(defun helm-find-files-copy (candidate)helm-find-files-copy459,19500
+(defun helm-find-files-rename (candidate)helm-find-files-rename463,19617
+(defun helm-find-files-symlink (candidate)helm-find-files-symlink467,19740
+(defun helm-find-files-relsymlink (candidate)helm-find-files-relsymlink471,19866
+(defun helm-find-files-hardlink (candidate)helm-find-files-hardlink475,20001
+(defun helm-find-files-byte-compile (candidate)helm-find-files-byte-compile479,20130
+(defun helm-find-files-load-files (candidate)helm-find-files-load-files486,20396
+(defun helm-find-files-ediff-files-1 (candidate &optional merge)helm-find-files-ediff-files-1492,20591
+(defun helm-find-files-ediff-files (candidate)helm-find-files-ediff-files514,21648
+(defun helm-find-files-ediff-merge-files (candidate)helm-find-files-ediff-merge-files517,21741
+(defun helm-find-files-grep (candidate)helm-find-files-grep520,21847
+(defun helm-ff-zgrep (candidate)helm-ff-zgrep524,22014
+(defun helm-ff-pdfgrep (candidate)helm-ff-pdfgrep528,22176
+(defun helm-ff-etags-select (candidate)helm-ff-etags-select538,22624
+(defun helm-find-files-switch-to-hist (candidate)helm-find-files-switch-to-hist548,23118
+(defvar eshell-command-aliases-list nil)eshell-command-aliases-list552,23231
+(defvar helm-eshell-command-on-file-input-history nil)helm-eshell-command-on-file-input-history553,23272
+(defun helm-find-files-eshell-command-on-file-1 (candidate &optional map)helm-find-files-eshell-command-on-file-1554,23327
+(defun helm-find-files-eshell-command-on-file (candidate)helm-find-files-eshell-command-on-file648,27828
+(defun helm-ff-switch-to-eshell (candidate)helm-ff-switch-to-eshell654,28092
+(defun helm-ff-serial-rename-action (method)helm-ff-serial-rename-action668,28616
+(defun helm-ff-member-directory-p (file directory)helm-ff-member-directory-p703,30220
+(defun* helm-ff-serial-rename-1helm-ff-serial-rename-1709,30488
+(defun helm-ff-serial-rename (candidate)helm-ff-serial-rename757,33000
+(defun helm-ff-serial-rename-by-symlink (candidate)helm-ff-serial-rename-by-symlink764,33270
+(defun helm-ff-serial-rename-by-copying (candidate)helm-ff-serial-rename-by-copying771,33552
+(defun helm-ff-toggle-auto-update (candidate)helm-ff-toggle-auto-update778,33828
+(defun helm-ff-run-toggle-auto-update ()helm-ff-run-toggle-auto-update784,34052
+(defun helm-ff-run-switch-to-history ()helm-ff-run-switch-to-history791,34288
+(defun helm-ff-run-grep ()helm-ff-run-grep798,34537
+(defun helm-ff-run-pdfgrep ()helm-ff-run-pdfgrep805,34731
+(defun helm-ff-run-zgrep ()helm-ff-run-zgrep812,34926
+(defun helm-ff-run-copy-file ()helm-ff-run-copy-file819,35114
+(defun helm-ff-run-rename-file ()helm-ff-run-rename-file826,35318
+(defun helm-ff-run-byte-compile-file ()helm-ff-run-byte-compile-file833,35528
+(defun helm-ff-run-load-file ()helm-ff-run-load-file840,35756
+(defun helm-ff-run-eshell-command-on-file ()helm-ff-run-eshell-command-on-file847,35966
+(defun helm-ff-run-ediff-file ()helm-ff-run-ediff-file855,36219
+(defun helm-ff-run-ediff-merge-file ()helm-ff-run-ediff-merge-file862,36432
+(defun helm-ff-run-symlink-file ()helm-ff-run-symlink-file870,36668
+(defun helm-ff-run-hardlink-file ()helm-ff-run-hardlink-file877,36881
+(defun helm-ff-run-delete-file ()helm-ff-run-delete-file884,37097
+(defun helm-ff-run-complete-fn-at-point ()helm-ff-run-complete-fn-at-point891,37309
+(defun helm-ff-run-switch-to-eshell ()helm-ff-run-switch-to-eshell899,37561
+(defun helm-ff-run-switch-other-window ()helm-ff-run-switch-other-window906,37783
+(defun helm-ff-run-switch-other-frame ()helm-ff-run-switch-other-frame913,38012
+(defun helm-ff-run-open-file-externally ()helm-ff-run-open-file-externally920,38238
+(defun helm-ff-run-open-file-with-default-tool ()helm-ff-run-open-file-with-default-tool927,38479
+(defun helm-ff-locate (candidate)helm-ff-locate933,38719
+(defun helm-ff-run-locate ()helm-ff-run-locate948,39372
+(defun helm-ff-run-find-file-as-root ()helm-ff-run-find-file-as-root955,39564
+(defun helm-ff-run-gnus-attach-files ()helm-ff-run-gnus-attach-files960,39696
+(defun helm-ff-run-etags ()helm-ff-run-etags967,39929
+(defun helm-ff-print (candidate)helm-ff-print973,40118
+(defun helm-ff-run-print-file ()helm-ff-run-print-file1019,42015
+(defun helm-ff-checksum (file)helm-ff-checksum1025,42199
+(defun helm-ff-toggle-basename (candidate)helm-ff-toggle-basename1043,42860
+(defun helm-ff-run-toggle-basename ()helm-ff-run-toggle-basename1051,43173
+(defun* helm-reduce-file-name (fname level &key unix-close expand)helm-reduce-file-name1057,43382
+(defvar helm-file-completion-sourceshelm-file-completion-sources1084,44630
+(defun helm-file-completion-source-p ()helm-file-completion-source-p1094,45053
+(defun helm-find-files-down-one-level (arg)helm-find-files-down-one-level1104,45456
+(defun helm-ff-retrieve-last-expanded ()helm-ff-retrieve-last-expanded1123,46316
+(defun helm-ff-move-to-first-real-candidate ()helm-ff-move-to-first-real-candidate1140,47104
+(defun helm-ff-update-when-only-one-matched ()helm-ff-update-when-only-one-matched1151,47561
+(defun helm-ff-auto-expand-to-home-or-root ()helm-ff-auto-expand-to-home-or-root1210,50854
+(defun helm-c-point-file-in-dired (file)helm-c-point-file-in-dired1239,52255
+(defun helm-create-tramp-name (fname)helm-create-tramp-name1244,52408
+(defun* helm-ff-tramp-hostnames (&optional (pattern helm-pattern))helm-ff-tramp-hostnames1250,52645
+(defun helm-ff-before-action-hook-fn ()helm-ff-before-action-hook-fn1266,53431
+(defun* helm-ff-invalid-tramp-name-p (&optional (pattern helm-pattern))helm-ff-invalid-tramp-name-p1275,53896
+(defun helm-ff-set-pattern (pattern)helm-ff-set-pattern1280,54112
+(defun helm-find-files-get-candidates (&optional require-match)helm-find-files-get-candidates1326,56482
+(defun helm-ff-directory-files (directory &optional full)helm-ff-directory-files1399,60476
+(defvar helm-ff-smart-completion-incompatible-methods '(multi1 multi3p))helm-ff-smart-completion-incompatible-methods1414,61045
+(defun helm-ff-transform-fname-for-completion (fname)helm-ff-transform-fname-for-completion1415,61118
+(defun helm-ff-mapconcat-candidate (candidate)helm-ff-mapconcat-candidate1446,62761
+(defun helm-dir-is-dot (dir)helm-dir-is-dot1465,63461
+(defun helm-ff-save-history ()helm-ff-save-history1468,63546
+(defun helm-files-save-file-name-history (&optional force)helm-files-save-file-name-history1476,63891
+(defun helm-ff-valid-symlink-p (file)helm-ff-valid-symlink-p1489,64536
+(defun helm-get-default-mode-for-file (filename)helm-get-default-mode-for-file1492,64615
+(defun helm-ff-properties (candidate)helm-ff-properties1498,64877
+(defun helm-ff-properties-persistent ()helm-ff-properties-persistent1541,67008
+(defun helm-ff-persistent-delete ()helm-ff-persistent-delete1548,67250
+(defun helm-ff-dot-file-p (file)helm-ff-dot-file-p1554,67469
+(defun helm-ff-quick-delete (candidate)helm-ff-quick-delete1558,67584
+(defun helm-ff-kill-buffer-fname (candidate)helm-ff-kill-buffer-fname1584,68794
+(defun helm-ff-kill-or-find-buffer-fname (candidate)helm-ff-kill-or-find-buffer-fname1592,69054
+(defun helm-ff-run-kill-buffer-persistent ()helm-ff-run-kill-buffer-persistent1612,69809
+(defun helm-ff-prefix-filename (fname &optional file-or-symlinkp new-file)helm-ff-prefix-filename1619,70073
+(defun helm-c-find-files-transformer (files source)helm-c-find-files-transformer1638,71031
+(defun helm-ff-highlight-files (files)helm-ff-highlight-files1652,71622
+(defun helm-find-files-action-transformer (actions candidate)helm-find-files-action-transformer1699,73695
+(defun helm-ff-gnus-attach-files (candidate)helm-ff-gnus-attach-files1725,74977
+(defun helm-ff-rotate-current-image-1 (file &optional num-arg)helm-ff-rotate-current-image-11730,75167
+(defun helm-ff-rotate-image-left (candidate)helm-ff-rotate-image-left1749,76088
+(defun helm-ff-rotate-image-right (candidate)helm-ff-rotate-image-right1754,76259
+(defun helm-ff-rotate-left-persistent ()helm-ff-rotate-left-persistent1760,76443
+(defun helm-ff-rotate-right-persistent ()helm-ff-rotate-right-persistent1767,76671
+(defun helm-ff-exif-data (candidate)helm-ff-exif-data1773,76887
+(defun helm-find-files-persistent-action (candidate)helm-find-files-persistent-action1784,77426
+(defun helm-ff-file-compressed-p (candidate)helm-ff-file-compressed-p1856,81469
+(defun helm-c-insert-file-name-completion-at-point (candidate)helm-c-insert-file-name-completion-at-point1861,81649
+(defun* helm-find-files-history (&key (comp-read t))helm-find-files-history1881,82687
+(defun helm-find-files-1 (fname &optional preselect)helm-find-files-11901,83436
+(defun helm-find-files-initial-input (&optional input)helm-find-files-initial-input1920,84215
+(defun helm-find-files-input (file-at-pt thing-at-pt)helm-find-files-input1928,84518
+(defun helm-ff-find-url-at-point ()helm-ff-find-url-at-point1957,85918
+(defun helm-find-library-at-point ()helm-find-library-at-point1971,86597
+(defvar helm-c-source-write-filehelm-c-source-write-file1999,87718
+(defvar helm-c-source-insert-filehelm-c-source-insert-file2016,88336
+(defvar helm-c-source-copy-fileshelm-c-source-copy-files2036,89164
+(defvar  helm-c-source-rename-fileshelm-c-source-rename-files2054,89882
+(defvar helm-c-source-symlink-fileshelm-c-source-symlink-files2072,90613
+(defvar helm-c-source-hardlink-fileshelm-c-source-hardlink-files2090,91307
+(defun* helm-dired-action (candidatehelm-dired-action2105,91882
+(defun helm-get-dest-fnames-from-list (flist dest-cand rename-dir-flag)helm-get-dest-fnames-from-list2161,94655
+(defun helm-ff-maybe-mark-candidates ()helm-ff-maybe-mark-candidates2179,95471
+(defun* helm-dired-do-action-on-file (&key action)helm-dired-do-action-on-file2197,96203
+(define-minor-mode helm-dired-modehelm-dired-mode2228,97599
+(defalias 'helm-dired-bindings 'helm-dired-mode)helm-dired-bindings2253,98647
+(defun helm-c-file-buffers (filename)helm-c-file-buffers2259,98728
+(defun helm-c-delete-file (file &optional error-if-dot-file-p synchro)helm-c-delete-file2268,99074
+(defun helm-delete-marked-files (ignore)helm-delete-marked-files2297,100357
+(defun helm-c-find-file-or-marked (candidate)helm-c-find-file-or-marked2310,100884
+(defun helm-c-shadow-boring-files (files)helm-c-shadow-boring-files2348,102717
+(defun helm-c-skip-boring-files (files)helm-c-skip-boring-files2353,102934
+(defun helm-c-skip-current-file (files)helm-c-skip-current-file2357,103099
+(defun helm-c-w32-pathname-transformer (args)helm-c-w32-pathname-transformer2361,103231
+(defvar helm-canonical-homehelm-canonical-home2373,103621
+(defun helm-shorten-home-path-1 (file)helm-shorten-home-path-12376,103691
+(defun helm-c-shorten-home-path (files)helm-c-shorten-home-path2382,103886
+(defun helm-c-files-in-all-dired-candidates ()helm-c-files-in-all-dired-candidates2390,104077
+(defun helm-c-transform-file-load-el (actions candidate)helm-c-transform-file-load-el2410,104845
+(defun helm-c-transform-file-browse-url (actions candidate)helm-c-transform-file-browse-url2417,105147
+(defvar helm-c-source-files-in-all-diredhelm-c-source-files-in-all-dired2427,105594
+(defvar helm-c-file-cache-initialized-p nil)helm-c-file-cache-initialized-p2436,105777
+(defvar helm-c-file-cache-files nil)helm-c-file-cache-files2438,105823
+(defvar helm-c-source-file-cachehelm-c-source-file-cache2440,105861
+(defvar helm-outline-goto-near-line-flag t)helm-outline-goto-near-line-flag2465,106767
+(defvar helm-outline-using nil)helm-outline-using2466,106811
+(defun helm-after-update-hook--outline ()helm-after-update-hook--outline2467,106843
+(defun helm-outline-goto-near-line ()helm-outline-goto-near-line2473,107081
+(defvar helm-c-source-file-name-historyhelm-c-source-file-name-history2496,107867
+(defvar helm-c-source-ff-file-name-historyhelm-c-source-ff-file-name-history2501,107998
+(defun helm-ff-file-name-history ()helm-ff-file-name-history2521,108817
+(defvar helm-c-source-recentfhelm-c-source-recentf2532,109110
+(defun helm-browse-project ()helm-browse-project2552,109900
+(defun helm-ff-browse-project (candidate)helm-ff-browse-project2570,110537
+(defun helm-ff-run-browse-project ()helm-ff-run-browse-project2576,110782
+(defvar helm-c-source-sessionhelm-c-source-session2585,111075
+(defun helm-c-highlight-files (files)helm-c-highlight-files2603,111730
+(defvar helm-c-source-files-in-current-dirhelm-c-source-files-in-current-dir2632,113059
+(defvar helm-c-source-tracker-searchhelm-c-source-tracker-search2649,113657
+(defvar helm-c-source-mac-spotlighthelm-c-source-mac-spotlight2663,114100
+(defvar helm-c-source-picklisthelm-c-source-picklist2674,114412
+(defvar helm-c-source-findutilshelm-c-source-findutils2683,114569
+(defun helm-findutils-transformer (candidates source)helm-findutils-transformer2697,115148
+(defun helm-find-shell-command-fn ()helm-find-shell-command-fn2705,115543
+(defun helm-find-1 (dir)helm-find-12733,117021
+(defun helm-ff-find-sh-command (candidate)helm-ff-find-sh-command2741,117325
+(defun helm-ff-run-find-sh-command ()helm-ff-run-find-sh-command2747,117564
+(defun helm-find (arg)helm-find2758,117821
+(defun helm-find-files (arg)helm-find-files2769,118128
+(defun helm-write-file ()helm-write-file2797,119376
+(defun helm-insert-file ()helm-insert-file2807,119720
+(defun helm-dired-rename-file ()helm-dired-rename-file2817,120059
+(defun helm-dired-copy-file ()helm-dired-copy-file2823,120227
+(defun helm-dired-symlink-file ()helm-dired-symlink-file2829,120389
+(defun helm-dired-hardlink-file ()helm-dired-hardlink-file2835,120560
+(defun helm-for-files ()helm-for-files2841,120734
+(defun helm-recentf ()helm-recentf2849,121024
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-external.el,976
+(defgroup helm-external nilhelm-external24,862
+(defcustom helm-raise-command nilhelm-raise-command28,966
+(defcustom helm-c-external-programs-associations nilhelm-c-external-programs-associations35,1211
+(defcustom helm-c-default-external-file-browser "nautilus"helm-c-default-external-file-browser42,1521
+(defvar helm-external-command-history nil)helm-external-command-history54,1916
+(defvar helm-c-external-commands-list nilhelm-c-external-commands-list55,1959
+(defun helm-c-external-commands-list-1 (&optional sort)helm-c-external-commands-list-160,2140
+(defun helm-run-or-raise (exe &optional file)helm-run-or-raise82,3336
+(defun helm-get-mailcap-for-file (filename)helm-get-mailcap-for-file117,5108
+(defun helm-get-default-program-for-file (filename)helm-get-default-program-for-file128,5632
+(defun helm-c-open-file-externally (file)helm-c-open-file-externally141,6280
+(defun helm-c-run-external-command (program)helm-c-run-external-command188,8817
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-info.el,650
+(defgroup helm-info nilhelm-info30,1078
+(defun helm-c-build-info-index-command (name doc source buffer)helm-c-build-info-index-command37,1233
+(defun helm-c-define-info-index-sources (var-value &optional commands)helm-c-define-info-index-sources48,1682
+(defun helm-info-index-set (var value)helm-info-index-set66,2592
+(defcustom helm-c-default-info-index-listhelm-c-default-info-index-list70,2696
+(defvar helm-c-info-pages nilhelm-c-info-pages88,3376
+(defun helm-c-info-pages-init ()helm-c-info-pages-init93,3506
+(defvar helm-c-source-info-pageshelm-c-source-info-pages108,4036
+(defun helm-info-at-point ()helm-info-at-point118,4406
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-gentoo.el,1477
+(defgroup helm-gentoo nilhelm-gentoo28,994
+(defface helm-gentoo-match '((t (:foreground "red")))helm-gentoo-match32,1082
+(defvar helm-c-gentoo-use-flags nil)helm-c-gentoo-use-flags38,1224
+(defvar helm-c-gentoo-buffer "*helm-gentoo-output*")helm-c-gentoo-buffer39,1261
+(defvar helm-c-cache-gentoo nil)helm-c-cache-gentoo40,1314
+(defvar helm-c-cache-world nil)helm-c-cache-world41,1347
+(defvar helm-c-source-gentoohelm-c-source-gentoo42,1379
+(defun* helm-gentoo-install (candidate &key action)helm-gentoo-install88,4081
+(defun helm-c-gentoo-default-action (elm command &rest args)helm-c-gentoo-default-action103,4643
+(defvar helm-c-source-use-flagshelm-c-source-use-flags114,5082
+(defun helm-c-gentoo-init-list ()helm-c-gentoo-init-list152,6613
+(defun helm-c-gentoo-setup-cache ()helm-c-gentoo-setup-cache160,6916
+(defun helm-c-gentoo-eshell-action (elm command)helm-c-gentoo-eshell-action168,7206
+(defun helm-c-gentoo-get-use ()helm-c-gentoo-get-use181,7769
+(defun helm-c-gentoo-setup-use-flags-cache ()helm-c-gentoo-setup-use-flags-cache190,8061
+(defun helm-c-gentoo-get-url (elm)helm-c-gentoo-get-url198,8376
+(defun helm-c-gentoo-get-world ()helm-c-gentoo-get-world212,8897
+(defun helm-c-gentoo-get-local-use ()helm-c-gentoo-get-local-use219,9148
+(defun helm-c-highlight-world (eix)helm-c-highlight-world227,9392
+(defun helm-c-highlight-local-use (use-flags)helm-c-highlight-local-use235,9617
+(defun helm-gentoo ()helm-gentoo244,9891
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-man.el,247
+(defvar helm-c-man-pages nilhelm-c-man-pages26,947
+(defun helm-c-man-default-action (candidate)helm-c-man-default-action31,1075
+(defvar helm-c-source-man-pageshelm-c-source-man-pages45,1635
+(defun helm-man-woman (arg)helm-man-woman66,2484
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm.el,26117
+(defun helm-define-multi-key (keymap key functions &optional delay)helm-define-multi-key38,1301
+(defun helm-run-multi-key-command (functions iterator delay)helm-run-multi-key-command65,2355
+(defmacro helm-iter-list (seq)helm-iter-list80,3031
+(defun helm-iter-next (iterator)helm-iter-next88,3225
+(defvar helm-maphelm-map96,3333
+(defgroup helm nilhelm169,7499
+(defcustom helm-completion-window-scroll-margin 5helm-completion-window-scroll-margin173,7573
+(defcustom helm-display-source-at-screen-top thelm-display-source-at-screen-top181,7827
+(defcustom helm-candidate-number-limit 100helm-candidate-number-limit188,8101
+(defcustom helm-idle-delay 0.3helm-idle-delay199,8509
+(defcustom helm-input-idle-delay 0.3helm-input-idle-delay212,9058
+(defcustom helm-full-frame nilhelm-full-frame226,9566
+(defvaralias 'helm-samewindow 'helm-full-frame)helm-samewindow232,9722
+(defcustom helm-quick-update nilhelm-quick-update235,9840
+(defcustom helm-candidate-separatorhelm-candidate-separator242,10091
+(defcustom helm-save-configuration-functionshelm-save-configuration-functions248,10233
+(defcustom helm-persistent-action-use-special-display nilhelm-persistent-action-use-special-display262,10918
+(defcustom helm-scroll-amount nilhelm-scroll-amount267,11079
+(defcustom helm-display-function 'helm-default-display-bufferhelm-display-function276,11351
+(defcustom helm-case-fold-search 'smarthelm-case-fold-search283,11566
+(defcustom helm-file-name-case-fold-searchhelm-file-name-case-fold-search297,12091
+(defcustom helm-reuse-last-window-split-state nilhelm-reuse-last-window-split-state308,12386
+(defcustom helm-split-window-preferred-function 'helm-split-window-default-fnhelm-split-window-preferred-function315,12672
+(defcustom helm-split-window-default-side 'belowhelm-split-window-default-side320,12833
+(defcustom helm-split-window-in-side-p nilhelm-split-window-in-side-p336,13429
+(defcustom helm-sources-using-default-as-input '(helm-c-source-imenuhelm-sources-using-default-as-input345,13752
+(defcustom helm-never-delay-on-input thelm-never-delay-on-input354,14186
+(defcustom helm-delete-minibuffer-contents-from-point nilhelm-delete-minibuffer-contents-from-point365,14699
+(defface helm-source-headerhelm-source-header375,14940
+(defface helm-visible-markhelm-visible-mark387,15314
+(defface helm-headerhelm-header399,15696
+(defface helm-candidate-numberhelm-candidate-number404,15814
+(defface helm-selectionhelm-selection409,16045
+(defface helm-separatorhelm-separator415,16275
+(defface helm-actionhelm-action421,16455
+(defvar helm-type-attributes nilhelm-type-attributes430,16595
+(defvar helm-source-filter nilhelm-source-filter440,17005
+(defvar helm-action-buffer "*helm action*"helm-action-buffer446,17202
+(defvar helm-selection-overlay nilhelm-selection-overlay449,17275
+(defvar helm-async-processes nilhelm-async-processes452,17371
+(defvar helm-before-initialize-hook nilhelm-before-initialize-hook455,17476
+(defvar helm-after-initialize-hook nilhelm-after-initialize-hook459,17612
+(defvar helm-update-hook nilhelm-update-hook464,17790
+(defvar helm-after-update-hook nilhelm-after-update-hook470,18033
+(defvar helm-cleanup-hook nilhelm-cleanup-hook475,18285
+(defvar helm-select-action-hook nilhelm-select-action-hook479,18410
+(defvar helm-before-action-hook nilhelm-before-action-hook482,18488
+(defvar helm-after-action-hook nilhelm-after-action-hook488,18671
+(defvar helm-after-persistent-action-hook nilhelm-after-persistent-action-hook491,18740
+(defvar helm-move-selection-before-hook nilhelm-move-selection-before-hook494,18831
+(defvar helm-move-selection-after-hook nilhelm-move-selection-after-hook497,18927
+(defvar helm-restored-variableshelm-restored-variables500,19021
+(defvar helm-saved-selection nilhelm-saved-selection508,19233
+(defvar helm-current-prefix-arg nilhelm-current-prefix-arg511,19342
+(defvar helm-saved-action nilhelm-saved-action514,19437
+(defvar helm-last-sources nilhelm-last-sources518,19544
+(defvar helm-saved-current-source nilhelm-saved-current-source521,19629
+(defvar helm-compiled-sources nilhelm-compiled-sources524,19732
+(defvar helm-in-persistent-action nilhelm-in-persistent-action527,19808
+(defvar helm-last-sources-local nilhelm-last-sources-local530,19894
+(defvar helm-last-buffer nilhelm-last-buffer533,19974
+(defvar helm-execute-action-at-once-if-one nilhelm-execute-action-at-once-if-one536,20053
+(defvar helm-quit-if-no-candidate nilhelm-quit-if-no-candidate539,20176
+(defvar helm-maybe-use-default-as-input nilhelm-maybe-use-default-as-input543,20337
+(defvar helm-source-in-each-line-flag nilhelm-source-in-each-line-flag548,20532
+(defvar helm-debug-variables nilhelm-debug-variables552,20665
+(defvar helm-debug-buffer "*Debug Helm Log*")helm-debug-buffer556,20817
+(defvar helm-debug nilhelm-debug558,20864
+(defvar helm-sources nil)helm-sources567,21135
+(defvar helm-delayed-init-executed nil)helm-delayed-init-executed568,21161
+(defvar helm-buffer "*helm*"helm-buffer569,21201
+(defvar helm-current-buffer nilhelm-current-buffer571,21263
+(defvar helm-buffer-file-name nilhelm-buffer-file-name573,21339
+(defvar helm-default-directory nilhelm-default-directory575,21430
+(defvar helm-candidate-cache nilhelm-candidate-cache577,21531
+(defvar helm-pattern ""helm-pattern579,21633
+(defvar helm-input ""helm-input581,21712
+(defvar helm-input-local nilhelm-input-local583,21780
+(defvar helm-source-name nil)helm-source-name585,21891
+(defvar helm-candidate-buffer-alist nil)helm-candidate-buffer-alist586,21921
+(defvar helm-match-hash (make-hash-table :test 'equal))helm-match-hash587,21962
+(defvar helm-cib-hash (make-hash-table :test 'equal))helm-cib-hash588,22018
+(defvar helm-tick-hash (make-hash-table :test 'equal))helm-tick-hash589,22072
+(defvar helm-issued-errors nil)helm-issued-errors590,22127
+(defvar helm-follow-mode nil)helm-follow-mode591,22159
+(defvar helm-let-variables nil)helm-let-variables592,22189
+(defvar helm-split-window-state nil)helm-split-window-state593,22221
+(defvar helm-selection-point nil)helm-selection-point594,22258
+(defvar helm-alive-p nil)helm-alive-p595,22292
+(defvar helm-visible-mark-overlays nil)helm-visible-mark-overlays596,22318
+(defconst helm-default-match-functionshelm-default-match-functions597,22358
+(defvar helm-update-blacklist-regexps '("^" "^ *" "$" "!" " " "\\b"helm-update-blacklist-regexps601,22547
+(defvar helm-suspend-update-flag nil)helm-suspend-update-flag603,22683
+(defvar helm-force-updating-p nil)helm-force-updating-p604,22721
+(defun helm-log (format-string &rest args)helm-log608,22779
+(defmacro helm-log-eval (&rest exprs)helm-log-eval626,23570
+(defun helm-log-run-hook (hook)helm-log-run-hook630,23713
+(defun helm-log-eval-internal (exprs)helm-log-eval-internal639,24009
+(defun helm-log-get-current-function ()helm-log-get-current-function649,24378
+(defun helm-log-error (&rest args)helm-log-error660,24840
+(defvar helm-debug-root-directory nilhelm-debug-root-directory668,25154
+(defvar helm-last-log-file nilhelm-last-log-file674,25427
+(defun helm-log-save-maybe ()helm-log-save-maybe677,25508
+(defun helm-open-last-log ()helm-open-last-log700,26578
+(defun helm-print-error-messages ()helm-print-error-messages709,26881
+(defmacro helm-aif (test-form then-form &rest else-forms)helm-aif717,27098
+(defun helm-mklist (obj)helm-mklist724,27398
+(defun helm-this-command ()helm-this-command731,27595
+(defun helm-buffer-get ()helm-buffer-get749,28142
+(defun helm-window ()helm-window755,28307
+(defun helm-action-window ()helm-action-window759,28409
+(defmacro with-helm-window (&rest body)with-helm-window763,28526
+(defmacro with-helm-current-buffer (&rest body)with-helm-current-buffer769,28700
+(defmacro with-helm-buffer (&rest body)with-helm-buffer775,28884
+(defmacro with-helm-restore-variables(&rest body)with-helm-restore-variables781,29050
+(defmacro with-helm-default-directory (directory &rest body)with-helm-default-directory792,29504
+(defun helm-default-directory ()helm-default-directory799,29795
+(defmacro with-helm-after-update-hook (&rest body)with-helm-after-update-hook803,29952
+(defun* helm-attr (attribute-namehelm-attr814,30325
+(defun* helm-attr-defined (attribute-namehelm-attr-defined823,30697
+(defun* helm-attrset (attribute-name valuehelm-attrset829,30942
+(defun helm-get-attribute-from-source-type (attribute source)helm-get-attribute-from-source-type840,31411
+(defun helm-get-attribute-from-type (attribute type)helm-get-attribute-from-type847,31653
+(defun helm-get-actions-from-type (source)helm-get-actions-from-type852,31853
+(defun helm-inherit-attribute-from-source (attribute source)helm-inherit-attribute-from-source857,32036
+(defun helm-append-at-nth (seq elm index)helm-append-at-nth863,32237
+(defun helm-add-action-to-source (name fn source &optional index)helm-add-action-to-source871,32458
+(defun* helm-add-action-to-source-if (name fn source predicatehelm-add-action-to-source-if890,33343
+(defun helm-set-source-filter (sources)helm-set-source-filter931,35518
+(defun helm-set-sources (sources &optional no-init no-update)helm-set-sources970,36905
+(defvar helm-compile-source-functionshelm-compile-source-functions982,37415
+(defun helm-get-sources ()helm-get-sources988,37626
+(defun* helm-get-selection (&optional (buffer nil buffer-s)helm-get-selection1011,38178
+(defun helm-get-action ()helm-get-action1045,39956
+(defun helm-get-current-source ()helm-get-current-source1056,40383
+(defun helm-buffer-is-modified (buffer)helm-buffer-is-modified1086,41781
+(defun helm-current-buffer-is-modified ()helm-current-buffer-is-modified1097,42248
+(defvar helm-quit nil)helm-quit1101,42413
+(defun helm-run-after-quit (function &rest args)helm-run-after-quit1102,42436
+(defun define-helm-type-attribute (type definition &optional doc)define-helm-type-attribute1112,42741
+(defvaralias 'helm-attributes 'helm-additional-attributes)helm-attributes1124,43233
+(defvar helm-additional-attributes nilhelm-additional-attributes1125,43292
+(defun helm-document-attribute (attribute short-doc &optional long-doc)helm-document-attribute1128,43368
+(defun helm-interpret-value (value &optional source)helm-interpret-value1143,43978
+(defun* helm-empty-buffer-p (&optional (buffer helm-buffer))helm-empty-buffer-p1164,44753
+(defun helm-empty-source-p ()helm-empty-source-p1169,44953
+(defun helm-let-internal (binding bodyfunc)helm-let-internal1183,45429
+(defun helm-current-line-contents ()helm-current-line-contents1197,45905
+(defun helm-funcall-with-source (source functions &rest args)helm-funcall-with-source1201,46053
+(defun helm-funcall-foreach (sym &optional sources)helm-funcall-foreach1211,46566
+(defun helm-normalize-sources (sources)helm-normalize-sources1218,46843
+(defun helm-approximate-candidate-number (&optional in-current-source)helm-approximate-candidate-number1227,47137
+(defmacro with-helm-quittable (&rest body)with-helm-quittable1260,48661
+(defun helm-compose (arg-lst func-lst)helm-compose1270,48966
+(defun helm-composed-funcall-with-source (source funcs &rest args)helm-composed-funcall-with-source1291,49915
+(defconst helm-argument-keyshelm-argument-keys1303,50362
+(defun helm (&rest plist)helm1307,50479
+(defun helm-parse-keys (keys)helm-parse-keys1412,53686
+(defun helm-internal (&optionalhelm-internal1434,54681
+(defun helm-resume (arg)helm-resume1490,57222
+(defun helm-resume-p (any-resume)helm-resume-p1521,58552
+(defun helm-resume-select-buffer ()helm-resume-select-buffer1525,58660
+(defun helm-other-buffer (any-sources any-buffer)helm-other-buffer1538,59107
+(defun helm-nest (&rest same-as-helm)helm-nest1543,59327
+(defvar helm-buffers nilhelm-buffers1578,60729
+(defun helm-initialize (any-resume any-input any-default any-sources)helm-initialize1580,60809
+(defun helm-restore-position-on-quit ()helm-restore-position-on-quit1600,61708
+(defun helm-recent-push (elt list-var)helm-recent-push1604,61846
+(defvar helm-current-position nilhelm-current-position1613,62134
+(defun helm-current-position (save-or-restore)helm-current-position1617,62322
+(defvar helm-last-frame-or-window-configuration nilhelm-last-frame-or-window-configuration1636,63118
+(defvar helm-onewindow-p nil)helm-onewindow-p1638,63236
+(defun helm-frame-or-window-configuration (save-or-restore)helm-frame-or-window-configuration1640,63267
+(defun helm-split-window-default-fn (window)helm-split-window-default-fn1666,64684
+(defun helm-display-buffer (buffer)helm-display-buffer1696,66056
+(defun helm-default-display-buffer (buffer)helm-default-display-buffer1725,67432
+(defun helm-initial-setup (any-default)helm-initial-setup1737,67932
+(defun helm-read-pattern-maybe (any-prompt any-inputhelm-read-pattern-maybe1778,69754
+(defun helm-exit-or-quit-maybe ()helm-exit-or-quit-maybe1859,74356
+(defun helm-toggle-suspend-update ()helm-toggle-suspend-update1875,75033
+(defadvice tramp-read-passwd (around disable-helm-update activate)tramp-read-passwd1886,75451
+(defun helm-maybe-update-keymap ()helm-maybe-update-keymap1893,75688
+(defun helm-create-helm-buffer ()helm-create-helm-buffer1905,76272
+(defun helm-initialize-overlays (buffer)helm-initialize-overlays1932,77525
+(defun helm-cleanup ()helm-cleanup1948,78058
+(defun helm-clean-up-minibuffer ()helm-clean-up-minibuffer1969,78868
+(defun helm-check-minibuffer-input ()helm-check-minibuffer-input1982,79243
+(defun helm-check-new-input (input)helm-check-new-input1989,79497
+(defvar helm-compile-source-functions-default helm-compile-source-functionshelm-compile-source-functions-default2013,80416
+(defun helm-compile-sources (sources funcs)helm-compile-sources2015,80526
+(defun helm-process-delayed-init (source)helm-process-delayed-init2029,80938
+(defun helm-get-candidates (source)helm-get-candidates2039,81387
+(defun helm-get-cached-candidates (source)helm-get-cached-candidates2077,83459
+(defun helm-transform-mapcar (function args)helm-transform-mapcar2103,84631
+(defun helm-process-candidate-transformer (candidates source)helm-process-candidate-transformer2119,85144
+(defun helm-process-filtered-candidate-transformer (candidates source)helm-process-filtered-candidate-transformer2125,85418
+(defun helm-process-filtered-candidate-transformer-maybehelm-process-filtered-candidate-transformer-maybe2131,85726
+(defun helm-process-real-to-display (candidates source)helm-process-real-to-display2141,86174
+(defun helm-transform-candidates (candidates source &optional process-p)helm-transform-candidates2154,86790
+(defun helm-candidate-number-limit (source)helm-candidate-number-limit2167,87392
+(defun helm-candidate-get-display (candidate)helm-candidate-get-display2178,87822
+(defun helm-process-pattern-transformer (pattern source)helm-process-pattern-transformer2183,88034
+(defun helm-match-functions (source)helm-match-functions2189,88292
+(defmacro helm-accumulate-candidates-internal (cand newmatcheshelm-accumulate-candidates-internal2195,88548
+(defun helm-take-first-elements (seq n)helm-take-first-elements2207,89003
+(defun* helm-set-case-fold-search (&optional (pattern helm-pattern))helm-set-case-fold-search2212,89234
+(defun helm-match-from-candidates (cands matchfns limit source)helm-match-from-candidates2234,90251
+(defun helm-compute-matches (source)helm-compute-matches2258,91350
+(defun helm-process-source (source)helm-process-source2280,92356
+(defun helm-process-delayed-sources (delayed-sources &optional preselect source)helm-process-delayed-sources2298,93093
+(defun helm-update (&optional preselect source)helm-update2327,94271
+(defun helm-update-source-p (source)helm-update-source-p2388,97461
+(defun helm-delayed-source-p (source)helm-delayed-source-p2400,97927
+(defun helm-update-move-first-line (&optional without-hook)helm-update-move-first-line2407,98189
+(defun helm-force-update (&optional preselect)helm-force-update2415,98432
+(defun helm-force-update--reinit (source)helm-force-update--reinit2435,99261
+(defun helm-remove-candidate-cache (source)helm-remove-candidate-cache2445,99634
+(defun helm-insert-match (match insert-function source)helm-insert-match2452,99892
+(defun helm-insert-header-from-source (source)helm-insert-header-from-source2475,100999
+(defun helm-insert-header (name &optional display-string)helm-insert-header2485,101376
+(defun helm-insert-candidate-separator ()helm-insert-candidate-separator2503,102081
+(defun helm-output-filter (process string)helm-output-filter2513,102399
+(defun helm-output-filter-1 (process-assoc string)helm-output-filter-12519,102648
+(defun helm-output-filter--process-source (process string source limit)helm-output-filter--process-source2535,103277
+(defun helm-output-filter--collect-candidates (lines incomplete-line-info)helm-output-filter--collect-candidates2552,104067
+(defun helm-output-filter--post-process ()helm-output-filter--post-process2572,105139
+(defun helm-kill-async-processes ()helm-kill-async-processes2583,105569
+(defun helm-kill-async-process (process)helm-kill-async-process2589,105833
+(defun helm-execute-selection-action ()helm-execute-selection-action2597,106029
+(defun helm-execute-selection-action-1 (&optionalhelm-execute-selection-action-12609,106525
+(defun helm-coerce-selection (selection source)helm-coerce-selection2632,107530
+(defun helm-get-default-action (action)helm-get-default-action2639,107787
+(defun helm-select-action ()helm-select-action2646,107987
+(defun helm-show-action-buffer (actions)helm-show-action-buffer2670,109059
+(defun helm-move-selection-common (move-func unit direction)helm-move-selection-common2691,109867
+(defun helm-display-source-at-screen-top-maybe (unit)helm-display-source-at-screen-top-maybe2706,110532
+(defun helm-skip-noncandidate-line (direction)helm-skip-noncandidate-line2711,110761
+(defun helm-skip-header-and-separator-line (direction)helm-skip-header-and-separator-line2721,111213
+(defvar helm-mode-line-string-real nil)helm-mode-line-string-real2733,111724
+(defun helm-display-mode-line (source)helm-display-mode-line2734,111764
+(defun helm-show-candidate-number (&optional name)helm-show-candidate-number2763,113255
+(defun helm-previous-line ()helm-previous-line2775,113686
+(defun helm-next-line ()helm-next-line2795,114501
+(defun helm-previous-page ()helm-previous-page2812,115080
+(defun helm-next-page ()helm-next-page2823,115349
+(defun helm-beginning-of-buffer ()helm-beginning-of-buffer2834,115605
+(defun helm-end-of-buffer ()helm-end-of-buffer2842,115793
+(defun helm-previous-source ()helm-previous-source2850,115974
+(defun helm-next-source ()helm-next-source2864,116348
+(defun helm-goto-source (source-or-name)helm-goto-source2872,116556
+(defun helm-mark-current-line (&optional resumep)helm-mark-current-line2885,117053
+(defun helm-this-command-key ()helm-this-command-key2905,117874
+(defvar helm-exit-status 0helm-exit-status2908,117964
+(defvar helm-minibuffer-confirm-state nil)helm-minibuffer-confirm-state2916,118299
+(defun helm-confirm-and-exit-minibuffer ()helm-confirm-and-exit-minibuffer2919,118358
+(defun helm-confirm-and-exit-hook ()helm-confirm-and-exit-hook2947,119646
+(defun helm-exit-minibuffer ()helm-exit-minibuffer2955,119946
+(defun helm-keyboard-quit ()helm-keyboard-quit2964,120207
+(defun helm-get-next-header-pos ()helm-get-next-header-pos2973,120470
+(defun helm-get-previous-header-pos ()helm-get-previous-header-pos2977,120615
+(defun helm-pos-multiline-p ()helm-pos-multiline-p2981,120772
+(defun helm-get-next-candidate-separator-pos ()helm-get-next-candidate-separator-pos2985,120929
+(defun helm-get-previous-candidate-separator-pos ()helm-get-previous-candidate-separator-pos2989,121113
+(defun helm-pos-header-line-p ()helm-pos-header-line-p2993,121309
+(defun helm-pos-candidate-separator-p ()helm-pos-candidate-separator-p2998,121514
+(defun helm-debug-output ()helm-debug-output3007,121716
+(defun helm-debug-output-function (&optional vars)helm-debug-output-function3012,121879
+(defun helm-kill-buffer-hook ()helm-kill-buffer-hook3026,122404
+(defun helm-preselect (candidate-or-regexp &optional source)helm-preselect3033,122727
+(defun helm-delete-current-selection ()helm-delete-current-selection3048,123272
+(defun helm-end-of-source-p (&optional at-point)helm-end-of-source-p3073,124333
+(defun helm-edit-current-selection-internal (func)helm-edit-current-selection-internal3081,124587
+(defmacro helm-edit-current-selection (&rest forms)helm-edit-current-selection3096,125155
+(defun helm-set-pattern (pattern &optional noupdate)helm-set-pattern3103,125412
+(defun helm-delete-minibuffer-contents (&optional arg)helm-delete-minibuffer-contents3113,125764
+(defun helm-compile-source--type (source)helm-compile-source--type3132,126449
+(defun helm-add-type-attribute (type definition)helm-add-type-attribute3139,126660
+(defvar helm-types nil)helm-types3144,126877
+(defun helm-document-type-attribute (type doc)helm-document-type-attribute3145,126901
+(defun helm-dummy-candidate (candidate source)helm-dummy-candidate3151,127099
+(defun helm-compile-source--dummy (source)helm-compile-source--dummy3156,127276
+(defun helm-candidates-in-buffer ()helm-candidates-in-buffer3167,127628
+(defun helm-candidates-in-buffer-search-from-start (pattern)helm-candidates-in-buffer-search-from-start3248,130895
+(defun helm-candidates-in-buffer-search-from-end (pattern)helm-candidates-in-buffer-search-from-end3252,131067
+(defun helm-candidates-in-buffer-1 (buffer pattern get-line-fnhelm-candidates-in-buffer-13256,131239
+(defun helm-point-is-moved (proc)helm-point-is-moved3273,132042
+(defun helm-search-from-candidate-buffer (pattern get-line-fn search-fnshelm-search-from-candidate-buffer3277,132202
+(defun helm-search-match-part (candidate pattern match-part-fn)helm-search-match-part3312,133812
+(defun helm-initial-candidates-from-candidate-buffer (endphelm-initial-candidates-from-candidate-buffer3320,134168
+(defun helm-search-from-candidate-buffer-internal (search-fn)helm-search-from-candidate-buffer-internal3332,134766
+(defun helm-candidate-buffer (&optional create-or-buffer)helm-candidate-buffer3345,135093
+(defun helm-init-candidates-in-buffer (buffer data)helm-init-candidates-in-buffer3399,137748
+(defun helm-compile-source--candidates-in-buffer (source)helm-compile-source--candidates-in-buffer3416,138450
+(defun helm-toggle-resplit-window ()helm-toggle-resplit-window3426,138760
+(defun helm-enlarge-window-1 (n)helm-enlarge-window-13456,140237
+(defun helm-narrow-window ()helm-narrow-window3465,140528
+(defun helm-enlarge-window ()helm-enlarge-window3471,140643
+(defun helm-swap-windows ()helm-swap-windows3477,140759
+(defun helm-replace-buffer-in-window (window buffer1 buffer2)helm-replace-buffer-in-window3512,142433
+(defun helm-select-nth-action (n)helm-select-nth-action3519,142720
+(defun helm-get-nth-action (n action)helm-get-nth-action3527,143033
+(defun helm-select-2nd-action ()helm-select-2nd-action3539,143387
+(defun helm-select-3rd-action ()helm-select-3rd-action3545,143546
+(defun helm-select-4th-action ()helm-select-4th-action3551,143705
+(defun helm-select-2nd-action-or-end-of-line ()helm-select-2nd-action-or-end-of-line3557,143864
+(defmacro with-helm-display-same-window (&rest body)with-helm-display-same-window3567,144181
+(defvar helm-persistent-action-display-window nil)helm-persistent-action-display-window3574,144486
+(defun helm-initialize-persistent-action ()helm-initialize-persistent-action3575,144537
+(defun* helm-execute-persistent-actionhelm-execute-persistent-action3579,144671
+(defun helm-persistent-action-display-window (&optional split-onewindow)helm-persistent-action-display-window3626,146897
+(defun helm-select-persistent-action-window (&optional split-onewindow)helm-select-persistent-action-window3639,147624
+(defun helm-persistent-action-display-buffer (buf &optional  action)helm-persistent-action-display-buffer3647,148011
+(defun helm-other-window-base (command &optional scroll-amount)helm-other-window-base3677,149674
+(defun helm-scroll-other-window ()helm-scroll-other-window3684,149960
+(defun helm-scroll-other-window-down ()helm-scroll-other-window-down3690,150118
+(defun helm-recenter-top-bottom-other-window ()helm-recenter-top-bottom-other-window3696,150285
+(defun helm-reposition-window-other-window ()helm-reposition-window-other-window3702,150487
+(defun helm-clear-visible-mark ()helm-clear-visible-mark3711,150702
+(defvar helm-marked-candidates nilhelm-marked-candidates3717,150962
+(defun helm-this-visible-mark ()helm-this-visible-mark3720,151055
+(defun helm-delete-visible-mark (overlay)helm-delete-visible-mark3725,151206
+(defun helm-make-visible-mark ()helm-make-visible-mark3734,151507
+(defun helm-toggle-visible-mark ()helm-toggle-visible-mark3745,152016
+(defun helm-mark-all ()helm-mark-all3755,152274
+(defun helm-unmark-all ()helm-unmark-all3794,154125
+(defun helm-toggle-all-marks ()helm-toggle-all-marks3806,154494
+(defun helm-display-all-visible-marks ()helm-display-all-visible-marks3818,154903
+(defun helm-marked-candidates ()helm-marked-candidates3829,155294
+(defun helm-reset-marked-candidates ()helm-reset-marked-candidates3845,155925
+(defun helm-current-source-name= (name)helm-current-source-name=3851,156138
+(defun helm-revive-visible-mark ()helm-revive-visible-mark3856,156292
+(defun helm-next-point-in-list (curpos points &optional prev)helm-next-point-in-list3874,157215
+(defun helm-next-visible-mark (&optional prev)helm-next-visible-mark3894,157838
+(defun helm-prev-visible-mark ()helm-prev-visible-mark3907,158231
+(defun helm-yank-selection ()helm-yank-selection3914,158391
+(defun helm-kill-selection-and-quit ()helm-kill-selection-and-quit3922,158593
+(define-minor-mode helm-follow-modehelm-follow-mode3937,158936
+(defun helm-follow-execute-persistent-action-maybe ()helm-follow-execute-persistent-action-maybe3946,159261
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-match-plugin.el,4070
+(defvar helm-mp-default-match-functions nil)helm-mp-default-match-functions30,979
+(defvar helm-mp-default-search-functions nil)helm-mp-default-search-functions31,1024
+(defvar helm-mp-default-search-backward-functions nil)helm-mp-default-search-backward-functions32,1070
+(defun helm-mp-set-matching-method (var key)helm-mp-set-matching-method34,1126
+(defgroup helm-match-plugin nilhelm-match-plugin68,2865
+(defcustom helm-mp-matching-method 'multi3helm-mp-matching-method72,2937
+(defface helm-matchhelm-match89,3820
+(defcustom helm-mp-highlight-delay 0.7helm-mp-highlight-delay94,3934
+(defcustom helm-mp-highlight-threshold 2helm-mp-highlight-threshold100,4115
+(define-minor-mode helm-match-plugin-modehelm-match-plugin-mode107,4316
+(defvar helm-mp-space-regexp "[\\ ] "helm-mp-space-regexp126,4961
+(defun helm-mp-make-regexps (pattern)helm-mp-make-regexps129,5064
+(defun helm-mp-1-make-regexp (pattern)helm-mp-1-make-regexp142,5606
+(defvar helm-mp-exact-pattern-str nil)helm-mp-exact-pattern-str151,5789
+(defvar helm-mp-exact-pattern-real nil)helm-mp-exact-pattern-real152,5828
+(defun helm-mp-exact-get-pattern (pattern)helm-mp-exact-get-pattern154,5869
+(defun helm-mp-exact-match (str &optional pattern)helm-mp-exact-match161,6106
+(defun helm-mp-exact-search (pattern &rest ignore)helm-mp-exact-search164,6201
+(defun helm-mp-exact-search-backward (pattern &rest ignore)helm-mp-exact-search-backward168,6346
+(defvar helm-mp-prefix-pattern-str nil)helm-mp-prefix-pattern-str177,6537
+(defvar helm-mp-prefix-pattern-real nil)helm-mp-prefix-pattern-real178,6577
+(defun helm-mp-prefix-get-pattern (pattern)helm-mp-prefix-get-pattern180,6619
+(defun helm-mp-prefix-match (str &optional pattern)helm-mp-prefix-match186,6855
+(defun helm-mp-prefix-search (pattern &rest ignore)helm-mp-prefix-search192,7067
+(defun helm-mp-prefix-search-backward (pattern &rest ignore)helm-mp-prefix-search-backward195,7183
+(defvar helm-mp-1-pattern-str nil)helm-mp-1-pattern-str204,7421
+(defvar helm-mp-1-pattern-real nil)helm-mp-1-pattern-real205,7456
+(defun helm-mp-1-get-pattern (pattern)helm-mp-1-get-pattern207,7493
+(defun* helm-mp-1-match (str &optional (pattern helm-pattern))helm-mp-1-match214,7737
+(defun helm-mp-1-search (pattern &rest ignore)helm-mp-1-search217,7855
+(defun helm-mp-1-search-backward (pattern &rest ignore)helm-mp-1-search-backward220,7964
+(defvar helm-mp-2-pattern-str nil)helm-mp-2-pattern-str228,8166
+(defvar helm-mp-2-pattern-real nil)helm-mp-2-pattern-real229,8201
+(defun helm-mp-2-get-pattern (pattern)helm-mp-2-get-pattern231,8238
+(defun* helm-mp-2-match (str &optional (pattern helm-pattern))helm-mp-2-match238,8484
+(defun helm-mp-2-search (pattern &rest ignore)helm-mp-2-search241,8602
+(defun helm-mp-2-search-backward (pattern &rest ignore)helm-mp-2-search-backward244,8711
+(defvar helm-mp-3-pattern-str nil)helm-mp-3-pattern-str252,8896
+(defvar helm-mp-3-pattern-list nil)helm-mp-3-pattern-list253,8931
+(defun helm-mp-3-get-patterns (pattern)helm-mp-3-get-patterns255,8968
+(defun helm-mp-3-get-patterns-internal (pattern)helm-mp-3-get-patterns-internal265,9400
+(defun helm-mp-3-match (str &optional pattern)helm-mp-3-match274,9787
+(defun helm-mp-3-search-base (pattern searchfn1 searchfn2)helm-mp-3-search-base289,10549
+(defun helm-mp-3-search (pattern &rest ignore)helm-mp-3-search308,11439
+(defun helm-mp-3-search-backward (pattern &rest ignore)helm-mp-3-search-backward314,11642
+(defun helm-mp-3p-match (str &optional pattern)helm-mp-3p-match324,11922
+(defun helm-mp-3p-search (pattern &rest ignore)helm-mp-3p-search335,12455
+(defun helm-mp-3p-search-backward (pattern &rest ignore)helm-mp-3p-search-backward341,12663
+(defun helm-compile-source--match-plugin (source)helm-compile-source--match-plugin351,12918
+(defun helm-mp-highlight-match ()helm-mp-highlight-match381,14388
+(defun helm-mp-highlight-region (start end regexp face)helm-mp-highlight-region391,14889
+(defun helm-mp-highlight-match-internal (end)helm-mp-highlight-match-internal401,15322
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-autoloads.el,4455
+(defvar helm-dired-mode nil "\helm-dired-mode817,22590
+(defvar helm-mode-line-string "\\<helm-map>\\[helm-help]:Help \\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\helm-mode-line-string1053,28875
+(defvar helm-buffer-mode-line-string '("Buffer(s)" "\\<helm-c-buffer-map>\\[helm-c-buffer-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "String displayed in mode-line in `helm-c-source-buffers-list'"))helm-buffer-mode-line-string1125,30386
+(defvar helm-buffers-ido-virtual-mode-line-string '("Killed Buffer(s)" "\\<helm-buffers-ido-virtual-map>\\[helm-buffers-ido-virtual-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "String displayed in mode-line in `helm-c-source-buffers-list'"))helm-buffers-ido-virtual-mode-line-string1127,30695
+(defvar helm-ff-mode-line-string "\\<helm-find-files-map>\\[helm-ff-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\helm-ff-mode-line-string1129,31046
+(defvar helm-read-file-name-mode-line-string "\\<helm-c-read-file-map>\\[helm-read-file-name-help]:Help \\[helm-cr-empty-string]:Empty \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\helm-read-file-name-mode-line-string1132,31332
+(defvar helm-generic-file-mode-line-string "\\<helm-generic-files-map>\\[helm-generic-file-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend" "\helm-generic-file-mode-line-string1135,31675
+(defvar helm-grep-mode-line-string "\\<helm-c-grep-map>\\[helm-grep-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend" "\helm-grep-mode-line-string1138,32008
+(defvar helm-pdfgrep-mode-line-string "\\<helm-c-pdfgrep-map>\\[helm-pdfgrep-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend" "\helm-pdfgrep-mode-line-string1141,32326
+(defvar helm-etags-mode-line-string "\\<helm-c-etags-map>\\[helm-etags-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\helm-etags-mode-line-string1144,32656
+(defvar helm-c-ucs-mode-line-string "\\<helm-c-ucs-map>\\[helm-c-ucs-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\helm-c-ucs-mode-line-string1147,32941
+(defvar helm-bookmark-mode-line-string '("Bookmark(s)" "\\<helm-c-bookmark-map>\\[helm-c-bookmark-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct") "\helm-bookmark-mode-line-string1150,33213
+(defvar helm-occur-mode-line "\\<helm-map>\\[helm-help]:Help \\<helm-occur-map>\\[helm-occur-run-query-replace-regexp]:Query replace regexp \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend")helm-occur-mode-line1153,33532
+(defvar helm-moccur-mode-line "\\<helm-c-moccur-map>\\[helm-moccur-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend")helm-moccur-mode-line1155,33858
+(defvar helm-comp-read-mode-line "\\<helm-comp-read-map>\\[helm-cr-empty-string]:Empty \\<helm-map>\\[helm-help]:Help \\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct")helm-comp-read-mode-line1157,34122
+(defvar helm-match-plugin-mode nil "\helm-match-plugin-mode1230,36213
+(defvar helm-mode nil "\helm-mode1376,41226
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-ring.el,1723
+(defgroup helm-ring nilhelm-ring27,964
+(defcustom helm-kill-ring-threshold 10helm-kill-ring-threshold31,1059
+(defcustom helm-c-kill-ring-max-lines-number nilhelm-c-kill-ring-max-lines-number36,1214
+(defcustom helm-c-register-max-offset 160helm-c-register-max-offset42,1424
+(defvar helm-kill-ring-maphelm-kill-ring-map51,1587
+(defvar helm-c-source-kill-ringhelm-c-source-kill-ring59,1838
+(defun helm-c-kill-ring-candidates ()helm-c-kill-ring-candidates75,2514
+(defun helm-c-kill-ring-transformer (candidates source)helm-c-kill-ring-transformer81,2766
+(defun helm-c-kill-ring-action (str)helm-c-kill-ring-action100,3557
+(defun helm-mark-ring-get-marks (pos)helm-mark-ring-get-marks134,5034
+(defun helm-mark-ring-get-candidates ()helm-mark-ring-get-candidates143,5325
+(defvar helm-mark-ring-cache nil)helm-mark-ring-cache153,5668
+(defvar helm-c-source-mark-ringhelm-c-source-mark-ring154,5702
+(defvar helm-c-source-global-mark-ringhelm-c-source-global-mark-ring173,6434
+(defun helm-global-mark-ring-format-buffer (marker)helm-global-mark-ring-format-buffer188,7205
+(defun helm-global-mark-ring-get-candidates ()helm-global-mark-ring-get-candidates200,7643
+(defvar helm-c-source-registerhelm-c-source-register215,8153
+(defun helm-c-register-candidates ()helm-c-register-candidates223,8385
+(defun helm-c-register-action-transformer (actions register-and-functions)helm-c-register-action-transformer288,11058
+(defun helm-mark-ring ()helm-mark-ring319,12377
+(defun helm-global-mark-ring ()helm-global-mark-ring325,12534
+(defun helm-all-mark-rings ()helm-all-mark-rings331,12712
+(defun helm-register ()helm-register339,12965
+(defun helm-show-kill-ring ()helm-show-kill-ring345,13132
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-firefox.el,822
+(defvar helm-firefox-bookmark-url-regexp "\\(https\\|http\\|ftp\\|about\\|file\\)://[^ \"]*")helm-firefox-bookmark-url-regexp33,1307
+(defvar helm-firefox-bookmarks-regexp ">\\([^><]+.[^</a>]\\)")helm-firefox-bookmarks-regexp34,1401
+(defun helm-get-firefox-user-init-dir ()helm-get-firefox-user-init-dir36,1465
+(defun helm-guess-firefox-bookmark-file ()helm-guess-firefox-bookmark-file48,2006
+(defvar helm-c-firefox-bookmarks-alist nil)helm-c-firefox-bookmarks-alist52,2163
+(defvar helm-c-source-firefox-bookmarkshelm-c-source-firefox-bookmarks53,2207
+(defun helm-c-firefox-bookmarks-get-value (elm)helm-c-firefox-bookmarks-get-value74,3080
+(defun helm-c-highlight-firefox-bookmarks (bookmarks source)helm-c-highlight-firefox-bookmarks77,3183
+(defun helm-firefox-bookmarks ()helm-firefox-bookmarks84,3441
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-net.el,2918
+(defgroup helm-net nilhelm-net26,881
+(defcustom helm-c-google-suggest-default-browser-function nilhelm-c-google-suggest-default-browser-function30,974
+(defcustom helm-c-home-url "http://www.google.fr"helm-c-home-url37,1236
+(defcustom helm-surfraw-default-browser-function nilhelm-surfraw-default-browser-function42,1359
+(defcustom helm-c-google-suggest-urlhelm-c-google-suggest-url48,1562
+(defcustom helm-c-google-suggest-search-urlhelm-c-google-suggest-search-url54,1740
+(defcustom helm-google-suggest-use-curl-p nilhelm-google-suggest-use-curl-p60,1910
+(defcustom helm-c-yahoo-suggest-urlhelm-c-yahoo-suggest-url66,2115
+(defcustom helm-c-yahoo-suggest-search-urlhelm-c-yahoo-suggest-search-url72,2326
+(defvar helm-ggs-max-length-real-flag 0)helm-ggs-max-length-real-flag83,2538
+(defvar helm-ggs-max-length-num-flag 0)helm-ggs-max-length-num-flag84,2579
+(defun helm-c-google-suggest-fetch (input)helm-c-google-suggest-fetch86,2620
+(defun helm-c-google-suggest-set-candidates (&optional request-prefix)helm-c-google-suggest-set-candidates121,4392
+(defun helm-c-ggs-set-number-result (num)helm-c-ggs-set-number-result162,6569
+(defun helm-c-google-suggest-action (candidate)helm-c-google-suggest-action177,7072
+(defvar helm-c-google-suggest-default-functionhelm-c-google-suggest-default-function185,7408
+(defvar helm-c-source-google-suggesthelm-c-source-google-suggest189,7549
+(defun helm-c-google-suggest-emacs-lisp ()helm-c-google-suggest-emacs-lisp198,7841
+(defun helm-c-yahoo-suggest-fetch (input)helm-c-yahoo-suggest-fetch206,8025
+(defun helm-c-yahoo-suggest-set-candidates ()helm-c-yahoo-suggest-set-candidates221,8598
+(defun helm-c-yahoo-suggest-action (candidate)helm-c-yahoo-suggest-action230,8923
+(defvar helm-c-source-yahoo-suggesthelm-c-source-yahoo-suggest235,9153
+(defvar helm-browse-url-chromium-program "chromium-browser")helm-browse-url-chromium-program251,9587
+(defvar helm-browse-url-uzbl-program "uzbl-browser")helm-browse-url-uzbl-program252,9648
+(defvar helm-browse-url-default-browser-alisthelm-browse-url-default-browser-alist253,9701
+(defun* helm-c-generic-browser (url name &rest args)helm-c-generic-browser268,10484
+(defun helm-browse-url-chromium (url)helm-browse-url-chromium280,10904
+(defun helm-browse-url-uzbl (url &optional ignore)helm-browse-url-uzbl286,11079
+(defun helm-browse-url-default-browser (url &rest args)helm-browse-url-default-browser291,11256
+(defun helm-c-browse-url (url &rest args)helm-c-browse-url301,11697
+(defvar helm-surfraw-engines-history nil)helm-surfraw-engines-history314,11991
+(defvar helm-surfraw-input-history nil)helm-surfraw-input-history315,12033
+(defun helm-c-build-elvi-list ()helm-c-build-elvi-list317,12074
+(defun helm-surfraw (pattern engine)helm-surfraw326,12330
+(defun helm-google-suggest ()helm-google-suggest353,13593
+(defun helm-yahoo-suggest ()helm-yahoo-suggest359,13788
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-utils.el,5113
+(defgroup helm-utils nilhelm-utils28,954
+(defcustom helm-su-or-sudo "sudo"helm-su-or-sudo32,1029
+(defcustom helm-yank-symbol-first nilhelm-yank-symbol-first37,1143
+(defcustom helm-default-kbsize 1024.0helm-default-kbsize43,1314
+(defface helm-selection-linehelm-selection-line49,1507
+(defadvice cua-delete-region (around helm-avoid-cua activate)cua-delete-region172,6865
+(defadvice copy-region-as-kill (around helm-avoid-cua activate)copy-region-as-kill175,6956
+(defun helm-ff-find-printers ()helm-ff-find-printers184,7112
+(defun helm-c-switch-to-buffer (buffer-or-name)helm-c-switch-to-buffer196,7587
+(defun* helm-c-position (item seq &key (test 'eq) all)helm-c-position201,7762
+(defun helm-substring (str width)helm-substring216,8342
+(defun helm-substring-by-width (str width)helm-substring-by-width226,8632
+(defun helm-string-multibyte-p (str)helm-string-multibyte-p237,9064
+(defun helm-c-get-pid-from-process-name (process-name)helm-c-get-pid-from-process-name242,9221
+(defun* helm-current-buffer-narrowed-p (&optionalhelm-current-buffer-narrowed-p250,9561
+(defun helm-region-active-p ()helm-region-active-p260,9913
+(defun helm-goto-char (loc)helm-goto-char263,10006
+(defun helm-goto-line (lineno &optional noanim)helm-goto-line272,10305
+(defun helm-show-all-in-this-source-only (arg)helm-show-all-in-this-source-only283,10646
+(defun helm-display-all-sources ()helm-display-all-sources295,11154
+(defun helm-displaying-source-names ()helm-displaying-source-names300,11309
+(defun helm-c-match-on-file-name (candidate)helm-c-match-on-file-name310,11710
+(defun helm-c-match-on-directory-name (candidate)helm-c-match-on-directory-name314,11897
+(defun helm-c-string-match (candidate)helm-c-string-match319,12103
+(defun helm-skip-entries (seq regexp-list)helm-skip-entries324,12277
+(defun helm-shadow-entries (seq regexp-list)helm-shadow-entries332,12577
+(defun helm-c-stringify (str-or-sym)helm-c-stringify342,12965
+(defun helm-c-symbolify (str-or-sym)helm-c-symbolify348,13110
+(defun helm-c-describe-function (func)helm-c-describe-function354,13250
+(defun helm-c-describe-variable (var)helm-c-describe-variable359,13383
+(defun helm-c-find-function (func)helm-c-find-function364,13513
+(defun helm-c-find-variable (var)helm-c-find-variable368,13622
+(defun helm-c-kill-new (candidate &optional replace)helm-c-kill-new372,13728
+(defun* helm-fast-remove-dups (seq &key (test 'eq))helm-fast-remove-dups377,13905
+(defun helm-quit-and-find-file ()helm-quit-and-find-file391,14420
+(defmacro* helm-c-walk-directory (directory &key path (directories t) match)helm-c-walk-directory427,15948
+(defun helm-c-basename (fname &optional ext)helm-c-basename461,17574
+(defun helm-file-human-size (size)helm-file-human-size470,18029
+(defun* helm-file-attributeshelm-file-attributes488,18908
+(defun helm-split-mode-file-attributes (str &optional string)helm-split-mode-file-attributes577,23206
+(defun helm-c-current-directory ()helm-c-current-directory595,23913
+(defvar helm-match-line-overlay nil)helm-match-line-overlay606,24189
+(defun helm-match-line-color-current-line (&optional start end buf face)helm-match-line-color-current-line608,24227
+(defalias 'helm-persistent-highlight-point 'helm-match-line-color-current-line)helm-persistent-highlight-point620,24762
+(defun helm-match-line-cleanup ()helm-match-line-cleanup622,24843
+(defun helm-match-line-update ()helm-match-line-update627,24996
+(defun helm-w32-prepare-filename (file)helm-w32-prepare-filename635,25276
+(defun helm-w32-shell-execute-open-file (file)helm-w32-shell-execute-open-file644,25572
+(defun helm-c-open-file-with-default-tool (file)helm-c-open-file-with-default-tool649,25736
+(defun helm-c-open-dired (file)helm-c-open-dired663,26358
+(defun helm-c-action-line-goto (lineno-and-content)helm-c-action-line-goto671,26604
+(defun* helm-c-action-file-line-goto (file-line-contenthelm-c-action-file-line-goto680,27005
+(defun helm-require-or-error (feature function)helm-require-or-error690,27460
+(defun helm-c-filtered-candidate-transformer-file-line (candidates source)helm-c-filtered-candidate-transformer-file-line694,27595
+(defun helm-c-filtered-candidate-transformer-file-line-1 (candidate)helm-c-filtered-candidate-transformer-file-line-1698,27776
+(defun* helm-goto-file-line (file lineno contenthelm-goto-file-line715,28631
+(defun helm-find-file-as-root (candidate)helm-find-file-as-root730,29240
+(defun helm-find-many-files (ignore)helm-find-many-files740,29657
+(defun helm-c-goto-line-with-adjustment (line line-content)helm-c-goto-line-with-adjustment743,29741
+(defun helm-c-quit-and-execute-action (action)helm-c-quit-and-execute-action778,31119
+(defvar helm-yank-point nil)helm-yank-point787,31318
+(defun helm-insert-in-minibuffer (word &optional replace follow)helm-insert-in-minibuffer789,31348
+(defun helm-yank-text-at-point ()helm-yank-text-at-point804,32003
+(defun helm-reset-yank-point ()helm-reset-yank-point832,33030
+(defun helm-html-bookmarks-to-alist (file url-regexp bmk-regexp)helm-html-bookmarks-to-alist839,33278
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-elscreen.el,263
+(defun helm-find-buffer-on-elscreen (candidate)helm-find-buffer-on-elscreen26,1039
+(defun helm-elscreen-find-file (file)helm-elscreen-find-file38,1599
+(defvar helm-c-source-elscreenhelm-c-source-elscreen42,1728
+(defun helm-elscreen ()helm-elscreen66,2753
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-imenu.el,734
+(defgroup helm-imenu nilhelm-imenu24,821
+(defcustom helm-c-imenu-delimiter " / "helm-c-imenu-delimiter28,918
+(defvar helm-c-imenu-index-filter nil)helm-c-imenu-index-filter34,1074
+(defvar helm-c-cached-imenu-alist nil)helm-c-cached-imenu-alist37,1170
+(defvar helm-c-cached-imenu-candidates nil)helm-c-cached-imenu-candidates40,1266
+(defvar helm-c-cached-imenu-tick nil)helm-c-cached-imenu-tick43,1372
+(defun helm-imenu-create-candidates (entry)helm-imenu-create-candidates46,1466
+(defvar helm-c-source-imenuhelm-c-source-imenu60,1928
+(defun helm-c-imenu-candidates ()helm-c-imenu-candidates71,2382
+(defun helm-c-imenu-default-action (elm)helm-c-imenu-default-action92,3303
+(defun helm-imenu ()helm-imenu101,3591
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-misc.el,2489
+(defgroup helm-misc nilhelm-misc23,826
+(defcustom helm-time-zone-home-location "Paris"helm-time-zone-home-location27,916
+(defface helm-time-zone-currenthelm-time-zone-current32,1033
+(defface helm-time-zone-homehelm-time-zone-home37,1181
+(defun helm-c-latex-math-candidates ()helm-c-latex-math-candidates44,1344
+(defvar helm-c-source-latex-mathhelm-c-source-latex-math52,1647
+(defvar helm-c-source-fixmehelm-c-source-fixme64,2012
+(defvar helm-c-source-rd-headlinehelm-c-source-rd-headline71,2216
+(defvar helm-c-source-oddmuse-headlinehelm-c-source-oddmuse-headline82,2543
+(defvar helm-c-source-emacs-source-defunhelm-c-source-emacs-source-defun91,2862
+(defvar helm-c-source-emacs-lisp-expectationshelm-c-source-emacs-lisp-expectations98,3122
+(defvar helm-c-source-emacs-lisp-toplevelshelm-c-source-emacs-lisp-toplevels106,3429
+(defvar helm-c-source-eev-anchorhelm-c-source-eev-anchor118,3902
+(defun helm-c-jabber-online-contacts ()helm-c-jabber-online-contacts139,4803
+(defvar helm-c-source-jabber-contactshelm-c-source-jabber-contacts149,5148
+(defun helm-time-zone-transformer (candidates sources)helm-time-zone-transformer161,5557
+(defvar helm-c-source-time-worldhelm-c-source-time-world170,5936
+(defvar helm-c-source-lacartehelm-c-source-lacarte181,6325
+(defun helm-c-call-interactively (cmd-or-name)helm-c-call-interactively193,6737
+(defvar helm-c-source-minibuffer-historyhelm-c-source-minibuffer-history210,7382
+(defvar helm-c-source-ratpoison-commandshelm-c-source-ratpoison-commands233,8069
+(defun helm-c-ratpoison-commands-init ()helm-c-ratpoison-commands-init241,8386
+(defun helm-c-ratpoison-commands-display-to-real (display)helm-c-ratpoison-commands-display-to-real256,9017
+(defun helm-c-ratpoison-commands-execute (candidate)helm-c-ratpoison-commands-execute260,9155
+(defvar helm-c-source-stumpwm-commandshelm-c-source-stumpwm-commands266,9293
+(defun helm-c-stumpwm-commands-init ()helm-c-stumpwm-commands-init273,9536
+(defun helm-c-stumpwm-commands-execute (candidate)helm-c-stumpwm-commands-execute281,9848
+(defun helm-world-time ()helm-world-time285,9967
+(defun helm-c-insert-latex-math ()helm-c-insert-latex-math291,10139
+(defun helm-eev-anchors ()helm-eev-anchors297,10328
+(defun helm-ratpoison-commands ()helm-ratpoison-commands303,10499
+(defun helm-stumpwm-commands()helm-stumpwm-commands310,10727
+(defun helm-mini ()helm-mini317,10893
+(defun helm-minibuffer-history ()helm-minibuffer-history327,11224
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-config.el,4895
+(defgroup helm-config nilhelm-config27,827
+(defcustom helm-command-prefix-key "C-x c"helm-command-prefix-key31,907
+(defcustom helm-minibuffer-history-key "C-r"helm-minibuffer-history-key45,1391
+(defvar helm-command-maphelm-command-map71,2446
+(defvar helm-command-prefix)helm-command-prefix116,4843
+(define-prefix-command 'helm-command-prefix)helm-command-prefix117,4872
+(defun helm-configuration ()helm-configuration180,6854
+(defvar helm-dired-mode nil "\helm-dired-mode1012,30451
+(defvar helm-mode-line-string "\\<helm-map>\\[helm-help]:Help \\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\helm-mode-line-string1248,36802
+(defvar helm-buffer-mode-line-string '("Buffer(s)" "\\<helm-c-buffer-map>\\[helm-c-buffer-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "String displayed in mode-line in `helm-c-source-buffers-list'"))helm-buffer-mode-line-string1320,38313
+(defvar helm-buffers-ido-virtual-mode-line-string '("Killed Buffer(s)" "\\<helm-buffers-ido-virtual-map>\\[helm-buffers-ido-virtual-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "String displayed in mode-line in `helm-c-source-buffers-list'"))helm-buffers-ido-virtual-mode-line-string1322,38622
+(defvar helm-ff-mode-line-string "\\<helm-find-files-map>\\[helm-ff-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\helm-ff-mode-line-string1324,38973
+(defvar helm-read-file-name-mode-line-string "\\<helm-c-read-file-map>\\[helm-read-file-name-help]:Help \\[helm-cr-empty-string]:Empty \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\helm-read-file-name-mode-line-string1327,39259
+(defvar helm-generic-file-mode-line-string "\\<helm-generic-files-map>\\[helm-generic-file-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend" "\helm-generic-file-mode-line-string1330,39602
+(defvar helm-grep-mode-line-string "\\<helm-c-grep-map>\\[helm-grep-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend" "\helm-grep-mode-line-string1333,39935
+(defvar helm-pdfgrep-mode-line-string "\\<helm-c-pdfgrep-map>\\[helm-pdfgrep-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend" "\helm-pdfgrep-mode-line-string1336,40253
+(defvar helm-etags-mode-line-string "\\<helm-c-etags-map>\\[helm-etags-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\helm-etags-mode-line-string1339,40583
+(defvar helm-c-ucs-mode-line-string "\\<helm-c-ucs-map>\\[helm-c-ucs-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct" "\helm-c-ucs-mode-line-string1342,40868
+(defvar helm-bookmark-mode-line-string '("Bookmark(s)" "\\<helm-c-bookmark-map>\\[helm-c-bookmark-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct") "\helm-bookmark-mode-line-string1345,41140
+(defvar helm-occur-mode-line "\\<helm-map>\\[helm-help]:Help \\<helm-occur-map>\\[helm-occur-run-query-replace-regexp]:Query replace regexp \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend")helm-occur-mode-line1348,41459
+(defvar helm-moccur-mode-line "\\<helm-c-moccur-map>\\[helm-moccur-help]:Help \\<helm-map>\\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct \\[helm-toggle-suspend-update]:Tog.suspend")helm-moccur-mode-line1350,41785
+(defvar helm-comp-read-mode-line "\\<helm-comp-read-map>\\[helm-cr-empty-string]:Empty \\<helm-map>\\[helm-help]:Help \\[helm-select-action]:Act \\[helm-exit-minibuffer]/\\[helm-select-2nd-action-or-end-of-line]/\\[helm-select-3rd-action]:NthAct")helm-comp-read-mode-line1352,42049
+(defvar helm-match-plugin-mode nil "\helm-match-plugin-mode1425,44205
+(defvar helm-mode nil "\helm-mode1572,49253
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-bbdb.el,980
+(defvar bbdb-records)bbdb-records24,843
+(defvar bbdb-buffer-name)bbdb-buffer-name25,865
+(defgroup helm-bbdb nilhelm-bbdb37,1396
+(defun helm-c-bbdb-candidates ()helm-c-bbdb-candidates41,1473
+(defun helm-bbdb-read-phone ()helm-bbdb-read-phone50,1790
+(defun helm-read-repeat-string (prompt &optional count)helm-read-repeat-string69,2691
+(defun helm-bbdb-read-address ()helm-bbdb-read-address80,3142
+(defun helm-c-bbdb-create-contact (actions candidate)helm-c-bbdb-create-contact105,4237
+(defun helm-c-bbdb-get-record (candidate)helm-c-bbdb-get-record121,4886
+(defvar helm-c-bbdb-name nilhelm-c-bbdb-name127,5041
+(defvar helm-c-source-bbdbhelm-c-source-bbdb130,5099
+(defun helm-c-bbdb-view-person-action (candidate)helm-c-bbdb-view-person-action146,5832
+(defun helm-c-bbdb-collect-mail-addresses ()helm-c-bbdb-collect-mail-addresses154,6187
+(defun helm-c-bbdb-compose-mail (candidate)helm-c-bbdb-compose-mail161,6464
+(defun helm-bbdb ()helm-bbdb169,6785
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-buffers.el,3865
+(defgroup helm-buffers nilhelm-buffers29,955
+(defcustom helm-c-boring-buffer-regexp-listhelm-c-boring-buffer-regexp-list33,1056
+(defcustom helm-buffers-favorite-modes '(lisp-interaction-modehelm-buffers-favorite-modes42,1436
+(defcustom helm-buffer-max-length 20helm-buffer-max-length50,1772
+(defface helm-buffer-saved-outhelm-buffer-saved-out58,1917
+(defface helm-buffer-not-savedhelm-buffer-not-saved63,2082
+(defface helm-buffer-sizehelm-buffer-size68,2234
+(defvar helm-c-buffer-maphelm-c-buffer-map77,2442
+(defvar helm-buffers-ido-virtual-maphelm-buffers-ido-virtual-map103,3899
+(defvar helm-buffers-list-cache nil)helm-buffers-list-cache115,4471
+(defvar helm-c-source-buffers-listhelm-c-source-buffers-list116,4508
+(defvar helm-c-source-buffer-not-foundhelm-c-source-buffer-not-found132,5131
+(defvar helm-c-source-ido-virtual-buffershelm-c-source-ido-virtual-buffers150,5925
+(defun helm-c-buffer-list ()helm-c-buffer-list172,7014
+(defun helm-buffer-size (buffer)helm-buffer-size182,7330
+(defun helm-c-highlight-buffers (buffers sources)helm-c-highlight-buffers191,7568
+(defun helm-c-buffer-match-major-mode (candidate)helm-c-buffer-match-major-mode274,12219
+(defun helm-buffers-match-inside (candidate lst)helm-buffers-match-inside304,13697
+(defun helm-c-buffer-query-replace-1 (&optional regexp-flag)helm-c-buffer-query-replace-1316,14139
+(defun helm-c-buffer-query-replace-regexp (candidate)helm-c-buffer-query-replace-regexp337,15094
+(defun helm-c-buffer-query-replace (candidate)helm-c-buffer-query-replace340,15192
+(defun helm-buffer-toggle-diff (candidate)helm-buffer-toggle-diff343,15275
+(defun helm-buffer-diff-persistent ()helm-buffer-diff-persistent351,15570
+(defun helm-buffer-revert-and-update (candidate)helm-buffer-revert-and-update357,15775
+(defun helm-buffer-revert-persistent ()helm-buffer-revert-persistent364,15998
+(defun helm-buffer-save-and-update (candidate)helm-buffer-save-and-update370,16226
+(defun helm-buffer-save-persistent ()helm-buffer-save-persistent380,16538
+(defun helm-buffer-run-kill-buffers ()helm-buffer-run-kill-buffers387,16771
+(defun helm-buffer-run-grep ()helm-buffer-run-grep393,16966
+(defun helm-buffer-run-zgrep ()helm-buffer-run-zgrep399,17141
+(defun helm-buffer-run-query-replace-regexp ()helm-buffer-run-query-replace-regexp405,17318
+(defun helm-buffer-run-query-replace ()helm-buffer-run-query-replace411,17540
+(defun helm-buffer-switch-other-window ()helm-buffer-switch-other-window417,17741
+(defun helm-buffer-switch-other-frame ()helm-buffer-switch-other-frame423,17955
+(defun helm-buffer-switch-to-elscreen ()helm-buffer-switch-to-elscreen429,18166
+(defun helm-buffer-run-ediff ()helm-buffer-run-ediff435,18375
+(defun helm-buffer-run-ediff-merge ()helm-buffer-run-ediff-merge440,18543
+(defun helm-c-buffers-persistent-kill (buffer)helm-c-buffers-persistent-kill445,18723
+(defun helm-c-buffers-list-persistent-action (candidate)helm-c-buffers-list-persistent-action459,19150
+(defun helm-ediff-marked-buffers (candidate &optional merge)helm-ediff-marked-buffers464,19326
+(defun helm-ediff-marked-buffers-merge (candidate)helm-ediff-marked-buffers-merge484,20025
+(defun helm-multi-occur-as-action (_candidate)helm-multi-occur-as-action489,20207
+(defun helm-buffers-run-multi-occur ()helm-buffers-run-multi-occur502,20778
+(defun helm-c-skip-boring-buffers (buffers sources)helm-c-skip-boring-buffers510,20976
+(defun helm-c-shadow-boring-buffers (buffers)helm-c-shadow-boring-buffers513,21093
+(defun helm-revert-buffer (candidate)helm-revert-buffer518,21322
+(defun helm-revert-marked-buffers (ignore)helm-revert-marked-buffers525,21551
+(defun helm-kill-marked-buffers (ignore)helm-kill-marked-buffers528,21650
+(define-helm-type-attribute 'bufferbuffer531,21740
+(defun helm-buffers-list ()helm-buffers-list557,23154
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-call-tree.el,1299
+(defvar helm-c-source-simple-call-tree-functions-callershelm-c-source-simple-call-tree-functions-callers28,1030
+(defvar helm-c-simple-call-tree-tick nil)helm-c-simple-call-tree-tick40,1605
+(defun helm-c-simple-call-tree-analyze-maybe ()helm-c-simple-call-tree-analyze-maybe42,1706
+(defun helm-c-simple-call-tree-init-base (function message)helm-c-simple-call-tree-init-base47,1930
+(defun helm-c-simple-call-tree-functions-callers-init ()helm-c-simple-call-tree-functions-callers-init62,2570
+(defun helm-c-simple-call-tree-candidates ()helm-c-simple-call-tree-candidates66,2747
+(defvar helm-c-simple-call-tree-related-functions nil)helm-c-simple-call-tree-related-functions70,2884
+(defvar helm-c-simple-call-tree-function-index 0)helm-c-simple-call-tree-function-index71,2939
+(defun helm-c-simple-call-tree-persistent-action (candidate)helm-c-simple-call-tree-persistent-action72,2989
+(defun helm-c-simple-call-tree-find-definition (candidate)helm-c-simple-call-tree-find-definition84,3548
+(defvar helm-c-source-simple-call-tree-callers-functionshelm-c-source-simple-call-tree-callers-functions93,3830
+(defun helm-c-simple-call-tree-callers-functions-init ()helm-c-simple-call-tree-callers-functions-init105,4398
+(defun helm-simple-call-tree ()helm-simple-call-tree109,4532
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-help.el,2965
+(defvar helm-mode-line-string "\helm-mode-line-string26,837
+(defvar helm-help-messagehelm-help-message43,1359
+(defun helm-help-internal (bufname insert-content-fn)helm-help-internal96,3260
+(defun helm-help-event-loop ()helm-help-event-loop110,3785
+(defun helm-help ()helm-help121,4105
+(defvar helm-c-buffer-help-messagehelm-c-buffer-help-message137,4547
+(defun helm-c-buffer-help ()helm-c-buffer-help197,7301
+(defvar helm-ff-help-messagehelm-ff-help-message206,7502
+(defun helm-ff-help ()helm-ff-help277,11803
+(defvar helm-read-file-name-help-messagehelm-read-file-name-help-message286,11994
+(defun helm-read-file-name-help ()helm-read-file-name-help299,12484
+(defvar helm-generic-file-help-messagehelm-generic-file-help-message307,12662
+(defun helm-generic-file-help ()helm-generic-file-help331,13764
+(defvar helm-grep-help-messagehelm-grep-help-message339,13912
+(defun helm-grep-help ()helm-grep-help361,14840
+(defvar helm-pdfgrep-help-messagehelm-pdfgrep-help-message369,14976
+(defun helm-pdfgrep-help ()helm-pdfgrep-help381,15344
+(defvar helm-etags-help-messagehelm-etags-help-message389,15483
+(defun helm-etags-help ()helm-etags-help401,15840
+(defvar helm-c-ucs-help-messagehelm-c-ucs-help-message410,16006
+(defun helm-c-ucs-help ()helm-c-ucs-help424,16412
+(defvar helm-bookmark-help-messagehelm-bookmark-help-message433,16583
+(defun helm-c-bookmark-help ()helm-c-bookmark-help445,16987
+(defvar helm-c-esh-help-messagehelm-c-esh-help-message454,17179
+(defun helm-esh-help ()helm-esh-help494,18289
+(defvar helm-buffers-ido-virtual-help-messagehelm-buffers-ido-virtual-help-message503,18498
+(defun helm-buffers-ido-virtual-help ()helm-buffers-ido-virtual-help518,19077
+(defvar helm-moccur-help-messagehelm-moccur-help-message527,19283
+(defun helm-moccur-help ()helm-moccur-help541,19675
+(defvar helm-buffer-mode-line-stringhelm-buffer-mode-line-string551,19836
+(defvar helm-buffers-ido-virtual-mode-line-stringhelm-buffers-ido-virtual-mode-line-string563,20180
+(defvar helm-ff-mode-line-string "\helm-ff-mode-line-string575,20566
+(defvar helm-read-file-name-mode-line-string "\helm-read-file-name-mode-line-string586,20881
+(defvar helm-generic-file-mode-line-string "\helm-generic-file-mode-line-string598,21255
+(defvar helm-grep-mode-line-string"\helm-grep-mode-line-string"\610,21619
+(defvar helm-pdfgrep-mode-line-string "\helm-pdfgrep-mode-line-string622,21967
+(defvar helm-etags-mode-line-string "\helm-etags-mode-line-string634,22328
+(defvar helm-c-ucs-mode-line-string "\helm-c-ucs-mode-line-string645,22642
+(defvar helm-bookmark-mode-line-stringhelm-bookmark-mode-line-string656,22943
+(defvar helm-occur-mode-line "\helm-occur-mode-line668,23293
+(defvar helm-moccur-mode-line "\helm-moccur-mode-line681,23654
+(defvar helm-comp-read-mode-line "\helm-comp-read-mode-line692,23949
+(defun helm-describe-helm-attribute (helm-attribute)helm-describe-helm-attribute707,24265
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-bmkext.el,1743
+(defun helm-c-bmkext-filter-setup-alist (fn &rest args)helm-c-bmkext-filter-setup-alist31,1216
+(defun helm-c-bmkext-run-edit ()helm-c-bmkext-run-edit43,1617
+(defvar helm-c-source-bmkext-addressbookhelm-c-source-bmkext-addressbook51,1794
+(defun helm-c-bmkext-addressbook-setup-alist ()helm-c-bmkext-addressbook-setup-alist130,5584
+(defvar helm-c-source-bookmark-w3mhelm-c-source-bookmark-w3m135,5796
+(defun helm-c-bookmark-w3m-setup-alist ()helm-c-bookmark-w3m-setup-alist148,6240
+(defvar helm-c-source-bookmark-imageshelm-c-source-bookmark-images153,6405
+(defun helm-c-bookmark-images-setup-alist ()helm-c-bookmark-images-setup-alist166,6861
+(defvar helm-c-source-bookmark-manhelm-c-source-bookmark-man171,7042
+(defun helm-c-bookmark-man-setup-alist ()helm-c-bookmark-man-setup-alist184,7492
+(defvar helm-c-source-bookmark-gnushelm-c-source-bookmark-gnus190,7734
+(defun helm-c-bookmark-gnus-setup-alist ()helm-c-bookmark-gnus-setup-alist203,8182
+(defvar helm-c-source-bookmark-infohelm-c-source-bookmark-info208,8348
+(defun helm-c-bookmark-info-setup-alist ()helm-c-bookmark-info-setup-alist221,8796
+(defvar helm-c-source-bookmark-files&dirshelm-c-source-bookmark-files&dirs226,8981
+(defun helm-c-bookmark-local-files-setup-alist ()helm-c-bookmark-local-files-setup-alist239,9456
+(defvar helm-c-source-bookmark-su-files&dirshelm-c-source-bookmark-su-files&dirs244,9659
+(defun helm-c-bookmark-su-files-setup-alist ()helm-c-bookmark-su-files-setup-alist257,10139
+(defvar helm-c-source-bookmark-ssh-files&dirshelm-c-source-bookmark-ssh-files&dirs273,10804
+(defun helm-c-bookmark-ssh-files-setup-alist ()helm-c-bookmark-ssh-files-setup-alist284,11249
+(defun helm-bookmark-ext ()helm-bookmark-ext299,11840
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-emms.el,769
+(defgroup helm-emms nilhelm-emms34,1405
+(defface helm-emms-playlisthelm-emms-playlist38,1491
+(defun helm-emms-stream-edit-bookmark (elm)helm-emms-stream-edit-bookmark44,1647
+(defun helm-emms-stream-delete-bookmark (candidate)helm-emms-stream-delete-bookmark67,2764
+(defvar helm-c-source-emms-streamshelm-c-source-emms-streams85,3576
+(defvar helm-c-source-emms-diredhelm-c-source-emms-dired103,4464
+(defvar helm-emms-current-playlist nil)helm-emms-current-playlist120,5278
+(defun helm-c-emms-files-modifier (candidates source)helm-c-emms-files-modifier121,5318
+(defun helm-c-emms-play-current-playlist ()helm-c-emms-play-current-playlist130,5670
+(defvar helm-c-source-emms-fileshelm-c-source-emms-files135,5801
+(defun helm-emms ()helm-emms170,7721
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-yaoddmuse.el,1001
+(defvar helm-yaoddmuse-use-cache-file nil)helm-yaoddmuse-use-cache-file28,1127
+(defvar helm-c-yaoddmuse-cache-file "~/.emacs.d/yaoddmuse-cache.el")helm-c-yaoddmuse-cache-file29,1170
+(defvar helm-c-yaoddmuse-ew-cache nil)helm-c-yaoddmuse-ew-cache30,1239
+(defun helm-yaoddmuse-get-candidates ()helm-yaoddmuse-get-candidates32,1279
+(defvar helm-c-source-yaoddmuse-emacswiki-edit-or-viewhelm-c-source-yaoddmuse-emacswiki-edit-or-view44,1732
+(defvar helm-c-source-yaoddmuse-emacswiki-post-libraryhelm-c-source-yaoddmuse-emacswiki-post-library81,3412
+(defun helm-c-yaoddmuse-action-transformer (actions candidate)helm-c-yaoddmuse-action-transformer104,4269
+(defun helm-yaoddmuse-cache-pages (&optional load)helm-yaoddmuse-cache-pages113,4611
+(defun helm-yaoddmuse-init ()helm-yaoddmuse-init133,5321
+(defun helm-yaoddmuse-emacswiki-edit-or-view ()helm-yaoddmuse-emacswiki-edit-or-view145,5720
+(defun helm-yaoddmuse-emacswiki-post-library ()helm-yaoddmuse-emacswiki-post-library155,5999
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-grep.el,6262
+(defgroup helm-grep nilhelm-grep32,1085
+(defcustom helm-c-grep-default-commandhelm-c-grep-default-command36,1180
+(defcustom helm-c-grep-default-recurse-commandhelm-c-grep-default-recurse-command76,2877
+(defcustom helm-c-default-zgrep-commandhelm-c-default-zgrep-command83,3142
+(defcustom helm-c-pdfgrep-default-commandhelm-c-pdfgrep-default-command90,3338
+(defcustom helm-c-grep-use-ioccur-style-keys thelm-c-grep-use-ioccur-style-keys96,3489
+(defcustom helm-c-pdfgrep-default-read-command "xpdf '%f' %p"helm-c-pdfgrep-default-read-command101,3618
+(defcustom helm-c-grep-max-length-history 100helm-c-grep-max-length-history107,3830
+(defcustom helm-zgrep-file-extension-regexphelm-zgrep-file-extension-regexp112,3976
+(defcustom helm-do-grep-preselect-candidate nilhelm-do-grep-preselect-candidate118,4149
+(defcustom helm-c-grep-preferred-ext nilhelm-c-grep-preferred-ext123,4304
+(defface helm-grep-matchhelm-grep-match132,4456
+(defface helm-grep-filehelm-grep-file137,4572
+(defface helm-grep-linenohelm-grep-lineno143,4730
+(defface helm-grep-runninghelm-grep-running148,4863
+(defface helm-grep-finishhelm-grep-finish153,4992
+(defface helm-grep-cmd-linehelm-grep-cmd-line158,5121
+(defvar helm-c-grep-maphelm-c-grep-map167,5286
+(defvar helm-c-pdfgrep-maphelm-c-pdfgrep-map182,6015
+(defvar helm-grep-mode-maphelm-grep-mode-map192,6401
+(defvar helm-c-rzgrep-cache (make-hash-table :test 'equal))helm-c-rzgrep-cache207,6972
+(defvar helm-c-grep-default-function 'helm-c-grep-init)helm-c-grep-default-function208,7032
+(defvar helm-c-zgrep-recurse-flag nil)helm-c-zgrep-recurse-flag209,7088
+(defvar helm-c-grep-history nil)helm-c-grep-history210,7127
+(defvar helm-grep-last-targets nil)helm-grep-last-targets211,7160
+(defvar helm-grep-include-files nil)helm-grep-include-files212,7196
+(defvar helm-grep-in-recurse nil)helm-grep-in-recurse213,7233
+(defvar helm-grep-use-zgrep nil)helm-grep-use-zgrep214,7267
+(defvar helm-grep-last-default-directory nil)helm-grep-last-default-directory215,7300
+(defvar helm-c-grep-default-directory-fn nilhelm-c-grep-default-directory-fn216,7346
+(defvar helm-pdfgrep-targets nil)helm-pdfgrep-targets219,7533
+(defvar helm-grep-last-cmd-line nil)helm-grep-last-cmd-line220,7567
+(defvar helm-grep-split-line-regexp "^\\([a-zA-Z]?:?[^:]*\\):\\([0-9]+\\):\\(.*\\)")helm-grep-split-line-regexp221,7604
+(defun helm-c-grep-prepare-candidates (candidates)helm-c-grep-prepare-candidates227,7707
+(defun helm-grep-command (&optional recursive)helm-grep-command281,10816
+(defun* helm-grep-use-ack-p (&key where)helm-grep-use-ack-p287,11101
+(defun helm-c-grep-init (only-files &optional include zgrep)helm-c-grep-init297,11581
+(defun helm-grep-collect-candidates ()helm-grep-collect-candidates409,18019
+(defun helm-c-grep-action (candidate &optional where mark)helm-c-grep-action427,18692
+(defun helm-c-grep-persistent-action (candidate)helm-c-grep-persistent-action468,20654
+(defun helm-c-grep-other-window (candidate)helm-c-grep-other-window476,20947
+(defun helm-c-grep-other-frame (candidate)helm-c-grep-other-frame480,21091
+(defun helm-c-grep-jump-elscreen (candidate)helm-c-grep-jump-elscreen484,21232
+(defun helm-c-goto-next-or-prec-file (n &optional type)helm-c-goto-next-or-prec-file488,21369
+(defun helm-c-goto-precedent-file ()helm-c-goto-precedent-file526,23224
+(defun helm-c-goto-next-file ()helm-c-goto-next-file536,23563
+(defun helm-c-grep-run-persistent-action ()helm-c-grep-run-persistent-action546,23896
+(defun helm-c-grep-run-default-action ()helm-c-grep-run-default-action553,24144
+(defun helm-c-grep-run-other-window-action ()helm-c-grep-run-other-window-action559,24324
+(defun helm-c-grep-run-save-buffer ()helm-c-grep-run-save-buffer565,24525
+(defun helm-c-grep-save-results (_candidate)helm-c-grep-save-results574,24725
+(defun helm-c-grep-save-results-1 ()helm-c-grep-save-results-1577,24812
+(define-derived-mode helm-grep-modehelm-grep-mode604,25945
+(defun helm-gm-next-file ()helm-gm-next-file612,26129
+(defun helm-gm-precedent-file ()helm-gm-precedent-file617,26226
+(defun helm-grep-mode-quit ()helm-grep-mode-quit622,26329
+(defun helm-grep-mode-jump ()helm-grep-mode-jump627,26420
+(defun helm-grep-mode-jump-other-window-1 (arg)helm-grep-mode-jump-other-window-1634,26652
+(defun helm-grep-mode-jump-other-window-forward ()helm-grep-mode-jump-other-window-forward645,26989
+(defun helm-grep-mode-jump-other-window-backward ()helm-grep-mode-jump-other-window-backward650,27114
+(defun helm-grep-mode-jump-other-window ()helm-grep-mode-jump-other-window655,27241
+(defun helm-grep-hack-types ()helm-grep-hack-types666,27496
+(defun helm-grep-ack-types-transformer (candidates source)helm-grep-ack-types-transformer681,28119
+(defvar helm-grep-ack-types-cache nil)helm-grep-ack-types-cache688,28316
+(defun helm-grep-read-ack-type ()helm-grep-read-ack-type689,28355
+(defun helm-c-grep-guess-extensions (files)helm-c-grep-guess-extensions710,29051
+(defun helm-grep-get-file-extensions (files)helm-grep-get-file-extensions734,30085
+(defun helm-do-grep-1 (targets &optional recurse zgrep exts)helm-do-grep-1757,31166
+(defun helm-ff-zgrep-1 (flist recursive)helm-ff-zgrep-1848,35577
+(defun helm-c-grep-split-line (line)helm-c-grep-split-line871,36456
+(defun helm-c-grep-cand-transformer (candidates sources)helm-c-grep-cand-transformer882,36933
+(defun helm-c-grep-highlight-match (str)helm-c-grep-highlight-match902,37881
+(defun helm-c-grep-buffers-1 (candidate &optional zgrep)helm-c-grep-buffers-1920,38404
+(defun helm-c-grep-buffers (candidate)helm-c-grep-buffers955,40036
+(defun helm-c-zgrep-buffers (candidate)helm-c-zgrep-buffers959,40141
+(defvar helm-c-pdfgrep-default-function 'helm-c-pdfgrep-init)helm-c-pdfgrep-default-function968,40389
+(defun helm-c-pdfgrep-init (only-files)helm-c-pdfgrep-init969,40451
+(defun helm-do-pdfgrep-1 (only)helm-do-pdfgrep-11008,42312
+(defun helm-c-pdfgrep-action (candidate)helm-c-pdfgrep-action1046,43988
+(defun helm-c-pdfgrep-action-1 (split pageno fname)helm-c-pdfgrep-action-11049,44069
+(defun helm-do-grep ()helm-do-grep1057,44337
+(defun helm-do-zgrep ()helm-do-zgrep1083,45575
+(defun helm-do-pdfgrep ()helm-do-pdfgrep1100,46269
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-mode.el,1477
+(defgroup helm-mode nilhelm-mode25,857
+(defcustom helm-completing-read-handlers-alisthelm-completing-read-handlers-alist29,926
+(defcustom helm-comp-read-case-fold-search helm-case-fold-searchhelm-comp-read-case-fold-search70,2653
+(defvar helm-comp-read-maphelm-comp-read-map77,2876
+(defvar helm-cr-unknow-pattern-flag nil)helm-cr-unknow-pattern-flag90,3195
+(defun helm-cr-empty-string ()helm-cr-empty-string97,3299
+(defun helm-comp-read-get-candidates (collection &optional test sort-fn alistp)helm-comp-read-get-candidates104,3456
+(defun helm-cr-default-transformer (candidates source)helm-cr-default-transformer165,6445
+(defun* helm-comp-read (prompt collectionhelm-comp-read177,6909
+(defvar helm-completion-mode-string " Helm")helm-completion-mode-string423,18159
+(defvar helm-completion-mode-quit-messagehelm-completion-mode-quit-message425,18205
+(defvar helm-completion-mode-start-messagehelm-completion-mode-start-message428,18278
+(defun helm-completing-read-symbolshelm-completing-read-symbols434,18382
+(defun helm-completing-read-default-1helm-completing-read-default-1473,20034
+(defun helm-completing-read-with-cands-in-bufferhelm-completing-read-with-cands-in-buffer513,21858
+(defun* helm-completing-read-defaulthelm-completing-read-default527,22604
+(defun* helm-c-read-file-namehelm-c-read-file-name612,26802
+(defun* helm-generic-read-file-namehelm-generic-read-file-name753,32959
+(define-minor-mode helm-modehelm-mode838,36999
+
+/home/malk/.emacs.d/elpa/helm-20130129.907/helm-regexp.el,3004
+(defgroup helm-regexp nilhelm-regexp25,857
+(defcustom helm-c-browse-code-regexp-lisphelm-c-browse-code-regexp-lisp29,956
+(defcustom helm-c-browse-code-regexp-pythonhelm-c-browse-code-regexp-python36,1230
+(defcustom helm-c-browse-code-regexp-alisthelm-c-browse-code-regexp-alist42,1401
+(defcustom helm-browse-code-fontify thelm-browse-code-fontify52,1833
+(defcustom helm-moccur-always-search-in-current nilhelm-moccur-always-search-in-current58,1995
+(defcustom helm-m-occur-idle-delay helm-idle-delayhelm-m-occur-idle-delay63,2156
+(defcustom helm-m-occur-use-ioccur-style-keys thelm-m-occur-use-ioccur-style-keys70,2429
+(defface helm-moccur-bufferhelm-moccur-buffer76,2592
+(defvar helm-c-moccur-maphelm-c-moccur-map82,2748
+(defvar helm-build-regexp-history nil)helm-build-regexp-history96,3346
+(defun helm-c-query-replace-regexp (candidate)helm-c-query-replace-regexp97,3385
+(defun helm-c-kill-regexp-as-sexp (candidate)helm-c-kill-regexp-as-sexp105,3751
+(defun helm-c-kill-regexp (candidate)helm-c-kill-regexp110,3926
+(defun helm-c-query-replace-args (regexp)helm-c-query-replace-args114,4067
+(defvar helm-c-source-regexphelm-c-source-regexp128,4638
+(defun helm-c-regexp-get-line (s e)helm-c-regexp-get-line149,5466
+(defun helm-c-regexp-persistent-action (pt)helm-c-regexp-persistent-action163,6091
+(defun helm-c-regexp-kill-new (input)helm-c-regexp-kill-new167,6195
+(defun helm-quote-whitespace (candidate)helm-quote-whitespace171,6285
+(defvar helm-c-source-occur nil)helm-c-source-occur179,6449
+(defun helm-occur-init-source ()helm-occur-init-source180,6482
+(defvar helm-multi-occur-buffer-list nil)helm-multi-occur-buffer-list190,6650
+(defun helm-m-occur-init ()helm-m-occur-init192,6693
+(defun helm-m-occur-get-line (beg end)helm-m-occur-get-line209,7379
+(defun* helm-m-occur-action (candidatehelm-m-occur-action221,7865
+(defun helm-m-occur-persistent-action (candidate)helm-m-occur-persistent-action237,8557
+(defun helm-m-occur-run-persistent-action ()helm-m-occur-run-persistent-action241,8685
+(defun helm-m-occur-goto-line (candidate)helm-m-occur-goto-line246,8807
+(defun helm-m-occur-run-default-action ()helm-m-occur-run-default-action250,8956
+(defvar helm-c-source-moccurhelm-c-source-moccur254,9075
+(defun helm-m-occur-transformer (candidates source)helm-m-occur-transformer277,9861
+(defun helm-multi-occur-1 (buffers &optional input)helm-multi-occur-1297,10700
+(defun helm-c-browse-code-get-line (beg end)helm-c-browse-code-get-line313,11268
+(defvar helm-c-source-browse-codehelm-c-source-browse-code323,11796
+(defun helm-c-display-to-real-numbered-line (candidate)helm-c-display-to-real-numbered-line339,12357
+(define-helm-type-attribute 'lineline351,12769
+(define-helm-type-attribute 'file-linefile-line370,13473
+(defun helm-regexp ()helm-regexp392,14290
+(defun helm-occur ()helm-occur411,15114
+(defun helm-multi-occur (buffers)helm-multi-occur426,15702
+(defun helm-browse-code ()helm-browse-code444,16393
+
 /home/malk/.emacs.d/elpa/ido-ubiquitous-20121214.2145/ido-ubiquitous-autoloads.el,837
 (defvar ido-ubiquitous-mode nil "\ido-ubiquitous-mode14,593
 (define-obsolete-variable-alias 'ido-ubiquitous 'ido-ubiquitous-mode "0.8")ido-ubiquitous38,1533
@@ -9542,6 +11078,71 @@
 (defun vhl/ext/hideshow/on ()vhl/ext/hideshow/on795,30019
 (defun vhl/ext/hideshow/off ()vhl/ext/hideshow/off805,30258
 
+/home/malk/.emacs.d/elpa/helm-gtags-20130121.2228/helm-gtags.el,4562
+(defgroup helm-gtags nilhelm-gtags51,1717
+(defcustom helm-c-gtags-path-style 'roothelm-c-gtags-path-style55,1783
+(defcustom helm-c-gtags-ignore-case nilhelm-c-gtags-ignore-case62,2068
+(defcustom helm-c-gtags-read-only nilhelm-c-gtags-read-only67,2180
+(defvar helm-c-gtags-tag-location nilhelm-c-gtags-tag-location72,2284
+(defvar helm-c-gtags-buffer "*helm gtags*")helm-c-gtags-buffer75,2360
+(defvar helm-c-gtags-prompt-alisthelm-c-gtags-prompt-alist77,2405
+(defun helm-c-gtags-completing-gtags (string predicate code)helm-c-gtags-completing-gtags84,2620
+(defun helm-c-gtags-completing-grtags (string predicate code)helm-c-gtags-completing-grtags86,2735
+(defun helm-c-gtags-completing-gsyms (string predicate code)helm-c-gtags-completing-gsyms88,2852
+(defun helm-c-gtags-completing-files (string predicate code)helm-c-gtags-completing-files90,2970
+(defvar helm-c-gtags-comp-func-alisthelm-c-gtags-comp-func-alist93,3087
+(defun helm-c-gtags-construct-completion-command (type input)helm-c-gtags-construct-completion-command99,3312
+(defun helm-c-gtags-complete (type string predicate code)helm-c-gtags-complete103,3475
+(defun helm-c-gtags-token-at-point ()helm-c-gtags-token-at-point116,4014
+(defun helm-c-gtags-type-is-not-file-p (type)helm-c-gtags-type-is-not-file-p125,4301
+(defun helm-c-gtags-input (type)helm-c-gtags-input128,4373
+(defun helm-c-gtags-find-tag-directory ()helm-c-gtags-find-tag-directory138,4911
+(defvar helm-c-gtags-local-directory nil)helm-c-gtags-local-directory148,5319
+(defun helm-c-gtags-base-directory ()helm-c-gtags-base-directory150,5362
+(defvar helm-c-gtags-context-stack nil)helm-c-gtags-context-stack156,5554
+(defvar helm-c-gtags-saved-context nil)helm-c-gtags-saved-context157,5594
+(defun helm-c-gtags-save-current-context ()helm-c-gtags-save-current-context159,5635
+(defvar helm-c-gtags-use-otherwin nil)helm-c-gtags-use-otherwin167,5910
+(defun helm-c-gtags-open-file (file readonly)helm-c-gtags-open-file169,5950
+(defun helm-c-gtags-open-file-other-window (file readonly)helm-c-gtags-open-file-other-window174,6068
+(defun helm-c-gtags-pop-context ()helm-c-gtags-pop-context180,6264
+(defun helm-c-gtags-exec-global-command (cmd)helm-c-gtags-exec-global-command190,6654
+(defvar helm-c-gtags-command-option-alisthelm-c-gtags-command-option-alist200,7088
+(defun helm-c-gtags-construct-option (type &optional comp)helm-c-gtags-construct-option206,7217
+(defun helm-c-gtags-read-local-directory ()helm-c-gtags-read-local-directory217,7829
+(defun helm-c-gtags-construct-command (type &optional in)helm-c-gtags-construct-command223,8114
+(defun helm-c-gtags-tags-init (&optional input)helm-c-gtags-tags-init233,8539
+(defun helm-c-gtags-rtags-init (&optional input)helm-c-gtags-rtags-init237,8692
+(defun helm-c-gtags-gsyms-init ()helm-c-gtags-gsyms-init241,8847
+(defun helm-c-gtags-files-init ()helm-c-gtags-files-init245,8983
+(defun helm-c-gtags-action-openfile (elm)helm-c-gtags-action-openfile249,9117
+(defvar helm-c-source-gtags-tagshelm-c-source-gtags-tags262,9685
+(defvar helm-c-source-gtags-rtagshelm-c-source-gtags-rtags269,9890
+(defvar helm-c-source-gtags-gsymshelm-c-source-gtags-gsyms276,10097
+(defun helm-c-gtags-files-candidate-transformer (file)helm-c-gtags-files-candidate-transformer283,10304
+(defvar helm-c-source-gtags-fileshelm-c-source-gtags-files287,10483
+(defun helm-gtags-select ()helm-gtags-select296,10744
+(defun helm-c-source-gtags-select-tag (candidate)helm-c-source-gtags-select-tag300,10844
+(defun helm-c-source-gtags-select-rtag (candidate)helm-c-source-gtags-select-rtag308,11105
+(defun helm-c-source-gtags-select-tag-action (c)helm-c-source-gtags-select-tag-action316,11368
+(defun helm-c-source-gtags-select-rtag-action (c)helm-c-source-gtags-select-rtag-action321,11530
+(defvar helm-c-source-gtags-selecthelm-c-source-gtags-select326,11694
+(defun helm-c-gtags-common (srcs)helm-c-gtags-common342,12373
+(defun helm-gtags-find-tag ()helm-gtags-find-tag350,12612
+(defun helm-gtags-find-rtag ()helm-gtags-find-rtag356,12750
+(defun helm-gtags-find-symbol ()helm-gtags-find-symbol362,12896
+(defun helm-gtags-find-files ()helm-gtags-find-files368,13047
+(defun helm-gtags-pop-stack ()helm-gtags-pop-stack374,13195
+(defun helm-gtags-clear-stack ()helm-gtags-clear-stack380,13328
+(defvar helm-c-gtags-mode-name " Helm Gtags")helm-c-gtags-mode-name385,13444
+(defvar helm-c-gtags-mode-map (make-sparse-keymap))helm-c-gtags-mode-map386,13490
+(define-minor-mode helm-gtags-mode ()helm-gtags-mode389,13558
+
+/home/malk/.emacs.d/elpa/helm-gtags-20130121.2228/helm-gtags-autoloads.el,0
+
+/home/malk/.emacs.d/elpa/helm-gtags-20130121.2228/helm-gtags-pkg.el,131
+(define-package "helm-gtags" "20130121.2228" "GNU GLOBAL helm interface [source: github]" (quote ((helm "1.0"))))"helm-gtags"1,0
+
 /home/malk/.emacs.d/elpa/ac-nrepl-20130110.1018/ac-nrepl.el,2101
 (defun ac-nrepl-available-p ()ac-nrepl-available-p63,2340
 (defun ac-nrepl-sync-eval (clj)ac-nrepl-sync-eval69,2529
@@ -9732,6 +11333,26 @@
 
 /home/malk/.emacs.d/elpa/s-20130102.1359/s-pkg.el,125
 (define-package "s" "20130102.1359" "The long lost Emacs string manipulation library. [source: github]" (quote nil))"s"1,0
+
+/home/malk/.emacs.d/elpa/lacarte-20121228.1947/lacarte-autoloads.el,92
+(defvar lacarte-convert-menu-item-function nil "\lacarte-convert-menu-item-function13,424
+
+/home/malk/.emacs.d/elpa/lacarte-20121228.1947/lacarte.el,1048
+(defgroup lacarte nillacarte374,15597
+(defcustom lacarte-convert-menu-item-function nillacarte-convert-menu-item-function390,16329
+(defvar lacarte-history nil "History for menu items read using La Carte completion.")lacarte-history408,17170
+(defvar lacarte-menu-items-alist nillacarte-menu-items-alist412,17369
+(defun lacarte-execute-command (&optional no-commands-p)lacarte-execute-command422,17736
+(defun lacarte-menu-first-p (s1 s2)lacarte-menu-first-p479,21133
+(defun lacarte-execute-menu-command (maps)lacarte-execute-menu-command486,21427
+(defun lacarte-get-overall-menu-item-alist (&optional maps)lacarte-get-overall-menu-item-alist530,23886
+(defun lacarte-get-a-menu-item-alist (keymap)lacarte-get-a-menu-item-alist554,25203
+(defun lacarte-get-a-menu-item-alist-1 (keymap &optional root done)lacarte-get-a-menu-item-alist-1565,25719
+(defun lacarte-remove-w32-keybd-accelerators (menu-item)lacarte-remove-w32-keybd-accelerators662,31240
+(defun lacarte-escape-w32-accel (match-string)lacarte-escape-w32-accel668,31572
+
+/home/malk/.emacs.d/elpa/lacarte-20121228.1947/lacarte-pkg.el,135
+(define-package "lacarte" "20121228.1947" "Execute menu items as commands, with completion. [source: wiki]" (quote nil))"lacarte"1,0
 
 /home/malk/.emacs.d/elpa/dash-20130126.1933/dash-autoloads.el,0
 
@@ -10203,6 +11824,42 @@
 (define-package "writegood-mode" "20121108.1709" "Polish up poor writing on the fly [source: github]" (quote nil))"writegood-mode"1,0
 
 /home/malk/.emacs.d/elpa/writegood-mode-20121108.1709/writegood-mode-autoloads.el,0
+
+/home/malk/.emacs.d/elpa/typo-20121009.1049/typo.el,2060
+(defgroup typo niltypo95,3720
+(defcustom typo-quotation-markstypo-quotation-marks100,3812
+(defcustom typo-language (caar typo-quotation-marks)typo-language119,4674
+(defcustom typo-disable-electricity-functions '(typo-in-xml-tag)typo-disable-electricity-functions125,4878
+(defvar typo-mode-maptypo-mode-map135,5205
+(defvar typo-global-mode-maptypo-global-mode-map147,5736
+(define-minor-mode typo-modetypo-mode178,7023
+(define-minor-mode typo-global-modetypo-global-mode194,7424
+(defun typo-change-language (language)typo-change-language205,7679
+(defun typo-open-double-quotation-mark ()typo-open-double-quotation-mark215,8091
+(defun typo-close-double-quotation-mark ()typo-close-double-quotation-mark219,8267
+(defun typo-open-single-quotation-mark ()typo-open-single-quotation-mark223,8444
+(defun typo-close-single-quotation-mark ()typo-close-single-quotation-mark227,8620
+(defun typo-in-xml-tag ()typo-in-xml-tag231,8797
+(defun typo-electricity-disabled-p ()typo-electricity-disabled-p244,9322
+(defun typo-quotation-needs-closing (open close)typo-quotation-needs-closing252,9643
+(defun typo-insert-quotation-mark ()typo-insert-quotation-mark264,10047
+(defun typo-cycle-ellipsis ()typo-cycle-ellipsis330,13001
+(defmacro define-typo-cycle (name docstring cycle)define-typo-cycle339,13301
+(defun typo-insert-cycle (cycle)typo-insert-cycle354,13788
+(defun typo-char-name (string)typo-char-name378,14637
+(define-typo-cycle typo-cycle-right-single-quotation-marktypo-cycle-right-single-quotation-mark388,14967
+(define-typo-cycle typo-cycle-left-single-quotation-marktypo-cycle-left-single-quotation-mark392,15115
+(define-typo-cycle typo-cycle-dashestypo-cycle-dashes396,15255
+(define-typo-cycle typo-cycle-left-angle-bracketstypo-cycle-left-angle-brackets406,15463
+(define-typo-cycle typo-cycle-right-angle-bracketstypo-cycle-right-angle-brackets410,15602
+(define-typo-cycle typo-cycle-multiplication-signstypo-cycle-multiplication-signs414,15745
+(define-typo-cycle typo-cycle-spacestypo-cycle-spaces418,15876
+
+/home/malk/.emacs.d/elpa/typo-20121009.1049/typo-autoloads.el,56
+(defvar typo-global-mode nil "\typo-global-mode24,555
+
+/home/malk/.emacs.d/elpa/typo-20121009.1049/typo-pkg.el,117
+(define-package "typo" "20121009.1049" "Minor mode for typographic editing [source: github]" (quote nil))"typo"1,0
 
 /home/malk/.emacs.d/elpa/expand-region-20130117.1542/css-mode-expansions.el,138
 (defun er/mark-css-declaration ()er/mark-css-declaration33,1066
