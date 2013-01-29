@@ -16,3 +16,4 @@ eshell/lastdir
 /semanticdb/*
 /.#*
 /repl-port
+/el-get/*

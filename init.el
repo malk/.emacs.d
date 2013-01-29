@@ -7,6 +7,20 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 (package-initialize)
 
+; I was not an en-get user at all, but I really wanted kibit-mode and hence
+; el-get it is maybe I will just convert all my package usage to el-get
+; (since el-get pilots package.el anyway)
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+
+(unless (require 'el-get nil 'noerror)
+  (with-current-buffer
+      (url-retrieve-synchronously
+       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+    (goto-char (point-max))
+    (eval-print-last-sexp)))
+
+(el-get 'sync)
+
 ;; server
 (server-start)
 
