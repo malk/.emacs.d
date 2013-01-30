@@ -275,7 +275,7 @@
 (defun ensures-nrepl ()
   "start nrepl if it not already running"
   (interactive)
-  (unless (get-buffer "*nrepl-connection*")
+  (unless (get-buffer nrepl-connection-buffer)
     (nrepl-jack-in))
   )
 
@@ -381,7 +381,12 @@
 (setq erc-hide-list '("JOIN" "PART" "QUIT" "NICK"))
 
 (defun erc-start-or-switch ()
-  "Connect to ERC, or switch to last active buffer"
+  "switch to ERC, starts ERC if its not started, otherwise
+   switches to the latest ERC buffer with unseen dialog in it,
+   keep pressing to cycle trough them all, when all dialog is
+   seen, returns to your work, basically you spam this key to go
+   trough your IM's and IRC conversations and then return back to
+   producing"
   (interactive)
   (if (get-buffer "irc.freenode.net:6667") ;; ERC already active?
 
@@ -644,26 +649,44 @@ instead."
 (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
 (add-hook 'clojure-mode-hook
   (lambda()
-    (define-key clojure-mode-map (kbd "s-.") 'nrepl-jump)))
+    (progn
+      (define-key clojure-mode-map (kbd "s-.") 'nrepl-jump)
+      (define-key clojure-mode-map (kbd "<f10>") 'clojure-build)
+      (define-key clojure-mode-map (kbd "<f11>") 'clojure-lint)
+      (define-key clojure-mode-map (kbd "<f12>") 'clojure-build-test))))
 
 ;; I always want nrepl when doing closure, might as well start it when
 ;; starting clojure mode if it is not already there
 (add-hook 'clojure-mode-hook 'clojure-test-mode)
 
 
-(defun clojure-build-lint-test-jump-to-err ()
-  "builds lints and tests the clojure code at "
+(defun clojure-build-test ()
+  "builds and tests the clojure code at, it should lint too but linting is too slow and was separated"
   (interactive)
-  (save-restriction
-    (save-excursion
-      (nrepl-load-current-buffer)
-      (kibit-check)
-      (clojure-jump-between-tests-and-code)
-      (nrepl-load-current-buffer)
-      (clojure-jump-between-tests-and-code)
-      (clojure-test-run-tests)
-      ))
+  (progn
+    (clojure-build)
+    (clojure-test-run-tests)
+    ))
+
+(defun clojure-build ()
+  "builds the current file"
+  (interactive)
+  (progn
+    (when (get-buffer nrepl-error-buffer)
+      (delete-windows-on nrepl-error-buffer)
+      (kill-buffer nrepl-error-buffer)
+      )
+    (save-buffer)
+    (nrepl-load-file (buffer-file-name))
+    ))
+
+(defun clojure-lint ()
+  "run all the linters I can on my clojure code"
+  (interactive)
+  ;; for now only kibit, must find a way to integrate eastwood too
+  (kibit-check)
   )
+
 ;;; Perl
 (defalias 'perl-mode 'cperl-mode)
 (defun my-cperl-eldoc-documentation-function ()
@@ -725,6 +748,9 @@ instead."
 (global-key "C-S-<delete>" 'kill-whole-line)
 (global-key "C-S-<backspace>" 'kill-whole-line-go-up-one-line)
 (global-key "s-." 'ellipsis)
+(global-key "<f6>" 'erc-start-or-switch)
+(global-key "<f8>" 'cycle-ispell-languages)
+(global-key "<f12>" 'recompile)
 
 ;; instead of unsetting a key binding (using an undefined keybinding gives
 ;; a warning) assign nothing to it
@@ -807,13 +833,6 @@ instead."
 (precious-key "C-+" 'mc/mark-all-like-this-dwim)
 (precious-key "M-+" 'mc/edit-lines)
 
-;; switch to ERC, starts ERC if its not started, otherwise switches to the
-;; latest ERC buffer with unseen dialog in it, keep pressing to cycle trough
-;; them all, when all dialog is seen, returns to your work, basically you
-;; spam this key to go trough your IM's and IRC conversations and then
-;; return back to producing
-(precious-key "<f12>" 'erc-start-or-switch)
-(precious-key "<f11>" 'cycle-ispell-languages)
 
 ;; I use super as a general root key for my own personal binding, so a
 ;; little helper function to establish my super-key-bindings is in order. to
@@ -853,8 +872,8 @@ instead."
 (personal-key "m" 'minimap-toggle)
 (personal-key "M-<up>" 'move-text-up)
 (personal-key "M-<down>" 'move-text-down)
-(personal-key "C-<up>" 'smart-symbol-go-backward)
-(personal-key "C-<down>" 'smart-symbol-go-forward)
+(personal-key "C-p" 'smart-symbol-go-backward)
+(personal-key "C-n" 'smart-symbol-go-forward)
 (personal-key "h" 'helm-mini)
 (personal-key "\"" 'typo-insert-quotation-mark)
 (personal-key "'" 'typo-cycle-right-single-quotation-mark)

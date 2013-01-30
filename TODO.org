@@ -76,16 +76,16 @@
 * DONE C-S-DEL should do the same thing as C-S-<backspace> right now (erase the current line and not move)
 * DONE C-S-<backspace> should also go back one line
 * DONE FlyCheck
+* DONE Clojure
+** DONE the emacs mode for idiomatic clojure: kibit
+** DONE change colors on clojure test mode so the green and red bars are easier on the eye
+** DONE streamline clojure-mode compile-comile_the_test-run_tests_jump_to_first_error collection fo keyboard shortcuts into a single keyboard shortcut
+** DONE must make nrepl-jump use a different key-binding and leave M-. alone
+** DONE tags not working?
 * TODO alarm or sauron
 * TODO bitlbee back
 * TODO email client : WL or mu4e?
 * TODO pandoc-minor-mode
-* TODO Clojure
-** DONE the emacs mode for idiomatic clojure: kibit
-** DONE change colors on clojure test mode so the green and red bars are easier on the eye
-** TODO streamline clojure-mode compile-comile_the_test-run_tests_jump_to_first_error collection fo keyboard shortcuts into a single keyboard shortcut
-** DONE must make nrepl-jump use a different key-binding and leave M-. alone
-** DONE tags not working?
 * TODO global org keybindings
 * TODO make my conf install my packages automatically
 * TODO fill electric-layout-rules, or electric layout wont work
@@ -116,9 +116,11 @@
    ERC conf goes to ~/.emacs.d/.ercrc.el and auth data to ~/.emacs.d/.erc-auth
 ** TODO Maybe using org Babel like sacha chua
 * TODO make a flycheck plugin for clojure
+* TODO windmove should bounce on limit instead of beeping an error
 * Things waiting some outside event that I cannot control
 ** predictive mode (seems awesome, currently too alpha)
 ** add ampc support
 *** Google play music support (currently broken, without this ampc is useless for me)
 ** elein (leiningen from emacs, must wait ti to migrate from swank to nrepl)
-** TODO C-c C-n does not work on clojure mode, must fix
+** C-c C-n does not work on clojure mode, must fix
+** eastwood seems awesome but it needs lein 2.0 and emacs compat
