@@ -82,8 +82,7 @@
 ** DONE streamline clojure-mode compile-comile_the_test-run_tests_jump_to_first_error collection fo keyboard shortcuts into a single keyboard shortcut
 ** DONE must make nrepl-jump use a different key-binding and leave M-. alone
 ** DONE tags not working?
-* TODO alarm or sauron
-* TODO bitlbee back
+* DONE bitlbee back
 * TODO email client : WL or mu4e?
 * TODO pandoc-minor-mode
 * TODO global org keybindings
