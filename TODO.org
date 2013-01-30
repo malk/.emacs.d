@@ -88,7 +88,6 @@
 * TODO global org keybindings
 * TODO make my conf install my packages automatically
 * TODO fill electric-layout-rules, or electric layout wont work
-* TODO google.el
 * TODO copyright update on save hook , does it respect license?
 * TODO Create my own yasnippet library replacing the awful elisp ones
 * TODO Discover the good stuff to add
