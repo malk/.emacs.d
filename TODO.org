@@ -85,7 +85,6 @@
 * DONE bitlbee back
 * DONE EasyPG
 * DONE Complete ERC setup
-* TODO email client : WL or mu4e?
 * TODO pandoc-minor-mode
 * TODO global org keybindings
 * TODO make my conf install my packages automatically
