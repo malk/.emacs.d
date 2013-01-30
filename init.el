@@ -657,9 +657,11 @@ instead."
   (save-restriction
     (save-excursion
       (nrepl-load-current-buffer)
+      (kibit-check)
       (clojure-jump-between-tests-and-code)
       (nrepl-load-current-buffer)
       (clojure-jump-between-tests-and-code)
+      (clojure-test-run-tests)
       ))
   )
 ;;; Perl
