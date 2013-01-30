@@ -1036,6 +1036,7 @@ a warning) assign nothing to it"
  '(clojure-test-error-face ((t (:inherit font-lock-warning-face :underline t :weight bold))))
  '(clojure-test-failure-face ((t (:inherit font-lock-warning-face :background "tomato4" :underline t :weight bold))))
  '(clojure-test-success-face ((t (:inherit font-lock-comment-face :background "PaleGreen4" :underline t :weight bold))))
+ '(mc/cursor-face ((t (:underline t))))
  '(mode-line ((t (:background "#2b2b2b" :foreground "#8fb28f" :box nil))))
  '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5f7f5f" :box nil :weight light))))
  '(show-paren-match ((t (:weight bold))))
