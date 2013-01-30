@@ -17,3 +17,4 @@ eshell/lastdir
 /.#*
 /repl-port
 /el-get/*
+/flycheck-filesets-cache.el

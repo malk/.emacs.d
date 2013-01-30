@@ -633,7 +633,9 @@ instead."
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'nrepl-mode))
 (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
-
+(add-hook 'clojure-mode-hook
+  (lambda()
+    (define-key clojure-mode-map (kbd "s-.") 'nrepl-jump)))
 
 
 ;;; Perl
@@ -662,6 +664,8 @@ instead."
 (add-hook 'nrepl-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'eshell-mode-hook 'turn-on-eldoc-mode)
 (require 'cljdoc)
+
+
 
 ;;; Key-bindings
 ;; I concentrate all global key-bindings customization here
@@ -696,6 +700,7 @@ instead."
 (global-key "C-\"" 'list-buffers)
 (global-key "C-S-<delete>" 'kill-whole-line)
 (global-key "C-S-<backspace>" 'kill-whole-line-go-up-one-line)
+(global-key "s-." 'ellipsis)
 
 ;; instead of unsetting a key binding (using an undefined keybinding gives
 ;; a warning) assign nothing to it
@@ -757,6 +762,7 @@ instead."
   (define-key mk-minor-mode-map (read-kbd-macro key) binding))
 
 (precious-key "C-x C-f" 'ido-find-file)
+(precious-key "M-." 'find-tag)
 (precious-key "M-x" (lambda ()
 		      (interactive)
 		      (or (boundp 'smex-cache)
@@ -828,7 +834,6 @@ instead."
 (personal-key "'" 'typo-cycle-right-single-quotation-mark)
 (personal-key "`" 'typo-cycle-left-single-quotation-mark)
 (personal-key "_" 'typo-cycle-dashes)
-(personal-key "." 'ellipsis)
 (personal-key "<" 'typo-cycle-left-angle-brackets)
 (personal-key ">" 'typo-cycle-right-angle-brackets)
 (mk-minor-mode 1)
