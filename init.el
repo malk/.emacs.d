@@ -27,7 +27,6 @@
     (eval-print-last-sexp)))
 
 (el-get 'sync)
-(add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; server
 (random t) ;; Seed the random-number generator
@@ -356,7 +355,10 @@ windows arrangement and full-screen over a buffer"
 
 ;;; org-mode
 (setq org-icalendar-store-UID t
-      org-icalendar-include-todo t)
+      org-icalendar-include-todo t
+      org-capture-use-agenda-date t
+      org-insert-mode-line-in-empty-file t
+      )
 
 (defun org-export-to-ods ()
       (interactive)
@@ -944,8 +946,6 @@ a warning) assign nothing to it"
 (diminish 'kibit-mode)
 (eval-after-load "abbrev"
   '(diminish 'abbrev-mode))
-;; (eval-after-load "nrepl"
-;;   ')
 (eval-after-load "clojure-test"
 '(diminish 'clojure-test-mode))
 (eval-after-load "paredit"
@@ -966,17 +966,12 @@ a warning) assign nothing to it"
   '(diminish 'helm-gtags-mode))
 (eval-after-load "flycheck"
   '(diminish 'flycheck-mode))
-;; (eval-after-load "kibit"
-;;   '(diminish 'kibit-mode))
 (add-hook 'emacs-lisp-mode-hook
   (lambda()
     (setq mode-name "el")))
 (add-hook 'clojure-mode-hook
   (lambda()
     (setq mode-name "λ")))
-(add-hook 'text-mode-hook
-  (lambda()
-    (setq mode-name "txt")))
 (add-hook 'nrepl-mode-hook
   (lambda()
     (setq mode-name "∞")))
