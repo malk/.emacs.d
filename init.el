@@ -1,4 +1,11 @@
+;;; init.el --- Malk’Zameth’s Emacs configuration
 ;;Copyright 2013 Malk’Zameth
+;;; Commentary:
+;; This is my personal Emacs configuration grown for my usage, suits me like
+;; a glove, may be horrid to you, comments/suggestions are welcome, feel
+;; free to use/copy/etc to your heart’s content
+
+;;; Code:
 ;; packages
 (require 'package)
 (add-to-list 'package-archives
@@ -20,11 +27,16 @@
     (eval-print-last-sexp)))
 
 (el-get 'sync)
+(add-to-list 'load-path "~/.emacs.d/lisp/")
 
 ;; server
+(random t) ;; Seed the random-number generator
 (server-start)
 
-(random t) ;; Seed the random-number generator
+
+(require 'epa-file)
+(epa-file-enable)
+(setq epa-file-select-keys t)
 
 ;; theming
 (load-theme 'zenburn t)
@@ -89,7 +101,7 @@
       mouse-yank-at-point t
       set-mark-command-repeat-pop t	;once I pop a mark with C-u C-SPC i
 					;can keep popping with C-SPC.
-      kill-read-only-ok t		;Yes emacs I knowingly kill from
+      kill-read-only-ok t		;Yes Emacs I knowingly kill from
 					;read only buffers
       kill-do-not-save-duplicates t	;keeps the kill ring free of dups
       scroll-preserve-screen-position t	;keeps the cursor in the same
@@ -123,7 +135,7 @@
 	  'executable-make-buffer-file-executable-if-script-p)
 
 (require 'yasnippet)
-(yas/global-mode 1)
+(yas-global-mode)
 
 ;; makes copy region (M-w) work on the current line if no region is active
 (put 'kill-ring-save 'interactive-form
@@ -146,7 +158,7 @@
 (golden-ratio-enable)
 
 (defun goto-line-with-feedback ()
-  "Show line numbers temporarily, while prompting for the line number input"
+  "Show line numbers temporarily, while prompting for the line number input."
   (interactive)
   (unwind-protect
       (progn
@@ -156,7 +168,7 @@
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
 
 (defun kill-whole-line-go-up-one-line ()
-  "C-S-<backspace> behaves like a delete, this behave like a backspace should"
+  "[kill-whole-line] behaves like a delete, this behave like a backspace should."
   (interactive)
   (kill-whole-line -1)
   )
@@ -183,8 +195,8 @@
 (add-to-list 'completion-styles 'substring t)
 (add-to-list 'completion-styles 'initials t)
 
-;;hook AC into completion-at-point
 (defun set-auto-complete-as-completion-at-point-function ()
+  "Hook [auto-complete] into [completion-at-point]."
   (add-to-list 'completion-at-point-functions 'auto-complete t))
 (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
 (add-hook 'nrepl-mode-hook 'set-auto-complete-as-completion-at-point-function)
@@ -197,7 +209,7 @@
 
 
 (defun add-to-ac-user-dict (entry)
-  "Add a string to the personal Dictionary of Autocomplete"
+  "Add ENTRY to Autocomplete's the personal Dictionary."
   (interactive)
   (add-to-list 'ac-user-dictionary entry)
   )
@@ -245,11 +257,14 @@
 
 
 ;;; defuns
-;; makes 'C-x 1' more useful, if we have several windows it does what it is
-;; supposed to do and make the current one the only visible, but if we have
-;; only one it restores the last configuration, awesome to switch back and
-;; forth between a windows arrangement and fullscreen over a buffer
-(defun toggle-maximize-buffer () "Maximize buffer"
+
+(defun toggle-maximize-buffer ()
+  "Delete other Windows, if no other Windows restore delete ones.
+Makes [delete-other-windows] more useful: if we have several
+windows it does what it is supposed to do and make the current
+one the only visible, but if we have only one it restores the
+last configuration, awesome to switch back and forth between a
+windows arrangement and full-screen over a buffer"
   (interactive)
   (if (= 1 (length (window-list)))
       (jump-to-register '_)
@@ -257,23 +272,22 @@
       (window-configuration-to-register '_)
       (delete-other-windows))))
 
-;;; Does nothing
-(defun nop () (interactive))
+(defun nop () "Does nothing." (interactive))
 
 
 (defun loadrc ()
-  "reload configuration file"
+  "Reload configuration file."
   (interactive)
   (load-file "~/.emacs.d/init.el"))
 
 (defun ellipsis ()
-  "inser an ellipsis char"
+  "Insert an ellipsis (…) char."
   (interactive)
   (insert "…")
   )
 
 (defun ensures-nrepl ()
-  "start nrepl if it not already running"
+  "Start nrepl if it not already running."
   (interactive)
   (unless (get-buffer nrepl-connection-buffer)
     (nrepl-jack-in))
@@ -306,6 +320,7 @@
 ;; Dev conf
 (require 'idle-highlight-mode)
 (defun my-coding-hook ()
+  "Personal customization I want in every programming mode."
   (make-local-variable 'column-number-mode)
   (idle-highlight-mode t)
   (auto-fill-mode t)
@@ -365,39 +380,64 @@
 
 ;;; ERC
 (require 'erc)
+(require 'erc-track)
+(require 'erc-fill)
+(require 'erc-ring)
+(require 'erc-netsplit)
+
+(erc-track-mode t)
 (erc-autojoin-mode t)
-(setq erc-autojoin-channels-alist
-      '((".*\\.freenode.net" "#emacs" "#erc" "#linagora" "#clojure" "#leiningen")))
+(erc-fill-mode t)
+(erc-ring-mode t)
+(erc-netsplit-mode t)
+(erc-timestamp-mode t)
+
 (setq erc-interpret-mirc-color t
       erc-kill-buffer-on-part t
       erc-kill-queries-on-quit t
-      erc-kill-server-buffer-on-quit
+      erc-kill-server-buffer-on-quit t
+      erc-timestamp-format "%T%t"
+      erc-hide-list '("JOIN" "PART" "QUIT" "NICK")
+      erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
+				"324" "329" "332" "333" "353" "477")
+      erc-autojoin-channels-alist '((".*\\.freenode.net" "#emacs" "#erc" "#linagora" "#clojure" "#leiningen"))
       )
-;; check channels
-(erc-track-mode t)
-(setq erc-track-exclude-types '("JOIN" "NICK" "PART" "QUIT" "MODE"
-                                 "324" "329" "332" "333" "353" "477"))
-;; don't show any of this
-(setq erc-hide-list '("JOIN" "PART" "QUIT" "NICK"))
 
-(defun erc-start-or-switch ()
-  "switch to ERC, starts ERC if its not started, otherwise
-   switches to the latest ERC buffer with unseen dialog in it,
-   keep pressing to cycle trough them all, when all dialog is
-   seen, returns to your work, basically you spam this key to go
-   trough your IM's and IRC conversations and then return back to
-   producing"
+(add-hook 'erc-mode-hook
+          '(lambda ()
+             (require 'erc-pcomplete)
+             (pcomplete-erc-setup)
+             (erc-completion-mode 1)
+	     ))
+
+(defun run-or-raise-erc ()
+  "Run ERC, if it is not lauched: launches it.
+Switch to ERC, starts ERC if its not started, otherwise switches
+to the latest ERC buffer with unseen dialog in it, keep pressing
+to cycle trough them all, when all dialog is seen, returns to
+your work, basically you spam this key to go trough your IM's and
+IRC conversations and then return back to producing"
   (interactive)
   (if (get-buffer "irc.freenode.net:6667") ;; ERC already active?
-
     (erc-track-switch-buffer 1) ;; yes: switch to last active
     (when (y-or-n-p "Start ERC? ") ;; no: maybe start ERC
-      (erc :server "irc.freenode.net" :port 6667 :nick "Malk_Zameth" :full-name "Malk'Zameth")
-      (erc :server "localhost" :port 6667 :nick "malk" :full-name "malk"))))
-
-;;;;; ID
-(setq user-mail-address "m@zameth.org"
-      user-full-name "Malk’Zameth")
+      (require 'user-secrets)
+      (add-hook 'erc-after-connect
+		'(lambda (SERVER NICK)
+		   (cond
+		    ((string-match "freenode.net" SERVER)
+		     (erc-nickserv-identify freenode-password)
+		     )
+		    ((string-match "localhost" SERVER)
+		     (erc-nickserv-identify bitlbee-pasword)
+		     )
+		    )))
+      (setq erc-user-full-name user-full-name
+	    erc-email-userid user-mail-address
+	    )
+      (erc :server "irc.freenode.net" :port 6667 :nick freenode-nick :full-name erc-user-full-name)
+      (erc :server "localhost" :port 6667 :nick user-login-name :full-name erc-user-full-name)
+      )))
 
 ;;;;;; Eshell
 (require 'eshell)
@@ -424,7 +464,8 @@
 	  #'(lambda ()
 	      (let ((default-directory (getenv "HOME")))
 		(command-execute 'eshell)
-		(bury-buffer))))
+		(bury-buffer)
+		)))
 ;; loads nrepls on emacs startuo
 (add-hook 'emacs-startup-hook 'nrepl-jack-in)
 
@@ -447,34 +488,35 @@
   (paredit-mode 1))
 
 
-;; makes magit work fullscreen then restore previous screen arrangements on
-;; quit, kinda like a magit "session"
 (defadvice magit-status (around magit-fullscreen activate)
+  "Make magit launch full-screen while saving previous window configuration."
   (window-configuration-to-register :magit-fullscreen)
   ad-do-it
   (delete-other-windows))
 
 (defun magit-quit-session ()
-  "Restores the previous window configuration and kills the magit buffer"
+  "Restore the previous window configuration and kill the magit buffer."
   (interactive)
   (kill-buffer)
   (jump-to-register :magit-fullscreen))
 
 (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
 
-;; Make magit switch between ignoring whitespace or not ignoring
 (defun magit-toggle-whitespace ()
+  "Make magit switch between ignoring white-space or not."
   (interactive)
   (if (member "-w" magit-diff-options)
       (magit-dont-ignore-whitespace)
     (magit-ignore-whitespace)))
 
 (defun magit-ignore-whitespace ()
+  "Make magit ignore white-space."
   (interactive)
   (add-to-list 'magit-diff-options "-w")
   (magit-refresh))
 
 (defun magit-dont-ignore-whitespace ()
+  "Make magit not ignore white-space."
   (interactive)
   (setq magit-diff-options (remove "-w" magit-diff-options))
   (magit-refresh))
@@ -491,18 +533,19 @@
 (setq auto-revert-verbose nil)
 
 (defun single-space ()
+  "Insert a single space deleting all white-space around."
   (interactive)
   (progn
     (expand-abbrev)
     (just-one-space -1)))
 
 (defun join-this-line-with-next-one ()
-  "Joing the current line and the next one"
+  "Join the current line and the next one."
   (interactive)
   (join-line -1)
   )
 
-(defun join-line-or-lines-in-region (&optional ARG)
+(defun join-line-or-lines-in-region ()
   "Join this line or the lines in the selected region."
   (interactive)
   (cond ((region-active-p)
@@ -513,7 +556,7 @@
         (t (call-interactively 'join-this-line-with-next-one))))
 
 (defun minimap-toggle ()
-  "make a minimap appear or disappear for the current buffer"
+  "Make a mini-map appear or disappear for the current buffer."
   (interactive)
   (let ((minimap-buffer-name (concat minimap-buffer-name-prefix (buffer-name))))
     (cond
@@ -529,7 +572,7 @@
 ;;;;(this should be its own module, really)
 ;;;; code snippet taken here http://www.masteringemacs.org/articles/2011/01/14/effective-editing-movement/
 (defvar smart-use-extended-syntax nil
-  "If t the smart symbol functionality will consider extended
+  "If t the smart symbol functionality will consider extended.
 syntax in finding matches, if such matches exist.")
 
 (defvar smart-last-symbol-name ""
@@ -541,7 +584,7 @@ either `smart-symbol-go-forward' or `smart-symbol-go-backward'")
 (make-local-variable 'smart-use-extended-syntax)
 
 (defvar smart-symbol-old-pt nil
-  "Contains the location of the old point")
+  "Contains the location of the old point.")
 
 (defun smart-symbol-goto (name direction)
   "Jumps to the next NAME in DIRECTION in the current buffer.
@@ -573,17 +616,18 @@ is valid."
     (goto-char smart-symbol-old-pt)))
 
 (defun smart-symbol-go-forward ()
-  "Jumps forward to the next symbol at point"
+  "Jumps forward to the next symbol at point."
   (interactive)
   (smart-symbol-goto (smart-symbol-at-pt 'end) 'forward))
 
 (defun smart-symbol-go-backward ()
-  "Jumps backward to the previous symbol at point"
+  "Jumps backward to the previous symbol at point."
   (interactive)
   (smart-symbol-goto (smart-symbol-at-pt 'beginning) 'backward))
 
 (defun smart-symbol-at-pt (&optional dir)
-  "Returns the symbol at point and moves point to DIR (either `beginning' or `end') of the symbol.
+  "Return the symbol at point, move point DIR.
+either `beginning' or `end' of the symbol.
 
 If `smart-use-extended-syntax' is t then that symbol is returned
 instead."
@@ -617,6 +661,7 @@ instead."
   (setq lang-ring (make-ring (length langs)))
   (dolist (elem langs) (ring-insert lang-ring elem)))
 (defun cycle-ispell-languages ()
+  "Cycles between my several dictionaries."
   (interactive)
   (let ((lang (ring-ref lang-ring -1)))
     (ring-insert lang-ring lang)
@@ -661,7 +706,8 @@ instead."
 
 
 (defun clojure-build-test ()
-  "builds and tests the clojure code at, it should lint too but linting is too slow and was separated"
+  "Build and test the current buffer.
+it should lint too but linting is too slow and was separated"
   (interactive)
   (progn
     (clojure-build)
@@ -669,7 +715,7 @@ instead."
     ))
 
 (defun clojure-build ()
-  "builds the current file"
+  "Build the current file."
   (interactive)
   (progn
     (when (get-buffer nrepl-error-buffer)
@@ -681,9 +727,9 @@ instead."
     ))
 
 (defun clojure-lint ()
-  "run all the linters I can on my clojure code"
+  "Run all the Clojure linters I can.
+for now only Kibit, must find a way to integrate Eastwood too"
   (interactive)
-  ;; for now only kibit, must find a way to integrate eastwood too
   (kibit-check)
   )
 
@@ -719,9 +765,10 @@ instead."
 ;;; Key-bindings
 ;; I concentrate all global key-bindings customization here
 
-;; Some key-bindings are our usual global key-bindings, they are replaceable
-;; by major and minor modes and set here otherwise
 (defun global-key (key binding)
+  "Bind the keyboard shortcut KEY to function BINDING.
+Some key-bindings are our usual global key-bindings, they are
+replaceable by major and minor modes and set here otherwise"
   (global-set-key (read-kbd-macro key) binding))
 
 (global-key "C-c SPC" 'ace-jump-mode)
@@ -748,13 +795,14 @@ instead."
 (global-key "C-S-<delete>" 'kill-whole-line)
 (global-key "C-S-<backspace>" 'kill-whole-line-go-up-one-line)
 (global-key "s-." 'ellipsis)
-(global-key "<f6>" 'erc-start-or-switch)
+(global-key "<f6>" 'run-or-raise-erc)
 (global-key "<f8>" 'cycle-ispell-languages)
 (global-key "<f12>" 'recompile)
 
-;; instead of unsetting a key binding (using an undefined keybinding gives
-;; a warning) assign nothing to it
 (defun disable-key (key)
+  "Bind a null function to a keyboard shortcut KEY.
+Instead of unsetting a key binding (using an undefined keybinding gives
+a warning) assign nothing to it"
   (global-key key 'nop))
 
 ;; I focus using the keyboard, on all my laptops it is easy to accidentally
@@ -789,7 +837,7 @@ instead."
 ;; my own pseudo minor mode (I call it 'mk' for 'my keys') setting my 'too
 ;; precious' keys there, and activating that minor mode globally, then, no
 ;; other major mode should steal those precious bindings
-(defvar mk-minor-mode-map (make-keymap) "mk-minor-mode keymap.")
+(defvar mk-minor-mode-map (make-keymap) "Mk-minor-mode keymap.")
 
 (define-minor-mode mk-minor-mode
   "A minor mode so that my key settings override annoying major modes."
@@ -809,6 +857,7 @@ instead."
 (ad-activate 'load)
 
 (defun precious-key (key binding)
+  "Binds KEY to BINDING in a way other modes cannot steal."
   (define-key mk-minor-mode-map (read-kbd-macro key) binding))
 
 (precious-key "C-x C-f" 'ido-find-file)
@@ -838,6 +887,7 @@ instead."
 ;; little helper function to establish my super-key-bindings is in order. to
 ;; avoid confusion I mimick my stumpwm keys here
 (defun personal-key (key binding)
+  "Binds KEY to BINDING using my personal prefix."
   (precious-key (concat "s-" key) binding))
 
 ;; direct translations inside Emacs of my stumpwm keybindings outside Emacs
@@ -995,3 +1045,5 @@ instead."
  '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5f7f5f" :box nil :weight light))))
  '(show-paren-match ((t (:weight bold))))
  '(writegood-passive-voice-face ((t (:inherit font-lock-warning-face :background "khaki")))))
+(provide 'init)
+;;; init.el ends here

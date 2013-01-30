@@ -83,6 +83,8 @@
 ** DONE must make nrepl-jump use a different key-binding and leave M-. alone
 ** DONE tags not working?
 * DONE bitlbee back
+* DONE EasyPG
+* DONE Complete ERC setup
 * TODO email client : WL or mu4e?
 * TODO pandoc-minor-mode
 * TODO global org keybindings

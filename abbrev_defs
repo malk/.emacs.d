@@ -9,6 +9,8 @@
 
 (define-abbrev-table 'change-log-mode-abbrev-table '())
 
+(define-abbrev-table 'clojure-mode-abbrev-table '())
+
 (define-abbrev-table 'comint-mode-abbrev-table '())
 
 (define-abbrev-table 'completion-list-mode-abbrev-table '())
@@ -37,7 +39,14 @@
 
 (define-abbrev-table 'emacs-lisp-mode-abbrev-table '())
 
-(define-abbrev-table 'erc-mode-abbrev-table '())
+(define-abbrev-table 'erc-list-menu-mode-abbrev-table '())
+
+(define-abbrev-table 'erc-mode-abbrev-table
+  '(
+    ("blo" "blist online" nil 2)
+    ("blon" "blist online" nil 3)
+    ("msp" "/msg pelote " nil 2)
+   ))
 
 (define-abbrev-table 'eshell-mode-abbrev-table '())
 
@@ -47,7 +56,17 @@
 
 (define-abbrev-table 'grep-mode-abbrev-table '())
 
+(define-abbrev-table 'helm-grep-mode-abbrev-table '())
+
 (define-abbrev-table 'help-mode-abbrev-table '())
+
+(define-abbrev-table 'html-mode-abbrev-table '())
+
+(define-abbrev-table 'image-dired-display-image-mode-abbrev-table '())
+
+(define-abbrev-table 'image-dired-thumbnail-mode-abbrev-table '())
+
+(define-abbrev-table 'inferior-lisp-mode-abbrev-table '())
 
 (define-abbrev-table 'lisp-mode-abbrev-table '())
 
@@ -71,6 +90,8 @@
 
 (define-abbrev-table 'magit-wazzup-mode-abbrev-table '())
 
+(define-abbrev-table 'nrepl-mode-abbrev-table '())
+
 (define-abbrev-table 'nxml-mode-abbrev-table '())
 
 (define-abbrev-table 'occur-edit-mode-abbrev-table '())
@@ -89,7 +110,11 @@
 
 (define-abbrev-table 'select-tags-table-mode-abbrev-table '())
 
+(define-abbrev-table 'sgml-mode-abbrev-table '())
+
 (define-abbrev-table 'sh-mode-abbrev-table '())
+
+(define-abbrev-table 'shell-mode-abbrev-table '())
 
 (define-abbrev-table 'snippet-mode-abbrev-table '())
 
