@@ -1,4 +1,4 @@
-;Copyright (C) 2013 by Malk’Zameth
+;;Copyright 2013 Malk’Zameth
 ;; packages
 (require 'package)
 (add-to-list 'package-archives
@@ -272,6 +272,13 @@
   (insert "…")
   )
 
+(defun ensures-nrepl ()
+  "start nrepl if it not already running"
+  (interactive)
+  (unless (get-buffer "*nrepl-connection*")
+    (nrepl-jack-in))
+  )
+
 (require 'typo)
 
 
@@ -413,6 +420,8 @@
 	      (let ((default-directory (getenv "HOME")))
 		(command-execute 'eshell)
 		(bury-buffer))))
+;; loads nrepls on emacs startuo
+(add-hook 'emacs-startup-hook 'nrepl-jack-in)
 
 ;;; paredit
 (autoload 'paredit-mode "paredit"
@@ -637,7 +646,22 @@ instead."
   (lambda()
     (define-key clojure-mode-map (kbd "s-.") 'nrepl-jump)))
 
+;; I always want nrepl when doing closure, might as well start it when
+;; starting clojure mode if it is not already there
+(add-hook 'clojure-mode-hook 'clojure-test-mode)
 
+
+(defun clojure-build-lint-test-jump-to-err ()
+  "builds lints and tests the clojure code at "
+  (interactive)
+  (save-restriction
+    (save-excursion
+      (nrepl-load-current-buffer)
+      (clojure-jump-between-tests-and-code)
+      (nrepl-load-current-buffer)
+      (clojure-jump-between-tests-and-code)
+      ))
+  )
 ;;; Perl
 (defalias 'perl-mode 'cperl-mode)
 (defun my-cperl-eldoc-documentation-function ()
@@ -690,8 +714,6 @@ instead."
 (global-key "M-j" 'join-line-or-lines-in-region)
 (global-key "C-z" 'fastnav-zap-up-to-char-forward)
 (global-key "M-z" 'fastnav-zap-to-char-forward)
-(global-key "M-n" 'smart-symbol-go-forward)
-(global-key "M-p" 'smart-symbol-go-backward)
 (global-key "C-S-<up>" 'smart-up)
 (global-key "C-S-<down>" 'smart-down)
 (global-key "C-S-<left>" 'smart-backward)
@@ -829,6 +851,8 @@ instead."
 (personal-key "m" 'minimap-toggle)
 (personal-key "M-<up>" 'move-text-up)
 (personal-key "M-<down>" 'move-text-down)
+(personal-key "C-<up>" 'smart-symbol-go-backward)
+(personal-key "C-<down>" 'smart-symbol-go-forward)
 (personal-key "h" 'helm-mini)
 (personal-key "\"" 'typo-insert-quotation-mark)
 (personal-key "'" 'typo-cycle-right-single-quotation-mark)
@@ -851,6 +875,8 @@ instead."
   '(diminish 'abbrev-mode))
 ;; (eval-after-load "nrepl"
 ;;   ')
+(eval-after-load "clojure-test"
+'(diminish 'clojure-test-mode))
 (eval-after-load "paredit"
   '(diminish 'paredit-mode "()"))
 (eval-after-load "auto-complete"

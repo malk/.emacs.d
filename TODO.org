@@ -79,6 +79,7 @@
 * TODO alarm or sauron
 * TODO bitlbee back
 * TODO email client : WL or mu4e?
+* TODO pandoc-minor-mode
 * TODO Clojure
 ** DONE the emacs mode for idiomatic clojure: kibit
 ** DONE change colors on clojure test mode so the green and red bars are easier on the eye
@@ -114,6 +115,7 @@
 ** TODO split conf in multiple files
    ERC conf goes to ~/.emacs.d/.ercrc.el and auth data to ~/.emacs.d/.erc-auth
 ** TODO Maybe using org Babel like sacha chua
+* TODO make a flycheck plugin for clojure
 * Things waiting some outside event that I cannot control
 ** predictive mode (seems awesome, currently too alpha)
 ** add ampc support
