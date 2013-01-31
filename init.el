@@ -412,6 +412,19 @@ windows arrangement and full-screen over a buffer"
              (erc-completion-mode 1)
 	     ))
 
+(defconst freenode-buffer "irc.freenode.net:6667")
+(defconst localhost-buffer "localhost")
+(defconst bitlbee-buffer "&bitlbee")
+
+(defun erc-kill ()
+  "Kill ERC main buffers."
+  (interactive)
+  (progn
+    (kill-buffer freenode-buffer)
+    (kill-buffer localhost-buffer)
+    (kill-buffer bitlbee-buffer))
+  )
+
 (defun run-or-raise-erc ()
   "Run ERC, if it is not lauched: launches it.
 Switch to ERC, starts ERC if its not started, otherwise switches
@@ -420,7 +433,7 @@ to cycle trough them all, when all dialog is seen, returns to
 your work, basically you spam this key to go trough your IM's and
 IRC conversations and then return back to producing"
   (interactive)
-  (if (get-buffer "irc.freenode.net:6667") ;; ERC already active?
+  (if (get-buffer freenode-buffer) ;; ERC already active?
     (erc-track-switch-buffer 1) ;; yes: switch to last active
     (when (y-or-n-p "Start ERC? ") ;; no: maybe start ERC
       (require 'user-secrets)
@@ -430,7 +443,7 @@ IRC conversations and then return back to producing"
 		    ((string-match "freenode.net" SERVER)
 		     (erc-nickserv-identify freenode-password)
 		     )
-		    ((string-match "localhost" SERVER)
+		    ((string-match localhost-buffer SERVER)
 		     (erc-nickserv-identify bitlbee-pasword)
 		     )
 		    )))
@@ -438,8 +451,18 @@ IRC conversations and then return back to producing"
 	    erc-email-userid user-mail-address
 	    )
       (erc :server "irc.freenode.net" :port 6667 :nick freenode-nick :full-name erc-user-full-name)
-      (erc :server "localhost" :port 6667 :nick user-login-name :full-name erc-user-full-name)
+      (erc :server localhost-buffer :port 6667 :nick user-login-name :full-name erc-user-full-name)
       )))
+
+(defun erc-reload ()
+  "Kill and restart ERC.
+When ERC loses conection the only way I know to revive it is kill the buffers and start anew"
+  (interactive)
+  (progn
+    (erc-kill)
+    (run-or-raise-erc)
+    )
+  )
 
 ;;;;;; Eshell
 (require 'eshell)
@@ -893,46 +916,45 @@ a warning) assign nothing to it"
   (precious-key (concat "s-" key) binding))
 
 ;; direct translations inside Emacs of my stumpwm keybindings outside Emacs
-(personal-key "r" 'loadrc)
-(personal-key "w" 'w3m)
-(personal-key "c" 'eshell)
-(personal-key "u" 'list-packages)
+(personal-key "!" 'eshell-command)
+(personal-key "'" 'typo-cycle-right-single-quotation-mark)
+(personal-key "*" 'ace-jump-mode-pop-mark)
+(personal-key "0" 'delete-window)
 (personal-key "1" 'toggle-maximize-buffer)
 (personal-key "2" 'split-window-below)
 (personal-key "3" 'split-window-right)
-(personal-key "!" 'eshell-command)
-(personal-key "o" 'other-window)
+(personal-key ";" 'eval-expression)
+(personal-key "<" 'typo-cycle-left-angle-brackets)
+(personal-key "<down>" 'windmove-down)
 (personal-key "<left>" 'windmove-left)
 (personal-key "<right>" 'windmove-right)
-(personal-key "<up>" 'windmove-up)
-(personal-key "<down>" 'windmove-down)
 (personal-key "<tab>"  'auto-complete)
-(personal-key ";" 'eval-expression)
-
-
-;; Emacs specific personal bindings
-(personal-key "0" 'delete-window)
-(personal-key "g" 'magit-status)
-(personal-key "b" 'browse-url-at-point)
-(personal-key "s" 'w3m-search)
-(personal-key "f" 'fastnav-sprint-forward)
-(personal-key "i" 'fastnav-insert-at-char-forward)
-(personal-key "SPC" 'ace-jump-mode)
-(personal-key "*" 'ace-jump-mode-pop-mark)
+(personal-key "<up>" 'windmove-up)
+(personal-key ">" 'typo-cycle-right-angle-brackets)
 (personal-key "@" 'fastnav-mark-to-char-forward)
+(personal-key "C-n" 'smart-symbol-go-forward)
+(personal-key "C-p" 'smart-symbol-go-backward)
+(personal-key "M-<down>" 'move-text-down)
+(personal-key "M-<up>" 'move-text-up)
+(personal-key "SPC" 'ace-jump-mode)
+(personal-key "\"" 'typo-insert-quotation-mark)
+(personal-key "_" 'typo-cycle-dashes)
+(personal-key "`" 'typo-cycle-left-single-quotation-mark)
+(personal-key "a" 'org-agenda)
+(personal-key "b" 'browse-url-at-point)
+(personal-key "c" 'eshell)
+(personal-key "f" 'fastnav-sprint-forward)
+(personal-key "g" 'magit-status)
+(personal-key "h" 'helm-mini)
+(personal-key "i" 'fastnav-insert-at-char-forward)
 (personal-key "l" 'reposition-window)
 (personal-key "m" 'minimap-toggle)
-(personal-key "M-<up>" 'move-text-up)
-(personal-key "M-<down>" 'move-text-down)
-(personal-key "C-p" 'smart-symbol-go-backward)
-(personal-key "C-n" 'smart-symbol-go-forward)
-(personal-key "h" 'helm-mini)
-(personal-key "\"" 'typo-insert-quotation-mark)
-(personal-key "'" 'typo-cycle-right-single-quotation-mark)
-(personal-key "`" 'typo-cycle-left-single-quotation-mark)
-(personal-key "_" 'typo-cycle-dashes)
-(personal-key "<" 'typo-cycle-left-angle-brackets)
-(personal-key ">" 'typo-cycle-right-angle-brackets)
+(personal-key "o" 'other-window)
+(personal-key "r" 'loadrc)
+(personal-key "s" 'w3m-search)
+(personal-key "t" 'org-todo-list)
+(personal-key "u" 'list-packages)
+(personal-key "w" 'w3m)
 (mk-minor-mode 1)
 
 ; diminish my mode line, save screen space and focus on what is important
