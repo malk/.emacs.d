@@ -87,6 +87,7 @@
 * DONE Complete ERC setup
 * DONE global org keybindings
 * DONE copyright update on save hook , does it respect license?
+* DONE RSS client
 * TODO make my conf install my packages automatically
 * TODO windmove should bounce on limit instead of beeping an error
 * TODO Discover the good stuff to add
@@ -101,9 +102,11 @@
 *** TODO Emacs starter kit
 *** TODO purcell's conf files
 *** TODO process reguardtoo's conf files
+*** TODO howard lewis ship?
+*** TODO what clojure bigwigs use emacs and publis their conf?
 ** TODO am I missing a package from emacs-goodies-el? if so install by the official packaging sys
 *** http://packages.debian.org/wheezy/emacs-goodies-el
-** TODO Auototyping manual
+** DONE Auototyping manual
 ** TODO see the docs of built-in modules
 ** TODO take a deep look on the remaining goods on package.el
 * TODO Reorganize the configuration file itself

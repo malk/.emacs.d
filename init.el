@@ -257,6 +257,11 @@
 (setq helm-c-gtags-read-only t)
 
 
+
+;; newsticker
+(add-hook 'newsticker-mode-hook 'imenu-add-menubar-index)
+
+
 ;;; defuns
 (defun clojure-prepare-eval-snippet-and-return ()
   (add-hook 'yas/after-exit-snippet-hook 'clojure-eval-snippet-and-return nil t))
@@ -1082,6 +1087,15 @@ a warning) assign nothing to it"
  '(minimap-always-recenter t)
  '(minimap-buffer-name-prefix "*MINI* ")
  '(minimap-update-delay 0.1)
+ '(newsticker-auto-mark-filter-list nil)
+ '(newsticker-automatically-mark-items-as-old nil)
+ '(newsticker-dir "~/tmp/newsticker/")
+ '(newsticker-cache-filename "~/tmp/newsticker/.newsticker-cache")
+ '(newsticker-groups-filename "~/tmp/newsticker/.newsticker-groups")
+ '(newsticker-html-renderer (quote w3m-region))
+ '(newsticker-justification (quote full))
+ '(newsticker-keep-obsolete-items nil)
+ '(newsticker-new-item-functions (quote (newsticker-download-images newsticker-download-enclosures)))
  '(org-bullets-bullet-list (quote ("●" "○" "◉" "✸" "✿" "❀" "✚" "✜" "▶" "◇" "◆" "♠" "♣" "♥" "◖" "☯" "☢")))
  '(org-completion-use-ido t)
  '(org-enforce-todo-dependencies t)
@@ -1115,7 +1129,8 @@ a warning) assign nothing to it"
  '(mode-line ((t (:background "#2b2b2b" :foreground "#8fb28f" :box nil))))
  '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5f7f5f" :box nil :weight light))))
  '(show-paren-match ((t (:weight bold))))
- '(writegood-passive-voice-face ((t (:inherit font-lock-warning-face :background "khaki"))))) 
+ '(writegood-passive-voice-face ((t (:inherit font-lock-warning-face :background "khaki")))))
+ 
 ;; Copyright 2013 Romeu “Malk’Zameth” MOURA
 ;; This file is part of "Malk’Zameth’s Emacs Conf" . "Malk’Zameth’s Emacs
 ;; Conf" is free software: you can redistribute it and/or modify it under
