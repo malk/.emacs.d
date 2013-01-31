@@ -1,5 +1,4 @@
 ;;; init.el --- Malk’Zameth’s Emacs configuration
-;;Copyright 2013 Malk’Zameth
 ;;; Commentary:
 ;; This is my personal Emacs configuration grown for my usage, suits me like
 ;; a glove, may be horrid to you, comments/suggestions are welcome, feel
@@ -704,9 +703,12 @@ instead."
 ;; things emacs do on my back
 ;; Update the copyright notice on file save
 (setq copyright-current-gpl-version t)
-(add-hook 'before-save-hook 'copyright-update)
-
-
+(defun update-copyright ()
+  "Update copyright notice as the interactive function does."
+  (interactive)
+  (copyright-update nil t)
+  )
+(add-hook 'before-save-hook 'update-copyright)
 ;;; Clojure
 
 (add-to-list 'same-window-buffer-names "*nrepl*")
@@ -1014,10 +1016,9 @@ a warning) assign nothing to it"
  '(ac-trigger-commands (quote (self-insert-command delete-backward-char)))
  '(ac-use-fuzzy t)
  '(ac-use-menu-map t)
- '(before-save-hook (quote (copyright-update)))
  '(copyright-at-end-flag t)
- '(copyright-query nil)
- '(copyright-year-ranges nil)
+ '(copyright-limit 2000)
+ '(copyright-query t)
  '(display-battery-mode t)
  '(display-time-24hr-format t)
  '(display-time-mode t)
@@ -1064,6 +1065,17 @@ a warning) assign nothing to it"
  '(mode-line ((t (:background "#2b2b2b" :foreground "#8fb28f" :box nil))))
  '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5f7f5f" :box nil :weight light))))
  '(show-paren-match ((t (:weight bold))))
- '(writegood-passive-voice-face ((t (:inherit font-lock-warning-face :background "khaki")))))
+ '(writegood-passive-voice-face ((t (:inherit font-lock-warning-face :background "khaki"))))) 
+;; Copyright 2013 Romeu “Malk’Zameth” MOURA
+;; This file is part of "Malk’Zameth’s Emacs Conf" . "Malk’Zameth’s Emacs
+;; Conf" is free software: you can redistribute it and/or modify it under
+;; the terms of the GNU General Public License as published by the Free
+;; Software Foundation, either version 3 of the License, or (at your option)
+;; any later version. "Malk’Zameth’s Emacs Conf" is distributed in the hope
+;; that it will be useful, but WITHOUT ANY WARRANTY; without even the
+;; implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+;; See the GNU General Public License for more details. You should have
+;; received a copy of the GNU General Public License along with
+;; "Malk’Zameth’s Emacs Conf" . If not, see <http://www.gnu.org/licenses/>.
 (provide 'init)
 ;;; init.el ends here
