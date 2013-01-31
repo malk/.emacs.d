@@ -258,6 +258,25 @@
 
 
 ;;; defuns
+(defun clojure-prepare-eval-snippet-and-return ()
+  (add-hook 'yas/after-exit-snippet-hook 'clojure-eval-snippet-and-return nil t))
+
+(defun clojure-eval-snippet-and-return (&rest ignore)
+  (nrepl-eval-expression-at-point)
+  (pop-to-mark-command)
+  (midje-dwim)
+  (remove-hook 'yas/after-exit-snippet-hook 'clojure-eval-snippet-and-return t))
+
+(defun create-defn ()
+  "Extract a symbol at point, create a defn at end of buffer named after it."
+  (interactive)
+  (let ((new-function-name (nrepl-symbol-at-point)))
+    (push-mark)
+    (end-of-buffer)
+    (newline-and-indent)
+    (clojure-prepare-eval-snippet-and-return)
+    (yas/expand-snippet (concat "(defn " new-function-name "\n\"${1:description}\"\n[${2:arg-list}]\n$3\n  )"))
+    ))
 
 (defun toggle-maximize-buffer ()
   "Delete other Windows, if no other Windows restore delete ones.
