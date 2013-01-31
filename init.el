@@ -136,6 +136,7 @@
 
 (require 'yasnippet)
 (yas-global-mode)
+(setq yas/prompt-functions '(yas-ido-prompt yas-dropdown-prompt yas-completing-prompt yas-x-prompt yas-no-prompt))
 
 ;; makes copy region (M-w) work on the current line if no region is active
 (put 'kill-ring-save 'interactive-form
