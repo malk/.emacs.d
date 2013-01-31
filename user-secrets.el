@@ -1,3 +1,1 @@
-(load-file "user-secrets.el.gpg")
-(provide 'user-secrets)
-
+lisp/user-secrets.el

@@ -27,6 +27,8 @@
 
 (el-get 'sync)
 
+(add-to-list 'load-path "~/.emacs.d/lisp")
+
 ;; server
 (random t) ;; Seed the random-number generator
 (server-start)
