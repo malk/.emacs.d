@@ -423,7 +423,6 @@ windows arrangement and full-screen over a buffer"
   (interactive)
   (progn
     (kill-buffer freenode-buffer)
-    (kill-buffer localhost-buffer)
     (kill-buffer bitlbee-buffer))
   )
 
