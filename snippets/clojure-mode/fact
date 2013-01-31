@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: fact
+# key: f
+# binding: direct-keybinding
+# --
+(fact "${1:Test description}"
+  (${2:Function to test}) => ${3:truthy$$(yas/choose-value '("truthy" "falsey" "irrelevant" "(exactly )" "(roughly )" "(throws )" "(contains [])" "(just [])" "(has )" "(has-prefix [])" "(has-suffix [])" "(n-of )"))})
