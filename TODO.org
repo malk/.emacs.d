@@ -86,11 +86,9 @@
 * DONE EasyPG
 * DONE Complete ERC setup
 * DONE global org keybindings
-* TODO pandoc-minor-mode
-* TODO make my conf install my packages automatically
-* TODO fill electric-layout-rules, or electric layout wont work
 * TODO copyright update on save hook , does it respect license?
-* TODO Create my own yasnippet library replacing the awful elisp ones
+* TODO make my conf install my packages automatically
+* TODO windmove should bounce on limit instead of beeping an error
 * TODO Discover the good stuff to add
 ** TODO Process the init files from the great ones
 *** TODO Magnar's
@@ -114,8 +112,9 @@
 ** TODO split conf in multiple files
    ERC conf goes to ~/.emacs.d/.ercrc.el and auth data to ~/.emacs.d/.erc-auth
 ** TODO Maybe using org Babel like sacha chua
+* TODO Create my own yasnippet library replacing the awful elisp ones
+* TODO fill electric-layout-rules, or electric layout wont work
 * TODO make a flycheck plugin for clojure
-* TODO windmove should bounce on limit instead of beeping an error
 * Things waiting some outside event that I cannot control
 ** predictive mode (seems awesome, currently too alpha)
 ** add ampc support
