@@ -713,6 +713,7 @@ instead."
 (add-hook 'before-save-hook 'update-copyright)
 ;;; Clojure
 
+(require 'clj-refactor)
 (add-to-list 'same-window-buffer-names "*nrepl*")
 (require 'ac-nrepl)
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
@@ -721,13 +722,42 @@ instead."
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'nrepl-mode))
 (define-key nrepl-interaction-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
+(require 'midje-mode)
+(require 'clojure-jump-to-file)
+(assq-delete-all 'midje-mode minor-mode-map-alist)
+
+(defun midge-dwim ()
+  "Point on an error message: jump to code; point on a fact: check it; otherwise check last fact."
+  (interactive)
+  (condition-case nil
+      (midje-visit-source)
+    (error (midje-check-fact))
+    )
+  )
+
 (add-hook 'clojure-mode-hook
   (lambda()
     (progn
+      (clj-refactor-mode 1)
+      (cljr-add-keybindings-with-prefix "s-h")
+
       (define-key clojure-mode-map (kbd "s-.") 'nrepl-jump)
       (define-key clojure-mode-map (kbd "<f10>") 'clojure-build)
       (define-key clojure-mode-map (kbd "<f11>") 'clojure-lint)
-      (define-key clojure-mode-map (kbd "<f12>") 'clojure-build-test))))
+      (define-key clojure-mode-map (kbd "<f12>") 'clojure-build-test)
+
+      (define-key clojure-mode-map (kbd "s-,") 'midje-dwim)
+      (define-key clojure-mode-map (kbd "s-k")   'midje-clear-comments)
+
+      (define-key clojure-mode-map (kbd "s-h f") 'midje-focus-on-this-fact)
+      (define-key clojure-mode-map (kbd "s-h h") 'midje-hide-all-facts)
+      (define-key clojure-mode-map (kbd "s-h s") 'midje-show-all-facts)
+
+      (define-key clojure-mode-map (kbd "s-n") 'midje-next-fact)
+      (define-key clojure-mode-map (kbd "s-M-n") 'midje-previous-fact)
+
+      (define-key clojure-mode-map (kbd "s-h u") 'midje-unfinished)
+      )))
 
 ;; I always want nrepl when doing closure, might as well start it when
 ;; starting clojure mode if it is not already there
@@ -950,7 +980,6 @@ a warning) assign nothing to it"
 (personal-key "c" 'eshell)
 (personal-key "f" 'fastnav-sprint-forward)
 (personal-key "g" 'magit-status)
-(personal-key "h" 'helm-mini)
 (personal-key "i" 'fastnav-insert-at-char-forward)
 (personal-key "l" 'reposition-window)
 (personal-key "m" 'minimap-toggle)
