@@ -932,6 +932,7 @@ a warning) assign nothing to it"
 (personal-key "<up>" 'windmove-up)
 (personal-key ">" 'typo-cycle-right-angle-brackets)
 (personal-key "@" 'fastnav-mark-to-char-forward)
+(personal-key "C-l" 'org-store-link)
 (personal-key "C-n" 'smart-symbol-go-forward)
 (personal-key "C-p" 'smart-symbol-go-backward)
 (personal-key "M-<down>" 'move-text-down)
@@ -955,17 +956,18 @@ a warning) assign nothing to it"
 (personal-key "t" 'org-todo-list)
 (personal-key "u" 'list-packages)
 (personal-key "w" 'w3m)
+(personal-key "x" 'org-capture)
 (mk-minor-mode 1)
 
 ; diminish my mode line, save screen space and focus on what is important
 (require 'diminish)
 (diminish 'auto-fill-function)
+(diminish 'kibit-mode)
 (diminish 'mk-minor-mode)
+(diminish 'nrepl-interaction-mode "∞")
 (diminish 'projectile-mode)
 (diminish 'volatile-highlights-mode)
 (diminish 'writegood-mode)
-(diminish 'nrepl-interaction-mode "∞")
-(diminish 'kibit-mode)
 (eval-after-load "abbrev"
   '(diminish 'abbrev-mode))
 (eval-after-load "clojure-test"

@@ -85,8 +85,8 @@
 * DONE bitlbee back
 * DONE EasyPG
 * DONE Complete ERC setup
+* DONE global org keybindings
 * TODO pandoc-minor-mode
-* TODO global org keybindings
 * TODO make my conf install my packages automatically
 * TODO fill electric-layout-rules, or electric layout wont work
 * TODO copyright update on save hook , does it respect license?
