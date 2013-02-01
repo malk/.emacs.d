@@ -837,8 +837,9 @@ for now only Kibit, must find a way to integrate Eastwood too"
 (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'cperl-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'nrepl-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'eshell-mode-hook 'turn-on-eldoc-mode)
+(add-hook 'nrepl-mode-hook 'nrepl-turn-on-eldoc-mode)
+(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 (require 'cljdoc)
 
 
