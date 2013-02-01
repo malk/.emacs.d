@@ -196,18 +196,11 @@
 (add-to-list 'completion-styles 'substring t)
 (add-to-list 'completion-styles 'initials t)
 
-(defun set-auto-complete-as-completion-at-point-function ()
-  "Hook [auto-complete] into [completion-at-point]."
-  (add-to-list 'completion-at-point-functions 'auto-complete t))
-(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
-(add-hook 'nrepl-mode-hook 'set-auto-complete-as-completion-at-point-function)
-(add-hook 'nrepl-interaction-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
 (define-key ac-completing-map (kbd "C-n") 'ac-next)
 (define-key ac-completing-map (kbd "C-p") 'ac-previous)
-
 
 (defun add-to-ac-user-dict (entry)
   "Add ENTRY to Autocomplete's the personal Dictionary."
@@ -749,6 +742,11 @@ instead."
 (require 'midje-mode)
 (require 'clojure-jump-to-file)
 (assq-delete-all 'midje-mode minor-mode-map-alist)
+
+(defun set-auto-complete-as-completion-at-point-function ()
+  "Hook [auto-complete] into [completion-at-point]."
+  (add-to-list 'completion-at-point-functions 'auto-complete t))
+(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
 (defun midge-dwim ()
   "Point on an error message: jump to code; point on a fact: check it; otherwise check last fact."
