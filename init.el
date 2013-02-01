@@ -343,7 +343,7 @@ windows arrangement and full-screen over a buffer"
   (idle-highlight-mode t)
   (auto-fill-mode t)
   (glasses-mode)
-  (subword-mode -1)
+  (subword-mode +1)
   (helm-gtags-mode)
   )
 (add-hook 'prog-mode-hook 'my-coding-hook)
