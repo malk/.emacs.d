@@ -814,6 +814,68 @@ for now only Kibit, must find a way to integrate Eastwood too"
   (kibit-check)
   )
 
+;;; prettify
+(defun esk-pretty-fn ()
+  (progn
+    (font-lock-add-keywords nil `(("(\\(\\<fn\\|lambda\\>\\)"
+				   (0 (progn (compose-region (match-beginning 1)
+							     (match-end 1)
+							     "λ"
+							     'decompose-region)))
+				   )))
+    (font-lock-add-keywords nil `(("(\\(\\<defn\\|defun\\>\\)"
+				   (0 (progn (compose-region (match-beginning 1)
+							     (match-end 1)
+							     "ƒ"
+							     'decompose-region)))
+				   )))
+    (font-lock-add-keywords nil `(("(\\(\\<fact\\>\\)"
+				   (0 (progn (compose-region (match-beginning 1)
+							     (match-end 1)
+							     "✔"
+							     'decompose-region)))
+				   )))
+    (font-lock-add-keywords nil `(("(\\(\\/\\>\\)"
+				   (0 (progn (compose-region (match-beginning 1)
+							     (match-end 1)
+							     "÷"
+							     'decompose-region)))
+				   )))
+    (font-lock-add-keywords nil `(("(\\(\\<*\\>\\)"
+				   (0 (progn (compose-region (match-beginning 1)
+							     (match-end 1)
+							     "×"
+							     'decompose-region)))
+				   )))
+    (font-lock-add-keywords nil `(("(\\(\\<-\\>\\)"
+				   (0 (progn (compose-region (match-beginning 1)
+							     (match-end 1)
+							     "−"
+							     'decompose-region)))
+				   )))
+    (font-lock-add-keywords nil `(("(\\(\\<not=\\>\\)"
+				   (0 (progn (compose-region (match-beginning 1)
+							     (match-end 1)
+							     "≠"
+							     'decompose-region)))
+				   )))
+    (font-lock-add-keywords nil `(("(\\(\\<<=\\>\\)"
+				   (0 (progn (compose-region (match-beginning 1)
+							     (match-end 1)
+							     "≤"
+							     'decompose-region)))
+				   )))
+    (font-lock-add-keywords nil `(("(\\(\\<>=\\>\\)"
+				   (0 (progn (compose-region (match-beginning 1)
+							     (match-end 1)
+							     "≥"
+							     'decompose-region)))
+				   )))
+    ))
+(add-hook 'clojure-mode-hook 'esk-pretty-fn)
+(add-hook 'clojurescript-mode-hook 'esk-pretty-fn)
+(add-hook 'emacs-lisp-mode-hook 'esk-pretty-fn)
+
 ;;; Perl
 (defalias 'perl-mode 'cperl-mode)
 (defun my-cperl-eldoc-documentation-function ()
@@ -1125,12 +1187,12 @@ a warning) assign nothing to it"
  '(clojure-test-error-face ((t (:inherit font-lock-warning-face :underline t :weight bold))))
  '(clojure-test-failure-face ((t (:inherit font-lock-warning-face :background "tomato4" :underline t :weight bold))))
  '(clojure-test-success-face ((t (:inherit font-lock-comment-face :background "PaleGreen4" :underline t :weight bold))))
+ '(font-lock-keyword-face ((t (:weight normal))))
  '(mc/cursor-face ((t (:underline t))))
  '(mode-line ((t (:background "#2b2b2b" :foreground "#8fb28f" :box nil))))
  '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5f7f5f" :box nil :weight light))))
  '(show-paren-match ((t (:weight bold))))
  '(writegood-passive-voice-face ((t (:inherit font-lock-warning-face :background "khaki")))))
- 
 ;; Copyright 2013 Romeu “Malk’Zameth” MOURA
 ;; This file is part of "Malk’Zameth’s Emacs Conf" . "Malk’Zameth’s Emacs
 ;; Conf" is free software: you can redistribute it and/or modify it under
