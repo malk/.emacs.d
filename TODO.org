@@ -88,18 +88,18 @@
 * DONE global org keybindings
 * DONE copyright update on save hook , does it respect license?
 * DONE RSS client
-* TODO parenface-plus ? how does it reacts with rainbow mode?
-* TODO More unicode
-** TODO install sys unicode fonts
+* DONE More unicode
+** DONE install sys unicode fonts
 *** https://github.com/rolandwalker/unicode-fonts
 *** http://ubuntuforums.org/showthread.php?t=16858
 *** http://www.osx-e.com/downloads/misc/macfonts.html
-** TODO usageUnicode tools
-** TODO unicode-fonts
-** TODO unicode whitespace
-** TODO unicode-progressbar
-** TODO pretty-mode-plus https://github.com/grettke/pretty-mode-plus/blob/master/pretty-mode-plus.el
-*** TODO pretty mode lacks function smbol, pull-request into it?
+** DONE usageUnicode tools
+** DONE unicode-fonts
+** DONE unicode whitespace
+** DONE unicode-progressbar
+** DONE pretty-mode-plus https://github.com/grettke/pretty-mode-plus/blob/master/pretty-mode-plus.el
+*** DONE pretty mode lacks function smbol, pull-request into it?
+* TODO parenface-plus ? how does it reacts with rainbow mode?
 * TODO make my conf install my packages automatically
 * TODO windmove should bounce on limit instead of beeping an error
 * TODO Discover the good stuff to add

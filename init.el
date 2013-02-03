@@ -334,6 +334,16 @@ windows arrangement and full-screen over a buffer"
   '(ace-jump-mode-enable-mark-sync))
 
 
+;; unicode
+
+(require 'unicode-fonts)
+(unicode-fonts-setup)
+(require 'unicode-progress-reporter)
+(unicode-progress-reporter-setup)
+(require 'unicode-whitespace)
+(unicode-whitespace-setup 'subdued-faces)
+(require 'pretty-mode-plus)
+
 
 ;; Dev conf
 (require 'idle-highlight-mode)
@@ -345,6 +355,7 @@ windows arrangement and full-screen over a buffer"
   (glasses-mode)
   (subword-mode +1)
   (helm-gtags-mode)
+  (turn-on-pretty-mode)
   )
 (add-hook 'prog-mode-hook 'my-coding-hook)
 (add-hook 'nrepl-mode-hook 'my-coding-hook)
@@ -387,6 +398,8 @@ windows arrangement and full-screen over a buffer"
 
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(require 'org-presie)
 
 ;;; w3m
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
@@ -748,7 +761,7 @@ instead."
   (add-to-list 'completion-at-point-functions 'auto-complete t))
 (add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
-(defun midge-dwim ()
+(defun midje-dwim ()
   "Point on an error message: jump to code; point on a fact: check it; otherwise check last fact."
   (interactive)
   (condition-case nil
@@ -768,7 +781,7 @@ instead."
       (define-key clojure-mode-map (kbd "<f11>") 'clojure-lint)
       (define-key clojure-mode-map (kbd "<f12>") 'clojure-build-test)
 
-      (define-key clojure-mode-map (kbd "s-,") 'midje-dwim)
+      (define-key clojure-mode-map (kbd "s-,")) 'midje-dwim
       (define-key clojure-mode-map (kbd "s-k")   'midje-clear-comments)
 
       (define-key clojure-mode-map (kbd "s-h f") 'midje-focus-on-this-fact)
@@ -817,13 +830,7 @@ for now only Kibit, must find a way to integrate Eastwood too"
 ;;; prettify
 (defun esk-pretty-fn ()
   (progn
-    (font-lock-add-keywords nil `(("(\\(\\<fn\\|lambda\\>\\)"
-				   (0 (progn (compose-region (match-beginning 1)
-							     (match-end 1)
-							     "λ"
-							     'decompose-region)))
-				   )))
-    (font-lock-add-keywords nil `(("(\\(\\<defn\\|defun\\>\\)"
+    (font-lock-add-keywords nil `(("(\\(\\<defn\\|defun\\|define\\>\\)"
 				   (0 (progn (compose-region (match-beginning 1)
 							     (match-end 1)
 							     "ƒ"
@@ -835,42 +842,30 @@ for now only Kibit, must find a way to integrate Eastwood too"
 							     "✔"
 							     'decompose-region)))
 				   )))
+    (font-lock-add-keywords nil `(("(\\(\\<facts\\>\\)"
+				   (0 (progn (compose-region (match-beginning 1)
+							     (match-end 1)
+							     "∀"
+							     'decompose-region)))
+				   )))
     (font-lock-add-keywords nil `(("(\\(\\/\\>\\)"
-				   (0 (progn (compose-region (match-beginning 1)
-							     (match-end 1)
-							     "÷"
-							     'decompose-region)))
-				   )))
+    				   (0 (progn (compose-region (match-beginning 1)
+    							     (match-end 1)
+    							     "÷"
+    							     'decompose-region)))
+    				   )))
     (font-lock-add-keywords nil `(("(\\(\\<*\\>\\)"
-				   (0 (progn (compose-region (match-beginning 1)
-							     (match-end 1)
-							     "×"
-							     'decompose-region)))
-				   )))
+    				   (0 (progn (compose-region (match-beginning 1)
+    							     (match-end 1)
+    							     "×"
+    							     'decompose-region)))
+    				   )))
     (font-lock-add-keywords nil `(("(\\(\\<-\\>\\)"
-				   (0 (progn (compose-region (match-beginning 1)
-							     (match-end 1)
-							     "−"
-							     'decompose-region)))
-				   )))
-    (font-lock-add-keywords nil `(("(\\(\\<not=\\>\\)"
-				   (0 (progn (compose-region (match-beginning 1)
-							     (match-end 1)
-							     "≠"
-							     'decompose-region)))
-				   )))
-    (font-lock-add-keywords nil `(("(\\(\\<<=\\>\\)"
-				   (0 (progn (compose-region (match-beginning 1)
-							     (match-end 1)
-							     "≤"
-							     'decompose-region)))
-				   )))
-    (font-lock-add-keywords nil `(("(\\(\\<>=\\>\\)"
-				   (0 (progn (compose-region (match-beginning 1)
-							     (match-end 1)
-							     "≥"
-							     'decompose-region)))
-				   )))
+    				   (0 (progn (compose-region (match-beginning 1)
+    							     (match-end 1)
+    							     "−"
+    							     'decompose-region)))
+    				   )))
     ))
 (add-hook 'clojure-mode-hook 'esk-pretty-fn)
 (add-hook 'clojurescript-mode-hook 'esk-pretty-fn)
@@ -1172,6 +1167,9 @@ a warning) assign nothing to it"
  '(show-paren-style (quote mixed))
  '(standard-indent 8)
  '(tab-always-indent (quote complete))
+ '(unicode-fonts-block-font-mapping (quote (("Aegean Numbers" ("Quivira")) ("Alchemical Symbols" ("Symbola" "Quivira")) ("Alphabetic Presentation Forms" ("DejaVu Sans:width=condensed" "Quivira")) ("Ancient Greek Musical Notation" ("Symbola" "Quivira")) ("Ancient Greek Numbers" ("Quivira")) ("Ancient Symbols" ("Quivira")) ("Arrows" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed" "Symbola" "Quivira")) ("Block Elements" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed" "Symbola" "Quivira")) ("Box Drawing" ("DejaVu Sans Mono" "DejaVu Sans" "Symbola" "Quivira")) ("Braille Patterns" ("Quivira" "DejaVu Sans:width=condensed" "Symbola")) ("Combining Diacritical Marks Supplement" ("Doulos SIL" "DejaVu Sans:width=condensed")) ("Combining Diacritical Marks for Symbols" ("Symbola")) ("Combining Diacritical Marks" ("DejaVu Sans:width=condensed" "DejaVu Sans Mono" "Arial" "Quivira")) ("Combining Half Marks" ("Symbola")) ("Control Pictures" ("Symbola" "Quivira")) ("Currency Symbols" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed" "Symbola" "Quivira")) ("Cyrillic Extended-A" ("Quivira")) ("Cyrillic Extended-B" ("Quivira")) ("Cyrillic Supplement" ("DejaVu Sans:width=condensed" "Doulos SIL" "Symbola" "Quivira")) ("Cyrillic" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed" "Doulos SIL" "Symbola")) ("Dingbats" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed" "Symbola" "Quivira")) ("Domino Tiles" ("DejaVu Sans:width=condensed" "Symbola" "Quivira")) ("Emoticons" ("Symbola" "Quivira")) ("Enclosed Alphanumeric Supplement" ("Quivira")) ("Enclosed Alphanumerics" ("Quivira")) ("General Punctuation" ("DejaVu Sans:width=condensed" "Symbola" "Quivira")) ("Geometric Shapes" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed" "Symbola" "Quivira")) ("Greek Extended" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed" "Gentium Plus Compact" "Gentium Plus" "Doulos SIL" "Quivira")) ("Greek and Coptic" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed" "Gentium Plus Compact" "Gentium Plus" "Lucida Console" "Symbola" "Quivira")) ("Hebrew" ("Arial" "Quivira")) ("Latin Extended-C" ("DejaVu Sans:width=condensed" "Quivira")) ("Latin Extended-D" ("Quivira")) ("Letterlike Symbols" ("DejaVu Sans:width=condensed" "Symbola" "Quivira")) ("Mathematical Alphanumeric Symbols" ("Symbola" "Quivira")) ("Mathematical Operators" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed" "Symbola" "Quivira")) ("Miscellaneous Mathematical Symbols-A" ("Symbola" "Quivira")) ("Miscellaneous Mathematical Symbols-B" ("Symbola" "Quivira")) ("Miscellaneous Symbols and Pictographs" ("Symbola" "Quivira")) ("Miscellaneous Symbols and Arrows" ("Symbola" "Quivira")) ("Miscellaneous Symbols" ("Symbola" "Quivira")) ("Miscellaneous Technical" ("Symbola" "Quivira")) ("Modifier Tone Letters" ("Doulos SIL" "Quivira")) ("Musical Symbols" ("Symbola" "Quivira")) ("Number Forms" ("DejaVu Sans:width=condensed" "Symbola" "Quivira")) ("Old Italic" ("Quivira")) ("Optical Character Recognition" ("Symbola" "Quivira")) ("Phonetic Extensions Supplement" ("Quivira" "DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Phonetic Extensions" ("Quivira" "DejaVu Sans:width=condensed")) ("Playing Cards" ("DejaVu Sans:width=condensed" "Symbola" "Quivira")) ("Runic" ("Quivira")) ("Specials" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed" "Symbola" "Quivira")) ("Superscripts and Subscripts" ("Symbola" "Quivira")) ("Supplemental Arrows-A" ("DejaVu Sans:width=condensed" "Symbola" "Quivira")) ("Supplemental Arrows-B" ("Symbola" "Quivira")) ("Supplemental Mathematical Operators" ("Symbola" "Quivira")) ("Supplemental Punctuation" ("Symbola" "Quivira")) ("Transport and Map Symbols" ("Symbola")) ("Vertical Forms" ("Symbola")))))
+ '(unicode-fonts-overrides-mapping (quote (("Rightwards Arrow to Bar" "Rightwards Arrow to Bar" ("Lucida Grande")) ("Upwards White Arrow" "Upwards White Arrow" ("Lucida Grande")) ("Upwards White Arrow from Bar" "Upwards White Arrow from Bar" ("Lucida Grande")) ("Up Arrowhead" "Up Arrowhead" ("Lucida Grande")) ("Projective" "Projective" ("Lucida Grande")) ("Up Arrowhead Between Two Horizontal Bars" "Up Arrowhead Between Two Horizontal Bars" ("Lucida Grande")) ("Place of Interest Sign" "Place of Interest Sign" ("Lucida Grande")) ("Option Key" "Option Key" ("Lucida Grande")) ("Erase to the Right" "Erase to the Right" ("Lucida Grande")) ("X in a Rectangle Box" "X in a Rectangle Box" ("Lucida Grande")) ("Erase To the Left" "Erase To the Left" ("Lucida Grande")) ("APL Functional Symbol Quad Backslash" "APL Functional Symbol Quad Backslash" ("Lucida Grande")) ("Alternative Key Symbol" "Alternative Key Symbol" ("Lucida Grande")) ("Broken Circle with Northwest Arrow" "Broken Circle with Northwest Arrow" ("Lucida Grande")) ("Eject Symbol" "Eject Symbol" ("Lucida Grande")) ("En Quad" "Zero Width Joiner" ("DejaVu Sans" "Symbola")) ("Bullet" "Bullet" ("DejaVu Sans:width=condensed")) ("White Bullet" "White Bullet" ("DejaVu Sans:width=condensed")) ("Livre Tournois Sign" 8399 ("Symbola")) ("Drachma Sign" "Drachma Sign" ("DejaVu Sans Mono")) ("German Penny Sign" "German Penny Sign" ("DejaVu Sans Mono")) ("New Sheqel Sign" "New Sheqel Sign" ("DejaVu Sans Mono")) ("White Heavy Check Mark" "White Heavy Check Mark" ("Symbola")) ("Raised Fist" "Raised Hand" ("Symbola")) ("Sparkles" "Sparkles" ("Symbola")) ("Cross Mark" "Cross Mark" ("Symbola")) ("Negative Squared Cross Mark" "Negative Squared Cross Mark" ("Symbola")) ("Black Question Mark Ornament" "White Exclamation Mark Ornament" ("Symbola")) ("Heavy Exclamation Mark Symbol" "Heavy Exclamation Mark Symbol" ("Symbola")) ("Heavy Low Single Comma Quotation Mark Ornament" "Heavy Low Double Comma Quotation Mark Ornament" ("Symbola")) ("Dingbat Negative Circled Digit One" "Dingbat Negative Circled Sans-Serif Number Ten" ("DejaVu Sans:width=condensed" "Symbola")) ("Heavy Plus Sign" "Heavy Division Sign" ("Symbola")) ("Curly Loop" "Curly Loop" ("Symbola")) ("Double Curly Loop" "Double Curly Loop" ("Symbola")) ("Latin Small Letter Turned A" "Latin Small Letter Turned A" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter C with Curl" "Latin Small Letter C with Curl" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter Closed Reversed Open E" "Latin Small Letter Closed Reversed Open E" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter Gamma" "Latin Small Letter Gamma" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter Rams Horn" "Latin Small Letter Rams Horn" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter L with Belt" "Latin Small Letter L with Belt" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter Closed Omega" "Latin Small Letter Closed Omega" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter Esh with Curl" "Latin Small Letter Esh with Curl" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter V with Hook" "Latin Small Letter V with Hook" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter Z with Retroflex Hook" "Latin Small Letter Z with Retroflex Hook" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter Z with Curl" "Latin Small Letter Z with Curl" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter Ezh with Curl" "Latin Small Letter Ezh with Curl" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter Closed Open E" "Latin Small Letter Closed Open E" ("DejaVu Sans Mono" "Symbola")) ("Latin Letter Small Capital G with Hook" "Latin Letter Small Capital G with Hook" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter J with Crossed-Tail" "Latin Small Letter J with Crossed-Tail" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter Dezh Digraph" "Latin Small Letter Dezh Digraph" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter Dz Digraph with Curl" "Latin Small Letter Dz Digraph with Curl" ("DejaVu Sans Mono" "Symbola")) ("Latin Small Letter Tc Digraph with Curl" "Latin Small Letter Tc Digraph with Curl" ("DejaVu Sans Mono" "Symbola")) ("Latin Letter Voiced Laryngeal Spirant" "Latin Letter Ain" ("Quivira")) ("Modifier Letter Small A" "Modifier Letter Small Turned A" ("DejaVu Sans Mono" "Quivira")) ("Modifier Letter Small Open E" "Modifier Letter Small Turned Open E" ("DejaVu Sans Mono" "Quivira")) ("Modifier Letter Small Ain" "Modifier Letter Small Chi" ("Quivira")) ("Greek Subscript Small Letter Beta" "Greek Subscript Small Letter Chi" ("Quivira")) ("Latin Small Letter Insular G" "Latin Small Letter Insular G" ("Quivira")) ("Latin Subscript Small Letter A" "Latin Subscript Small Letter Schwa" ("DejaVu Sans Mono" "Symbola")) ("Latin Subscript Small Letter H" "Latin Subscript Small Letter T" ("DejaVu Sans Mono" "Symbola")) ("Modifier Letter Small Gamma" "Modifier Letter Small Gamma" ("DejaVu Sans Mono" "Symbola")) ("Latin Capital Letter G with Hook" "Latin Small Letter Hv" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Capital Letter Oi" "Latin Capital Letter P with Hook" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Capital Letter V with Hook" "Latin Small Letter Y with Hook" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Capital Letter Tone Five" "Latin Letter Wynn" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Capital Letter Yogh" "Latin Small Letter Yogh" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Small Letter L with Curl" "Latin Small Letter T with Curl" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Capital Letter B with Hook" "Latin Capital Letter B with Hook" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Capital Letter C with Hook" "Latin Capital Letter C with Hook" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Small Letter C with Hook" "Latin Small Letter C with Hook" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Capital Letter D with Hook" "Latin Capital Letter D with Hook" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Small Letter Turned Delta" "Latin Small Letter Turned Delta" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Capital Letter K with Hook" "Latin Capital Letter K with Hook" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Small Letter Lambda with Stroke" "Latin Small Letter Lambda with Stroke" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Letter Yr" "Latin Letter Yr" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Letter Reversed Esh Loop" "Latin Letter Reversed Esh Loop" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Capital Letter T with Hook" "Latin Capital Letter T with Hook" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Small Letter Ezh with Tail" "Latin Small Letter Ezh with Tail" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Capital Letter Hwair" "Latin Capital Letter Hwair" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Small Letter S with Swash Tail" "Latin Small Letter S with Swash Tail" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Small Letter Z with Swash Tail" "Latin Small Letter Z with Swash Tail" ("DejaVu Sans Mono" "DejaVu Sans:width=condensed")) ("Latin Capital Letter Wynn" "Latin Capital Letter Wynn" ("DejaVu Sans:width=condensed")) ("Latin Small Letter Ou" "Latin Small Letter Ou" ("DejaVu Sans:width=condensed")) ("Latin Small Letter Glottal Stop" "Latin Small Letter Y with Stroke" ("DejaVu Sans:width=condensed")) ("Latin Small Letter Long S with Diagonal Stroke" "Latin Small Letter Delta" ("DejaVu Sans:width=condensed" "Quivira")) ("Latin Capital Letter Middle-Welsh Ll" "Latin Small Letter Y with Loop" ("Quivira")) ("Coptic Capital Letter Shei" "Coptic Small Letter Dei" ("DejaVu Sans:width=condensed")) ("Hebrew Letter Yod with Hiriq" "Hebrew Ligature Alef Lamed" ("Quivira")) ("Armenian Small Ligature Men Now" "Armenian Small Ligature Men Xeh" ("DejaVu Sans:width=condensed" "Quivira")) ("Cyrillic Capital Letter Lha" "Cyrillic Small Letter Pe with Descender" ("DejaVu Sans:width=condensed" "Doulos SIL" "Symbola" "Quivira")) ("Cyrillic Capital Letter Shha with Descender" "Cyrillic Small Letter Shha with Descender" ("Doulos SIL" "Symbola" "Quivira")) (1320 1327 ("Symbola" "Quivira")) ("Cyrillic Capital Letter Omega" "Cyrillic Small Letter Omega" ("DejaVu Sans:width=condensed" "Symbola")) ("Cyrillic Capital Letter Iotified E" "Cyrillic Small Letter Psi" ("DejaVu Sans:width=condensed" "Symbola")) ("Cyrillic Capital Letter Izhitsa" "Cyrillic Small Letter Er With Tick" ("DejaVu Sans:width=condensed" "Symbola")) ("Cyrillic Capital Letter Ghe with Middle Hook" "Cyrillic Small Letter Ghe with Middle Hook" ("DejaVu Sans:width=condensed" "Symbola")) ("Cyrillic Capital Letter Ka With Vertical Stroke" "Cyrillic Small Letter Bashkir Ka" ("DejaVu Sans:width=condensed" "Symbola")) ("Cyrillic Capital Letter Pe With Middle Hook" "Cyrillic Small Letter Abkhasian Ha" ("DejaVu Sans:width=condensed" "Symbola")) ("Cyrillic Capital Ligature Te Tse" "Cyrillic Small Letter Che With Vertical Stroke" ("DejaVu Sans:width=condensed" "Symbola")) ("Cyrillic Capital Letter Abkhasian Che" "Cyrillic Small Letter Abkhasian Che With Descender" ("DejaVu Sans:width=condensed" "Symbola")) ("Cyrillic Capital Letter Ka with Hook" "Cyrillic Small Letter Palochka" ("DejaVu Sans:width=condensed" "Symbola")) ("Cyrillic Capital Letter Abkhasian Dze" "Cyrillic Small Letter Abkhasian Dze" ("DejaVu Sans:width=condensed" "Symbola")) ("Cyrillic Capital Letter Ghe with Descender" "Cyrillic Small Letter Ghe with Descender" ("DejaVu Sans:width=condensed" "Symbola")) ("Cyrillic Capital Letter Ghe With Stroke And Hook" "Cyrillic Small Letter Ha With Stroke" ("DejaVu Sans:width=condensed" "Symbola")) ("Vulgar Fraction One Third" "Vulgar Fraction Seven Eighths" ("DejaVu Sans Mono")) ("Account Of" "Addressed To The Subject" ("Symbola" "Quivira")) ("Cada Una" "Cada Una" ("Symbola" "Quivira")) ("Prescription Take" "Telephone Sign" ("Symbola" "Quivira")) ("Versicle" "Versicle" ("Symbola" "Quivira")) ("Turned Capital F" "Turned Capital F" ("Symbola" "Quivira")) ("Facsimile Sign" "Facsimile Sign" ("Symbola" "Quivira")) ("Double-Struck Small Pi" "Double-Struck Small Pi" ("Quivira")) ("Per Sign" "Per Sign" ("Symbola" "Quivira")) ("Symbol For Samaritan Source" "Symbol For Samaritan Source" ("Symbola" "Quivira")) ("Greek Capital Letter Heta" "Greek Small Letter Archaic Sampi" ("DejaVu Sans:width=condensed" "Symbola" "Quivira")) ("Greek Capital Letter Pamphylian Digamma" "Greek Small Letter Pamphylian Digamma" ("DejaVu Sans:width=condensed" "Symbola" "Quivira")) ("Greek Capital Kai Symbol" "Greek Capital Kai Symbol" ("DejaVu Sans:width=condensed" "Symbola" "Quivira")))))
+ '(unicode-progress-reporter-type "Clocks")
  '(which-function-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

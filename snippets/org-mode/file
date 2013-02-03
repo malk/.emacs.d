@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: file
+# key: file
+# binding: direct-keybinding
+# --
+[[file:./${1:file}]]
