@@ -311,6 +311,13 @@ windows arrangement and full-screen over a buffer"
     (nrepl-jack-in))
   )
 
+(defun org-capture-a-todo ()
+  "Captures but bypass dialogues."
+  (interactive)
+  (save-excursion
+    (org-capture nil "t")
+    ))
+
 (require 'typo)
 
 
@@ -1069,7 +1076,7 @@ a warning) assign nothing to it"
 (personal-key "t" 'org-todo-list)
 (personal-key "u" 'list-packages)
 (personal-key "w" 'w3m)
-(personal-key "x" 'org-capture)
+(personal-key "x" 'org-capture-a-todo)
 (mk-minor-mode 1)
 
 ; diminish my mode line, save screen space and focus on what is important
