@@ -1111,14 +1111,11 @@ a warning) assign nothing to it"
 (eval-after-load "flycheck"
   '(diminish 'flycheck-mode))
 (add-hook 'emacs-lisp-mode-hook
-  (lambda()
-    (setq mode-name "el")))
+  (lambda() (setq mode-name "el")))
 (add-hook 'clojure-mode-hook
-  (lambda()
-    (setq mode-name "λ")))
+  (lambda() (setq mode-name "λ")))
 (add-hook 'nrepl-mode-hook
-  (lambda()
-    (setq mode-name "∞")))
+  (lambda() (setq mode-name "∞")))
 
 
 (custom-set-variables
