@@ -595,12 +595,20 @@ When ERC loses conection the only way I know to revive it is kill the buffers an
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 
-(defun single-space ()
-  "Insert a single space deleting all white-space around."
+
+(defun inexorable-single-space ()
+  "Insert a single space, delete ALL white-space around."
+  (interactive)
+  (single-space -1)
+  )
+
+(defun single-space (&optional N)
+  "Insert a single space deleting all white-space around.
+if N is negative delete newlines"
   (interactive)
   (progn
     (expand-abbrev)
-    (just-one-space -1)))
+    (just-one-space N)))
 
 (defun join-this-line-with-next-one ()
   "Join the current line and the next one."
@@ -926,6 +934,7 @@ replaceable by major and minor modes and set here otherwise"
 (global-key "C-c SPC" 'ace-jump-mode)
 (global-key "C-x SPC" 'ace-jump-mode-pop-mark)
 (global-key "SPC" 'single-space)
+(global-key "M-SPC" 'inexorable-single-space)
 
 (global-key "C-s" 'isearch-forward-regexp)
 (global-key "C-r" 'isearch-backward-regexp)
