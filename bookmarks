@@ -4,7 +4,7 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
  (filename . "~/dotfiles/.notes")
- (front-context-string . "** TODO midje la")
- (rear-context-string . "2013-01-31 Thu]\n")
- (position . 390))
+ (front-context-string . "** TODO Asus wmi")
+ (rear-context-string . "2013-02-04 Mon]\n")
+ (position . 2607))
 )
