@@ -843,6 +843,12 @@ for now only Kibit, must find a way to integrate Eastwood too"
 							     "ƒ"
 							     'decompose-region)))
 				   )))
+    (font-lock-add-keywords nil `(("(\\(\\<defconst\\|def\\>\\)"
+				   (0 (progn (compose-region (match-beginning 1)
+							     (match-end 1)
+							     "C"
+							     'decompose-region)))
+				   )))
     (font-lock-add-keywords nil `(("(\\(\\<fact\\>\\)"
 				   (0 (progn (compose-region (match-beginning 1)
 							     (match-end 1)
