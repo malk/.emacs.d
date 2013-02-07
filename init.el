@@ -796,7 +796,7 @@ instead."
       (define-key clojure-mode-map (kbd "<f11>") 'clojure-lint)
       (define-key clojure-mode-map (kbd "<f12>") 'clojure-build-test)
 
-      (define-key clojure-mode-map (kbd "s-,")) 'midje-dwim
+      (define-key clojure-mode-map (kbd "s-,") 'midje-dwim)
       (define-key clojure-mode-map (kbd "s-k")   'midje-clear-comments)
 
       (define-key clojure-mode-map (kbd "s-h f") 'midje-focus-on-this-fact)
