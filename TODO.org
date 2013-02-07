@@ -99,8 +99,83 @@
 ** DONE unicode-progressbar
 ** DONE pretty-mode-plus https://github.com/grettke/pretty-mode-plus/blob/master/pretty-mode-plus.el
 *** DONE pretty mode lacks function smbol, pull-request into it?
+* DONE Auototyping manual
 * TODO parenface-plus ? how does it reacts with rainbow mode?
 * TODO make my conf install my packages automatically
+* TODO a kind of writeroom mode (margins, subduing/hiding modeline etc)
+   [2013-02-04 Mon]
+   [[file:~/.emacs.d/init.el::"Insert%20a%20single%20space%20deleting%20all%20white-space%20around."][file:~/.emacs.d/init.el::"Insert a single space deleting all white-space around."]]
+* TODO create an emacs function to create a defn for thingatpt
+  [2013-01-31 Thu]
+  [[file:~/dev/social-data-mining/test/social_data_mining/core_test.clj::(fact%20(skware%202)%20%3D>%205)][file:~/dev/social-data-mining/test/social_data_mining/core_test.clj::(fact (skware 2) => 5)]]
+* TODO add nrepl-kill and nrepl-restart functions
+  [2013-01-31 Thu]
+* TODO midje lazytest should be compatible with lazy mode
+* TODO org mode meta-up and down on subthings correctly stops instead of getting out of your parent, but just beeps an error : it should cycle inside parent
+  [2013-02-03 Sun]
+  [[file:~/Documents/clients/romeu/improvement/stop-being-a-wreck.org::*]]
+* TODO I should contribute my changes done on emacs.d
+  [2013-02-04 Mon]
+  [[file:~/.emacs.d/init.el::"Captures%20but%20bypass%20dialogues."][file:~/.emacs.d/init.el::"Captures but bypass dialogues."]]
+* TODO I need to iterate/recur my call to function on emacs.d instead of repeating them a lot
+  [2013-02-04 Mon]
+  [[file:~/.emacs.d/init.el::%3B%3B%20Your%20init%20file%20should%20contain%20only%20one%20such%20instance.][file:~/.emacs.d/init.el::;; Your init file should contain only one such instance.]]
+* TODO ERT the Emacs testing framework
+* TODO faire un add de font locking pour org-mode avec des symboles pour TODO et DONE
+  [2013-02-04 Mon]
+  [[file:~/.emacs.d/init.el::(defun%20toggle-maximize-buffer%20()][file:~/.emacs.d/init.el::(defun toggle-maximize-buffer ()]]
+** TODO turn org mode TODO into ☐
+   [2013-02-05 Tue]
+   [[file:~/.emacs.d/init.el::%3B%3B%3B%20Perl][file:~/.emacs.d/init.el::;;; Perl]]
+** TODO turn org mode DONE into ☑
+* TODO create a (at-dot-emacs-d PATH) function
+  [2013-02-04 Mon]
+  [[file:~/.emacs.d/init.el::(interactive)]]
+* TODO create a macro for interactive (no reason for me to do a defun that is not)
+  [2013-02-04 Mon]
+  [[file:~/.emacs.d/init.el::(save-excursion]]
+* TODO create a macro for save excursion (and narrowing)
+  [2013-02-04 Mon]
+  [[file:~/.emacs.d/init.el::(save-excursion]]
+* TODO create a macro for saving registers
+  [2013-02-04 Mon]
+  [[file:~/.emacs.d/init.el::(save-excursion]]
+* TODO Invert movement command on org, when I change hierarchy levels I want to default to a whole subtree moving and not just the parent
+  [2013-02-04 Mon]
+  [[file:~/Documents/clients/SODA-DGFIP/journal/2013-02-04.org::*]]
+* TODO emacs chrome-as-app launcher
+  [2013-02-04 Mon]
+  [[file:~/Documents/clients/SODA-DGFIP/contacts/contacts.org]]
+* TODO TDD as you mean it for Clojure
+   [2013-02-05 Tue]
+   [[file:~/Documents/clients/SODA-DGFIP/TODO.org::*Verifier%20qu'on%20peut%20les%20updater%20apr%C3%A8s%20zipper%20et%20dezipper%20en%20surchargeant][Verifier qu'on peut les updater après zipper et dezipper en surchargeant]]
+** TODO Code the test
+** TODO code the answer to the test inside the test
+** TODO now you should have a name for the code created
+** TODO extract it as a function in the same file
+** TODO extract is a function on the source file for this test file
+** TODO if the source file for this test file does not exist we should create it
+** TODO maybe we should even cal lein on it
+** TODO extract the test itself to another test file if it does not belong here
+* TODO ERT + clojure?
+* TODO ERT + elisp?
+* TODO Ecukes?
+* TODO erase some of the one char yasnippet expansions, maybe all
+* TODO subdue done entries on org mode
+  [2013-02-05 Tue]
+  [[file:~/.emacs.d/init.el::(add-hook%20'clojure-mode-hook%20'esk-pretty-fn)][file:~/.emacs.d/init.el::(add-hook 'clojure-mode-hook 'esk-pretty-fn)]]
+* TODO we need WAAAAY more pcomplete
+  [2013-02-07 Thu]
+* TODO hungry fucking delete
+  [2013-02-07 Thu]
+  [[file:~/dev/clojure-katas/fizzbuzz/README.md::GPL]]
+* TODO defn is not fontlocking for some reason
+  [2013-02-07 Thu]
+  [[file:~/dev/clojure-katas/fizzbuzz/test/fizzbuzz/core_test.clj::(defn%20w)][file:~/dev/clojure-katas/fizzbuzz/test/fizzbuzz/core_test.clj::(defn w)]]
+* TODO C-RET insert new fact inside current facts, use snippet, go back after
+  [2013-02-07 Thu]
+  [[file:~/dev/clojure-katas/fizzbuzz/test/fizzbuzz/core_test.clj::(fizzbuzz%2015)%20%3D>%20fizz_buzz)][file:~/dev/clojure-katas/fizzbuzz/test/fizzbuzz/core_test.clj::(fizzbuzz 15) => fizz_buzz)]]
+  
 * TODO windmove should bounce on limit instead of beeping an error
 * TODO Discover the good stuff to add
 ** TODO Process the init files from the great ones
@@ -118,7 +193,6 @@
 *** TODO what clojure bigwigs use emacs and publis their conf?
 ** TODO am I missing a package from emacs-goodies-el? if so install by the official packaging sys
 *** http://packages.debian.org/wheezy/emacs-goodies-el
-** DONE Auototyping manual
 ** TODO see the docs of built-in modules
 ** TODO take a deep look on the remaining goods on package.el
 * TODO Reorganize the configuration file itself
@@ -129,7 +203,11 @@
 ** TODO Maybe using org Babel like sacha chua
 * TODO Create my own yasnippet library replacing the awful elisp ones
 * TODO fill electric-layout-rules, or electric layout wont work
-* TODO make a flycheck plugin for clojure
+* TODO Clojure
+** TODO make a flycheck plugin for clojure
+*** TODO With linters in daemon mode
+*** TODO With test checkers running
+** TODO make Clojure-test-mode optionally dependant on midje and able to cal midje-mode testing to give its results
 * Things waiting some outside event that I cannot control
 ** predictive mode (seems awesome, currently too alpha)
 ** add ampc support
