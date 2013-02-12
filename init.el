@@ -116,10 +116,11 @@
       kill-buffer-query-functions (remq 'process-kill-buffer-query-function kill-buffer-query-functions)
       backup-directory-alist `(("." . ,(concat user-emacs-directory "backups"))))
 
-(setq-default abbrev-mode t)
-(setq-default tab-width 8)
-(setq-default show-trailing-whitespace t)
-(setq-default fill-column 76)
+(setq-default abbrev-mode t
+	      tab-width 8
+	      show-trailing-whitespace t
+	      fill-column 76
+	      )
 (require 'ffap)
 
 (if (file-exists-p abbrev-file-name)
