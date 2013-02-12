@@ -276,6 +276,12 @@
 *** TODO Reginals library
 *** TODO sugar.js
 *** TODO underscore.js
+* TODO mu4e and offlineImap connecte to my gmail
+** TODO bbdb for contacts
+*** TODO those bbdb contacts bridged to erc
+** Even if I do not use mu4e on a day to day basis, I want a gmail fallback, might as well use that
+*** TODO backup those files on whose cloud outside of gmail?
+**** TODO A whole lot of email cleanup before all that
 * Things waiting some outside event that I cannot control
 ** predictive mode (seems awesome, currently too alpha)
 ** add ampc support
