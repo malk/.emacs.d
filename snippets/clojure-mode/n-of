@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: n-of
+# key: n-of
+# expand-env: ((yas-indent-line 'nil))
+# --
+(n-of ${1:thing} ${2:occurrence})

@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: facts
+# key: fs
+# --
+(facts
+  f$0
+  )
