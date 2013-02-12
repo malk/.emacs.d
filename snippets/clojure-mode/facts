@@ -2,6 +2,6 @@
 # name: facts
 # key: fs
 # --
-(facts
+(facts "${1:scenario description}"
   f$0
   )
