@@ -372,6 +372,7 @@ windows arrangement and full-screen over a buffer"
   )
 (add-hook 'prog-mode-hook 'my-coding-hook)
 (add-hook 'nrepl-mode-hook 'my-coding-hook)
+(add-hook 'org-mode-hook 'my-coding-hook)
 ;; version control and backup
 (require 'magit)
 
