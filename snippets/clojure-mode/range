@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: range
+# key: range
+# --
+(range ${1:start} ${2:end} ${3:step})
