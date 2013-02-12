@@ -100,7 +100,8 @@
 ** DONE pretty-mode-plus https://github.com/grettke/pretty-mode-plus/blob/master/pretty-mode-plus.el
 *** DONE pretty mode lacks function smbol, pull-request into it?
 * DONE Auototyping manual
-* TODO parenface-plus ? how does it reacts with rainbow mode?
+* TODO config rainbow mode faces so they subdue under zenburn while maintaining constrat between themselves
+  is this possible at all? this means finding 9 faces (8 if we use the default face in the list) that are differerent enough between them while subduing with the background. Maybe a "shades of gray" aproach?
 * TODO make my conf install my packages automatically
 * TODO a kind of writeroom mode (margins, subduing/hiding modeline etc)
    [2013-02-04 Mon]
@@ -169,7 +170,8 @@
 * TODO hungry fucking delete
   [2013-02-07 Thu]
   [[file:~/dev/clojure-katas/fizzbuzz/README.md::GPL]]
-* TODO defn is not fontlocking for some reason
+* TODO sometimes defn is not fontlocking for some reason
+  Maybe the problem will jsut go away with purty mode so lets implement that one first
   [2013-02-07 Thu]
   [[file:~/dev/clojure-katas/fizzbuzz/test/fizzbuzz/core_test.clj::(defn%20w)][file:~/dev/clojure-katas/fizzbuzz/test/fizzbuzz/core_test.clj::(defn w)]]
 * TODO C-RET insert new fact inside current facts, use snippet, go back after
@@ -204,10 +206,76 @@
 * TODO Create my own yasnippet library replacing the awful elisp ones
 * TODO fill electric-layout-rules, or electric layout wont work
 * TODO Clojure
+** TODO clojure/lisps RET inside a parentheis should inser a newline at point and push the closing paren down WHILE stacking down parens
+   [2013-02-12 Tue]
+   [[file:~/dev/clojure-katas/fizzbuzz/test/fizzbuzz/core_test.clj]]
+** TODO clojure create defn from fact call
+   [2013-02-12 Tue]
+   [[file:~/dev/clojure-katas/fizzbuzz/test/fizzbuzz/core_test.clj::(fizzbuzz%200)%20%3D>%200)][file:~/dev/clojure-katas/fizzbuzz/test/fizzbuzz/core_test.clj::(fizzbuzz 0) => 0)]]
+*** TODO save excursion and narrow
+*** TODO check if I am at the begginning of a fact
+**** if not go to it
+*** TODO comand is inside third sexp, go to it
+*** TODO fetch the name and the arguments
+*** TODO try a nrepl-jump
+**** if it works we already have a definition
+***** TODO fetch the existing definition's number of arguments for each multidispatch it has
+****** if it is a new number
+******* TODO Insert a new multidispatch
+******** TODO see: expand-ags
+******** TODO go to body acceot input see: rich-input
+****** if they already exist 
+******* place point inside that dispatch, accept input see: rich-input
+******* 
+*** TODO Jump to associated file (C-c C-t command)
+*** TODO Yas expand
+**** function name is the first thing on the copied sexp, use it
+**** expand-args: Every arg used will be renamed with a name yas expand looping on args
+**** jump to function description, expand
+**** jump to body, accept rich-input
+*** Execute test
+**** fails? jump to error
+**** suceeds? jump back to fact, resume expansion
+*** Use magnar's "yas expand hook to restore state" trick
+
+*** rich-input: input is limited during expandsion
+**** maybe only by the surcharge of the tab key?
+***** TODO if yes rearange bindings
+***** TODO if no find a way to interrupt expansions, accept input then recover expansion where left (in recursive expansions)
+      We will need this anyway as error recover but if I can streamline it
+      away from normal worlflow all the better
+
+*** TODO save last point inside code for each dispatch of each definition
+*** TODO this is kind of a state machine?
+** TODO clojure-test-mode midje plugin
+   [2013-02-12 Tue]
+   [[file:~/Documents/clients/SODA-DGFIP/TODO.org::*JBossTools][JBossTools]]
+*** refactor upstream to be plugin based, create a default plugin for clojure.test, push it
 ** TODO make a flycheck plugin for clojure
 *** TODO With linters in daemon mode
 *** TODO With test checkers running
-** TODO make Clojure-test-mode optionally dependant on midje and able to cal midje-mode testing to give its results
+* TODO Add a way to launch a browser window as app from emacs (webjump?)
+  [2013-02-12 Tue]
+* TODO purty-mode on emacs instead of pretty-mode-plus (easier to customize)
+   [2013-02-11 Mon]
+** TODO Add all transformations that pretty-mode-plus and pretty-mode have that purty-mode does not as configurations
+*** TODO propose them somewhere (pull requests?)
+** TODO make another conf overlay that just transforms all common lisp calls from all lisps into useful pretty unicode
+* TODO How do I licence things in GPL+BSD+MIT+APache like firefox does?
+  [2013-02-11 Mon]
+* TODO yasnippets can call any arbitrary emacs lisp function adn fetch its result: including yas-expand recursively
+ [2013-02-11 Mon]
+** TODO use that shit to create a whole workflow of absolute lazyness in autotyping
+** I can also call the first expand inside an elisp function, which i can keybind
+* TODO make a midje plugin for clojure-test-mode and ditch midje-mode itself
+  [2013-02-11 Mon]
+  [[file:~/dev/clojure-katas/fizzbuzz/test/fizzbuzz/core_test.clj::(fizzbuzz%200)%20%3D>%200)][file:~/dev/clojure-katas/fizzbuzz/test/fizzbuzz/core_test.clj::(fizzbuzz 0) => 0)]]
+* TODO Complete dash.el
+   [2013-02-11 Mon]
+*** TODO Combinators
+*** TODO Reginals library
+*** TODO sugar.js
+*** TODO underscore.js
 * Things waiting some outside event that I cannot control
 ** predictive mode (seems awesome, currently too alpha)
 ** add ampc support
