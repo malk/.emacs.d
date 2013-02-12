@@ -320,6 +320,11 @@ windows arrangement and full-screen over a buffer"
 
 (require 'typo)
 
+(defun sexpiness ()
+  "for some strange reason sep-at-point is not interactive"
+  (interactive)
+  (pp (sexp-at-point))
+  )
 
 ;;
 ;; ace jump mode major function
