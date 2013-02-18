@@ -4,7 +4,7 @@
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
 (("org-capture-last-stored"
  (filename . "~/dotfiles/.notes")
- (front-context-string . "** TODO clojure-")
- (rear-context-string . "EADME.md::GPL]]\n")
- (position . 5884))
+ (front-context-string . "** TODO a browse")
+ (rear-context-string . "core_test.clj]]\n")
+ (position . 150))
 )
