@@ -327,6 +327,67 @@ windows arrangement and full-screen over a buffer"
   (pp (sexp-at-point))
   )
 
+(defun point-is-inside-string ()
+  (nth 3 (syntax-ppss))
+  )
+
+(defun point-is-inside-comment ()
+  (nth 4 (syntax-ppss))
+  )
+
+(defun paredit--is-at-opening-paren ()
+  (and (looking-at "\\s(")
+       (not (point-is-inside-string))
+       (not (point-is-inside-comment))
+       )
+  )
+
+(defun paredit-skip-to-start-of-list-at-point ()
+  "Skips to start of current sexp."
+  (interactive)
+  (while (not (paredit--is-at-opening-paren))
+    (if (point-is-inside-string)
+	(paredit-backward-up)
+      (paredit-backward)
+      ))
+  )
+
+(defun paredit-skip-to-end-of-list-from-start ()
+  "Skips to end of current list.
+If we are placed at the opening paren"
+  (interactive)
+  (while (and (bounds-of-thing-at-point 'sexp)
+              (<= (point) (car (bounds-of-thing-at-point 'sexp)))
+              (not (= (point) (line-end-position))))
+    (forward-sexp)
+    (while (looking-at " ")
+      (forward-char)))
+  )
+
+(defun paredit-duplicate-closest-sexp ()
+  (interactive)
+  (paredit-skip-to-start-of-list-at-point)
+  (set-mark-command nil)
+  ;; while we find sexps we move forward on the line
+  (paredit-skip-to-end-of-list-from-start)
+  (kill-ring-save (mark) (point))
+  ;; go to the next line and copy the sexprs we encountered
+  (paredit-newline)
+  (yank)
+  (exchange-point-and-mark))
+
+(defun extract-defn ()
+  ""
+  (interactive)
+  (let ((defn-name (ffap-string-at-point)))
+    (goto-char (point-max))
+    (yas/expand-snippet (concat
+			 "(defn "
+			 defn-name
+			 "\n[${1:args}]\n"
+			 "$0)"
+			 ))
+      ))
 ;;
 ;; ace jump mode major function
 ;;
