@@ -2,8 +2,8 @@
 # name: fact
 # key: f
 # --
-(fact "${1:Test description}"
-  (${2:code to test}) => ${3:irrelevant$$(yas/choose-value
+(fact "${2:Test description}"
+  (${3:code to test}) => ${1:irrelevant$$(yas/choose-value
   '("irrelevant" "truthy" "falsey" "exactly" "roughly" "throws" "contains"
   "just" "has" "has-prefix" "has-suffix" "n-of"))})
   $0
