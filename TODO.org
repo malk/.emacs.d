@@ -282,6 +282,27 @@
 ** Even if I do not use mu4e on a day to day basis, I want a gmail fallback, might as well use that
 *** TODO backup those files on whose cloud outside of gmail?
 **** TODO A whole lot of email cleanup before all that
+* TODO a browser inside emacs
+** Elisp only
+** using webkit for rendering
+** using v8 for javascript
+** look at pahtnom.js code
+** major mode over pages
+** the js console is the mode itself
+*** repl?
+** Everything doable with other Emacs modes should
+*** can I fetch things from
+**** w3I
+**** w3m
+**** the js repl mode thingy
+**** wget.el
+**** URL
+**** sass mode
+**** etc
+*** Elnode can help?
+*** headless testing first
+**** dev second
+***** browsing third
 * Things waiting some outside event that I cannot control
 ** predictive mode (seems awesome, currently too alpha)
 ** add ampc support
