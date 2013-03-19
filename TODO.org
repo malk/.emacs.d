@@ -100,8 +100,6 @@
 ** DONE pretty-mode-plus https://github.com/grettke/pretty-mode-plus/blob/master/pretty-mode-plus.el
 *** DONE pretty mode lacks function smbol, pull-request into it?
 * DONE Auototyping manual
-* TODO config rainbow mode faces so they subdue under zenburn while maintaining constrat between themselves
-  is this possible at all? this means finding 9 faces (8 if we use the default face in the list) that are differerent enough between them while subduing with the background. Maybe a "shades of gray" aproach?
 * TODO make my conf install my packages automatically
 * TODO a kind of writeroom mode (margins, subduing/hiding modeline etc)
    [2013-02-04 Mon]
@@ -122,13 +120,6 @@
   [2013-02-04 Mon]
   [[file:~/.emacs.d/init.el::%3B%3B%20Your%20init%20file%20should%20contain%20only%20one%20such%20instance.][file:~/.emacs.d/init.el::;; Your init file should contain only one such instance.]]
 * TODO ERT the Emacs testing framework
-* TODO faire un add de font locking pour org-mode avec des symboles pour TODO et DONE
-  [2013-02-04 Mon]
-  [[file:~/.emacs.d/init.el::(defun%20toggle-maximize-buffer%20()][file:~/.emacs.d/init.el::(defun toggle-maximize-buffer ()]]
-** TODO turn org mode TODO into ☐
-   [2013-02-05 Tue]
-   [[file:~/.emacs.d/init.el::%3B%3B%3B%20Perl][file:~/.emacs.d/init.el::;;; Perl]]
-** TODO turn org mode DONE into ☑
 * TODO create a (at-dot-emacs-d PATH) function
   [2013-02-04 Mon]
   [[file:~/.emacs.d/init.el::(interactive)]]
@@ -192,6 +183,29 @@
 *** TODO purcell's conf files
 *** TODO process reguardtoo's conf files
 *** TODO howard lewis ship?
+*** TODO GitHubs's most favorited
+**** TODO dotfiles projects
+***** TODO https://github.com/garybernhardt/dotfiles
+***** TODO https://github.com/rmm5t/dotfiles
+***** TODO https://github.com/technomancy/dotfiles
+***** TODO https://github.com/cofi/dotfiles
+***** TODO https://github.com/briancarper/dotfiles
+***** TODO https://github.com/sugyan/dotfiles
+***** TODO https://github.com/dakrone/dakrone-dotfiles
+***** TODO https://github.com/jbarnette/dotfiles
+***** TODO https://github.com/ryanbriones/dotfiles
+***** TODO https://github.com/senny/dotfiles
+**** TODO emacs.d projects
+***** TODO https://github.com/purcell/emacs.d
+***** TODO https://github.com/cjohansen/.emacs.d
+***** TODO https://github.com/clear-code/emacs.d
+***** TODO https://github.com/josh/emacs.d
+***** TODO https://github.com/mbriggs/.emacs.d
+***** TODO https://github.com/tavisrudd/emacs.d
+***** TODO https://github.com/lancepantz/.emacs.d
+***** TODO https://github.com/carllerche/.emacs.d
+***** TODO https://github.com/bodil/emacs.d
+***** TODO https://github.com/zpinter/emacs.d
 *** TODO what clojure bigwigs use emacs and publis their conf?
 ** TODO am I missing a package from emacs-goodies-el? if so install by the official packaging sys
 *** http://packages.debian.org/wheezy/emacs-goodies-el
@@ -204,6 +218,7 @@
    ERC conf goes to ~/.emacs.d/.ercrc.el and auth data to ~/.emacs.d/.erc-auth
 ** TODO Maybe using org Babel like sacha chua
 * TODO Create my own yasnippet library replacing the awful elisp ones
+* TODO git-gutter-fringe
 * TODO fill electric-layout-rules, or electric layout wont work
 * TODO Clojure
 ** TODO clojure/lisps RET inside a parentheis should inser a newline at point and push the closing paren down WHILE stacking down parens
@@ -261,6 +276,13 @@
 ** TODO Add all transformations that pretty-mode-plus and pretty-mode have that purty-mode does not as configurations
 *** TODO propose them somewhere (pull requests?)
 ** TODO make another conf overlay that just transforms all common lisp calls from all lisps into useful pretty unicode
+** TODO faire un add de font locking pour org-mode avec des symboles pour TODO et DONE
+   [2013-02-04 Mon]
+   [[file:~/.emacs.d/init.el::(defun%20toggle-maximize-buffer%20()][file:~/.emacs.d/init.el::(defun toggle-maximize-buffer ()]]
+*** TODO turn org mode TODO into ☐
+    [2013-02-05 Tue]
+    [[file:~/.emacs.d/init.el::%3B%3B%3B%20Perl][file:~/.emacs.d/init.el::;;; Perl]]
+*** TODO turn org mode DONE into ☑
 * TODO How do I licence things in GPL+BSD+MIT+APache like firefox does?
   [2013-02-11 Mon]
 * TODO yasnippets can call any arbitrary emacs lisp function adn fetch its result: including yas-expand recursively
@@ -282,6 +304,8 @@
 ** Even if I do not use mu4e on a day to day basis, I want a gmail fallback, might as well use that
 *** TODO backup those files on whose cloud outside of gmail?
 **** TODO A whole lot of email cleanup before all that
+* TODO config rainbow mode faces so they subdue under zenburn while maintaining constrat between themselves
+  is this possible at all? this means finding 9 faces (8 if we use the default face in the list) that are differerent enough between them while subduing with the background. Maybe a "shades of gray" aproach?
 * TODO a browser inside emacs
 ** Elisp only
 ** using webkit for rendering
@@ -308,5 +332,6 @@
 ** add ampc support
 *** Google play music support (currently broken, without this ampc is useless for me)
 ** elein (leiningen from emacs, must wait ti to migrate from swank to nrepl)
+*** technomancy is working on an elisp port of leiningen!
 ** C-c C-n does not work on clojure mode, must fix
 ** eastwood seems awesome but it needs lein 2.0 and emacs compat
