@@ -1,17 +1,18 @@
-alias zzz sudo pm-suspend
-alias lucky rolldice -s 7x7d6 | cut -d '(' -f 2 | cut -d ')' -f 1 | cut -d ' ' -f 2-6 | sed -e 's/ //g'
-alias wifi-connect-home wifi-connect ff241290-bbf0-4802-982a-d027c207e5af
-alias wifi-connect-linagora wifi-connect 84ebfbc8-f233-481b-a721-d0398b56ce45
-alias wifi-connect nmcli con up uuid $*
-alias wifi-list nmcli -m tabular -e yes con list
-alias clear recenter 0
-alias w3m w3m-find-file $1
-alias ll ls -alh $*
-alias l ls -lh $*
-alias emacsclient ff
-alias emacs ff
-alias ff find-file $1
-alias apt sudo aptitude $*
-alias apti apt install $*
-alias apts aptitude search $*
+alias s shell
 alias d dired $*
+alias apts aptitude search $*
+alias apti apt install $*
+alias apt sudo aptitude $*
+alias ff find-file $1
+alias emacs ff
+alias emacsclient ff
+alias l ls -lh $*
+alias ll ls -alh $*
+alias w3m w3m-find-file $1
+alias clear recenter 0
+alias wifi-list nmcli -m tabular -e yes con list
+alias wifi-connect nmcli con up uuid $*
+alias wifi-connect-linagora wifi-connect 84ebfbc8-f233-481b-a721-d0398b56ce45
+alias wifi-connect-home wifi-connect ff241290-bbf0-4802-982a-d027c207e5af
+alias lucky rolldice -s 7x7d6 | cut -d '(' -f 2 | cut -d ')' -f 1 | cut -d ' ' -f 2-6 | sed -e 's/ //g'
+alias zzz sudo pm-suspend
