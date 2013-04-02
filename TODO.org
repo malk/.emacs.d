@@ -207,6 +207,10 @@
 ***** TODO https://github.com/bodil/emacs.d
 ***** TODO https://github.com/zpinter/emacs.d
 *** TODO what clojure bigwigs use emacs and publis their conf?
+**** TODO Emacs Live https://github.com/overtone/emacs-live
+***** you just know you want to use shadertone right?
+      https://github.com/rogerallen/shadertone
+*** TODO http://m00natic.github.com/emacs/emacs-wiki.html
 ** TODO am I missing a package from emacs-goodies-el? if so install by the official packaging sys
 *** http://packages.debian.org/wheezy/emacs-goodies-el
 ** TODO see the docs of built-in modules
