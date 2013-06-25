@@ -179,6 +179,7 @@
 *** TODO https://github.com/gar3thjon3s/dotfiles/blob/master/.emacs.d/init.el
 *** TODO https://github.com/ronert/.emacs.d
 *** TODO Prelude
+*** TODO bastien guerry http://lumiere.ens.fr/~guerry/emacs.html
 *** TODO Emacs starter kit
 *** TODO purcell's conf files
 *** TODO process reguardtoo's conf files
@@ -287,8 +288,6 @@
     [2013-02-05 Tue]
     [[file:~/.emacs.d/init.el::%3B%3B%3B%20Perl][file:~/.emacs.d/init.el::;;; Perl]]
 *** TODO turn org mode DONE into ☑
-* TODO How do I licence things in GPL+BSD+MIT+APache like firefox does?
-  [2013-02-11 Mon]
 * TODO yasnippets can call any arbitrary emacs lisp function adn fetch its result: including yas-expand recursively
  [2013-02-11 Mon]
 ** TODO use that shit to create a whole workflow of absolute lazyness in autotyping
@@ -302,6 +301,7 @@
 *** TODO Reginals library
 *** TODO sugar.js
 *** TODO underscore.js
+* TODO http://ronert-obst.com/blog/2013/05/17/setting-up-octopress-with-org-mode/
 * TODO mu4e and offlineImap connecte to my gmail
 ** TODO bbdb for contacts
 *** TODO those bbdb contacts bridged to erc
