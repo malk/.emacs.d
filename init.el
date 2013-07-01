@@ -255,6 +255,10 @@
 ;; newsticker
 (add-hook 'newsticker-mode-hook 'imenu-add-menubar-index)
 
+;;; org
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((dot . t)))
 
 ;;; defuns
 (defun clojure-prepare-eval-snippet-and-return ()
