@@ -299,7 +299,7 @@ windows arrangement and full-screen over a buffer"
 
 
 (defun loadrc ()
-  "Reload configuration file."
+  "Reload init file."
   (interactive)
   (load-file "~/.emacs.d/init.el"))
 

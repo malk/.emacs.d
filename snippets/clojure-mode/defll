@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: defll
+# --
+(def ${1:name}
+  (fn [${2:arg-list}]
+    (cond
+     ($3) $4
+     :else ($1 $0)
+     )))
