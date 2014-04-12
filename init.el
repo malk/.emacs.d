@@ -965,18 +965,18 @@ for now only Kibit, must find a way to integrate Eastwood too"
 (add-hook 'emacs-lisp-mode-hook 'esk-pretty-fn)
 
 ;;; Perl
-(defalias 'perl-mode 'cperl-mode)
-(defun my-cperl-eldoc-documentation-function ()
-  "Return meaningful doc string for `eldoc-mode'."
-  (car
-   (let ((cperl-message-on-help-error nil))
-     (cperl-get-help))))
-(add-hook 'cperl-mode-hook
-	  (lambda ()
-	    (set (make-local-variable 'eldoc-documentation-function)
-		 'my-cperl-eldoc-documentation-function)))
-(setq cperl-font-lock t
-      cperl-lazy-help-time t)
+;; (defalias 'perl-mode 'cperl-mode)
+;; (defun my-cperl-eldoc-documentation-function ()
+;;   "Return meaningful doc string for `eldoc-mode'."
+;;   (car
+;;    (let ((cperl-message-on-help-error nil))
+;;      (cperl-get-help))))
+;; (add-hook 'cperl-mode-hook
+;; 	  (lambda ()
+;; 	    (set (make-local-variable 'eldoc-documentation-function)
+;; 		 'my-cperl-eldoc-documentation-function)))
+;; (setq cperl-font-lock t
+;;       cperl-lazy-help-time t)
 
 ;;;; Eldoc
 (require 'eldoc)
@@ -985,7 +985,7 @@ for now only Kibit, must find a way to integrate Eastwood too"
  'paredit-close-round)
 (add-hook 'emacs-lisp-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'lisp-interaction-mode-hook 'turn-on-eldoc-mode)
-(add-hook 'cperl-mode-hook 'turn-on-eldoc-mode)
+;; (add-hook 'cperl-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'clojure-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'eshell-mode-hook 'turn-on-eldoc-mode)
 (add-hook 'nrepl-mode-hook 'nrepl-turn-on-eldoc-mode)
@@ -1285,7 +1285,7 @@ a warning) assign nothing to it"
  '(mode-line-inactive ((t (:inherit mode-line :background "#383838" :foreground "#5f7f5f" :box nil :weight light))))
  '(show-paren-match ((t (:weight bold))))
  '(writegood-passive-voice-face ((t (:inherit font-lock-warning-face :background "khaki")))))
-;; Copyright 2013 Romeu “Malk’Zameth” MOURA
+;; Copyright 2013, 2014 Romeu “Malk’Zameth” MOURA
 ;; This file is part of "Malk’Zameth’s Emacs Conf" . "Malk’Zameth’s Emacs
 ;; Conf" is free software: you can redistribute it and/or modify it under
 ;; the terms of the GNU General Public License as published by the Free
